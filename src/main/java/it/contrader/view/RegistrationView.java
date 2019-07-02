@@ -35,7 +35,7 @@ public class RegistrationView extends AbstractView {
 			request = new Request();
 			request.put("username", username);
 			request.put("password", password);			
-		} else { 
+		} else {
 			System.out.println("Input invalido!!\n");
 			request = null;
 		}

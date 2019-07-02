@@ -7,7 +7,7 @@ import it.contrader.service.UserService;
 public class RegistrationController implements Controller{
 
 	private String username, password;
-	private final String usertype = "user"; 
+	private final String usertype = "USER"; 
 	private UserService userService;
 	
 	public RegistrationController() {
@@ -32,6 +32,7 @@ public class RegistrationController implements Controller{
 					
 		}
 		else{
+			 
 			MainDispatcher.getInstance().callView("Login", null);
 		}
 	}

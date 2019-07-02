@@ -57,7 +57,7 @@ public class LoginView extends AbstractView {
 		
 		if(is_new) {
 			
-			MainDispatcher.getInstance().callAction("Registration", "doControl", null);
+			MainDispatcher.getInstance().callView("Registration", null);
 			
 		} else {
 			Request request = new Request();
