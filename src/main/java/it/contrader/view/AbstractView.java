@@ -7,10 +7,16 @@ public abstract class AbstractView implements View {
 	private Scanner scanner;
 
 	/**
-	*Questo metodo è usato da tutti i controller che lo ereditano (non devono definirlo) estendendo questa classe
+	*Questo metodo ï¿½ usato da tutti i controller che lo ereditano (non devono definirlo) estendendo questa classe
 	*/
 	public String getInput() {
 		scanner = new Scanner(System.in);
 		return scanner.nextLine();
+	}
+	
+	
+	public int getInputInt() {
+		scanner = new Scanner(System.in);
+		return scanner.nextInt() ; 
 	}
 }
