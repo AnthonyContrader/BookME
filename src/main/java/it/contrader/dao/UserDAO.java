@@ -17,6 +17,7 @@ public class UserDAO implements DAO<User> {
 	private final String QUERY_ALL = "SELECT * FROM user";
 	private final String QUERY_CREATE = "INSERT INTO user (username, password, usertype) VALUES (?,?,?)";
 	private final String QUERY_READ = "SELECT * FROM user WHERE id=?";
+	private final String QUERY_FIND = "SELECT * FROM user WHERE username=?";
 	private final String QUERY_UPDATE = "UPDATE user SET username=?, password=?, usertype=? WHERE id=?";
 	private final String QUERY_DELETE = "DELETE FROM user WHERE id=?";
 
@@ -83,6 +84,24 @@ public class UserDAO implements DAO<User> {
 			return null;
 		}
 
+	}
+	
+	public boolean find(String username) {
+		boolean isPresent = false;
+		
+		Connection connection = ConnectionSingleton.getInstance();
+		try {
+
+
+			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_FIND);
+			preparedStatement.setString(1, username);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			
+			return resultSet.next();
+			
+		} catch (SQLException e) {
+			return isPresent;
+		}
 	}
 
 	public boolean update(User userToUpdate) {
