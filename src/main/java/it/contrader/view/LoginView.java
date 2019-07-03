@@ -15,7 +15,7 @@ public class LoginView extends AbstractView {
 
 	}
 	/**
-	 * chiede in input all'utente uno username e una password usando il metodo getInput() presente in AbstractView
+	 * Viene richiesto Accesso o Login e reindirizza l'utente in base alla scelta
 	 */
 	public void showOptions() {
 		

@@ -11,14 +11,15 @@ public class HomeUserView extends AbstractView{
 
 	@Override
 	public void showResults(Request request) {
-		System.out.println("Benvenuto su BookMe");
+		this.request = request;
 
 	}
 
 	@Override
 	public void showOptions() {
+		System.out.println("Benvenuto su BookMe\n");
 		System.out.println("-------------MENU------------\n");
-		System.out.println("[E]sci, [C]ategorie");
+		System.out.println("[E]sci, [C]ategorie, [I]nserisci storia");
 		
 		
 		
@@ -30,9 +31,11 @@ public class HomeUserView extends AbstractView{
 	public void submit() {
 
 		switch (choice) {
+		case "i":
+			MainDispatcher.getInstance().callAction("Story", "doControl", request);
+			break;
 		case "c":
 		// TODO: crea menu categorie
-				request = new Request();
 				MainDispatcher.getInstance().callAction("Category", "doControl", request);
 				break;
 		case "e":
