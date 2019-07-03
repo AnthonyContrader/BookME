@@ -17,10 +17,21 @@ public class CategoryController implements Controller{
 	@Override
 	public void doControl(Request request) {
 		// TODO Auto-generated method stub
-		request = new Request();
-		List<CategorieDTO> categoryList = categoryService.GetCategoryList();
-		request.put("categorie", categoryList);
-		MainDispatcher.getInstance().callView("Category", request);
+		//entri in questo blocco se hai scelto la categoria
+		if(request.get("choice") != null)
+		{
+			System.out.print(request.get("choice").toString());
+			MainDispatcher.getInstance().callView("CategoryChoice", request);
+			
+		}
+		else
+		{
+			// Menu generale categoria
+			request = new Request();
+			List<CategorieDTO> categoryList = categoryService.GetCategoryList();
+			request.put("categorie", categoryList);
+			MainDispatcher.getInstance().callView("Category", request);
+		}
 		
 	}
 

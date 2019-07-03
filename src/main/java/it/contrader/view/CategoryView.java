@@ -9,6 +9,7 @@ import it.contrader.main.MainDispatcher;
 public class CategoryView extends AbstractView{
 
 	private String choice;
+	private int lenght;
 	@Override
 	public void showResults(Request request) {
 		// TODO Auto-generated method stub
@@ -17,9 +18,13 @@ public class CategoryView extends AbstractView{
 			
 			@SuppressWarnings("unchecked")
 			List<CategorieDTO> categories = (List<CategorieDTO>) request.get("categorie");
-			for (CategorieDTO u: categories)
-				System.out.println("\t" + u.toString());
-			System.out.println();
+			int i = 0;
+				for (CategorieDTO u: categories)
+				{
+				System.out.println("\t" + "[" + ++i + "] " + u.toString());
+				}
+				lenght = i;
+			
 		}
 		
 	}
@@ -34,17 +39,20 @@ public class CategoryView extends AbstractView{
 	@Override
 	public void submit() {
 		// TODO Auto-generated method stub
-		switch(choice)
+		Request request;
+		if((Integer.parseInt(choice) > 0) && (Integer.parseInt(choice) < lenght)  )
 		{
-		case "e":
-			MainDispatcher.getInstance().callAction("Login", "doControl", null);
-			break;
-			default : 
-				System.out.print("Comando invalido");
-				MainDispatcher.getInstance().callAction("Category", "doControl", null);
-				break;
+			request = new Request();
+			
+			
+			request.put("choice", choice);
+			MainDispatcher.getInstance().callAction("Category", "doControl", request);
+		} else 
+		{
+			request = null;
+			MainDispatcher.getInstance().callAction("Login", "doControl", request);
 		}
+	
 		
 	}
-
 }
