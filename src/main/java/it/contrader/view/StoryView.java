@@ -20,13 +20,9 @@ public class StoryView extends AbstractView{
 	public void showOptions() {
 		// TODO Auto-generated method stub
 		
-		System.out.println("----- .:STORIA:. ------- ");
+		System.out.println("----- .:STORIA VIEW:. ------- ");
 		
-		System.out.print("inserisci l'id del personaggio : ");
-		this.id_personaggio = getInputInt() ; 
 		
-		System.out.print("inserisci la trama : ");
-		this.trama = getInput(); 
 
 	}
 
