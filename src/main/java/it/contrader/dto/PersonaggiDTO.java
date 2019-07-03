@@ -3,7 +3,7 @@ package it.contrader.dto;
 public class PersonaggiDTO {
 	
 	
-private int id_Personaggio;
+	private int id_Personaggio;
 	
 	private String nota;
 
