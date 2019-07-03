@@ -6,17 +6,22 @@ import it.contrader.main.MainDispatcher;
 public class HomeUserView extends AbstractView{
 
 	String choice;
+
 	Request request ;
+
 
 	@Override
 	public void showResults(Request request) {
-		//System.out.println("\n-----Purtroppo in questo sample l'utente non pu� fare nulla, ci scusiamo per il disagio.-----");
+		this.request = request;
 	}
 
 	@Override
 	public void showOptions() {
+		System.out.println("Benvenuto su BookMe\n");
 		System.out.println("-------------MENU------------\n");
-		System.out.println(" [i] Inserisci una storia ");
+		
+		System.out.println("[E]sci, [C]ategorie, [I]nserisci storia");
+
 		choice = this.getInput();
 
 	}
@@ -31,8 +36,14 @@ public class HomeUserView extends AbstractView{
 		switch (choice) {
 
 		case "i":
-			  MainDispatcher.getInstance().callAction("Story", "doControl", request);
-			 //MainDispatcher.getInstance().callView("Story", null);
+			MainDispatcher.getInstance().callAction("Story", "doControl", request);
+			break;
+		case "c":
+		// TODO: crea menu categorie
+				MainDispatcher.getInstance().callAction("Category", "doControl", request);
+				break;
+		case "e":
+			MainDispatcher.getInstance().callAction("Login", "doControl", null);
 			break;
 
 		default:
