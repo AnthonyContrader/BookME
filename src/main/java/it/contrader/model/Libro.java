@@ -18,6 +18,11 @@ public class Libro {
 	}
 	
 
+	public Libro(String nome_Libro2, String id_Categoria2) {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public int getId_Libro() {
 		return id_Libro;
 	}
