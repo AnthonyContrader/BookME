@@ -3,6 +3,7 @@ package it.contrader.service;
 import java.util.List;
 
 import it.contrader.converter.CategorieConverter;
+import it.contrader.converter.LibroConverter;
 import it.contrader.dao.LibroDAO;
 import it.contrader.dto.LibroDTO;
 import it.contrader.model.Libro;
