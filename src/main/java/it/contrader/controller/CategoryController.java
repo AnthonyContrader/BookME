@@ -8,7 +8,9 @@ import it.contrader.service.CategorieService;
 
 public class CategoryController implements Controller{
 
-	public CategorieService categoryService;
+	private CategorieService categoryService;
+	private Request request;
+	
 	public CategoryController()
 	{
 		categoryService = new CategorieService();
@@ -18,19 +20,20 @@ public class CategoryController implements Controller{
 	public void doControl(Request request) {
 		// TODO Auto-generated method stub
 		//entri in questo blocco se hai scelto la categoria
-		if(request.get("choice") != null)
+		this.request = request;
+		int categoryId;
+		if(this.request.get("categoryId") != null)
 		{
-			System.out.print(request.get("choice").toString());
-			MainDispatcher.getInstance().callView("CategoryChoice", request);
-			
+			categoryId = (int) this.request.remove("categoryId");
+			String categoryName = categoryService.getCategoryName(categoryId);
+			this.request.put("categoryName", categoryName);
+			MainDispatcher.getInstance().callView("CategoryChoice", this.request);
 		}
 		else
 		{
-			// Menu generale categoria
-			request = new Request();
 			List<CategorieDTO> categoryList = categoryService.GetCategoryList();
-			request.put("categorie", categoryList);
-			MainDispatcher.getInstance().callView("Category", request);
+			this.request.put("categorie", categoryList);
+			MainDispatcher.getInstance().callView("Category", this.request);
 		}
 		
 	}

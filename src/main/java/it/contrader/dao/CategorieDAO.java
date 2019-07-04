@@ -1,6 +1,7 @@
 package it.contrader.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -9,6 +10,7 @@ import java.util.List;
 
 import it.contrader.main.ConnectionSingleton;
 import it.contrader.model.Categorie;
+import it.contrader.model.User;
 
 public class CategorieDAO implements DAO<Categorie>{
 
@@ -42,8 +44,22 @@ public class CategorieDAO implements DAO<Categorie>{
 
 	@Override
 	public Categorie read(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Connection connection = ConnectionSingleton.getInstance();
+		try {
+
+
+			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_READ);
+			preparedStatement.setInt(1, id);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			resultSet.next();
+			String categoryName;
+
+			categoryName = resultSet.getString("nome_Categorie");
+			Categorie categoria = new Categorie(id,categoryName);
+			return categoria;
+		} catch (SQLException e) {
+			return null;
+		}
 	}
 
 	@Override

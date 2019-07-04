@@ -39,7 +39,7 @@ public class Request {
 	 * 					modo da non perdere informazioni
 	 */
 	public Object get(String key){
-		return this.parameters.get(key);
+			return this.parameters.get(key);
 	}
 	/*
 	 * metodo getString
@@ -54,5 +54,9 @@ public class Request {
 		if(returnObject != null)
 			return returnObject.toString();
 		return null;
+	}
+	
+	public Object remove(String key) {
+		return this.parameters.remove(key);
 	}
 }

@@ -39,11 +39,11 @@ public class HomeUserView extends AbstractView{
 				MainDispatcher.getInstance().callAction("Category", "doControl", request);
 				break;
 		case "e":
-			MainDispatcher.getInstance().callAction("Login", "doControl", null);
+			MainDispatcher.getInstance().callAction("Login", "doControl", request);
 			break;
 
 		default:
-			MainDispatcher.getInstance().callAction("Login", "doControl", null);
+			MainDispatcher.getInstance().callAction("Login", "doControl", request);
 		}
 	}
 

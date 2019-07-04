@@ -24,4 +24,10 @@ public class CategorieService extends AbstractService<Categorie, CategorieDTO>
 		List<CategorieDTO> listaDTO = converter.toDTOList(lista); // Converte in lista Categoriedto
 		return listaDTO; // Ritorna la lista
 	}
+	
+	public String getCategoryName(int id) {
+		Categorie categoria = dao.read(id);
+		CategorieDTO categoriaDTO = converter.toDTO(categoria);
+		return categoriaDTO.getNome_Categorie();
+	}
 }

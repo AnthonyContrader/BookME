@@ -7,36 +7,38 @@ import it.contrader.main.MainDispatcher;
 public class CategoryChoiceView extends AbstractView {
 
 	private String choice;
+	private Request request;
 	@Override
 	public void showResults(Request request) {
-		// TODO Auto-generated method stub
 		
+		this.request = request;
+		String categoryName = this.request.remove("categoryName").toString();
+		
+		System.out.println("\n------------------- "+ categoryName + " ----------------\n");
+		System.out.println("Nothing to display apparently...");
 		
 	}
 
 	@Override
 	public void showOptions() {
 		// TODO Auto-generated method stub
-		System.out.print("Seleziona la categoria\n [E] per uscire: ");
+		System.out.println("Premi [E] per uscire: ");
 		choice = getInput();
 	}
 
 	@Override
 	public void submit() {
-		Request request;
 		switch(choice)
 		{
-		case "e":
-			request = null;
-			MainDispatcher.getInstance().callAction("Login", "doControl", request);
-			break;
-			
-		
+			case "e":
+				request.remove("choice");
+				MainDispatcher.getInstance().callAction("Category", "doControl", request);
+				break;
+					
 			default : 
-			request = new Request();
-			request.put("choice", choice);
-			MainDispatcher.getInstance().callAction("Category", "doControl", request);
-			break;
+				request.remove("choice");
+				MainDispatcher.getInstance().callAction("Category", "doControl", request);
+				break;
 		}
 		
 	}
