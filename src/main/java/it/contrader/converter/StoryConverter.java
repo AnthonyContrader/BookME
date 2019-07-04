@@ -12,7 +12,7 @@ public class StoryConverter implements Converter<Story,StoryDTO>{
 
 	@Override
 	public StoryDTO toDTO(Story story) {
-		StoryDTO storyDTO = new StoryDTO(story.getId_story(), story.getTrama());
+		StoryDTO storyDTO = new StoryDTO(story.getId_storie(), story.getTrama());
 		return storyDTO;
 	}
 
