@@ -10,6 +10,7 @@ import java.util.List;
 
 import it.contrader.main.ConnectionSingleton;
 import it.contrader.model.Story;
+import it.contrader.model.User;
 
 public class StoryDAO implements DAO<Story>{
 	
@@ -34,7 +35,7 @@ public class StoryDAO implements DAO<Story>{
 				int id = resultSet.getInt("id_Story");
 				String trama = resultSet.getString("trama");
 				story = new Story(id,trama);
-				story.setId_storie(id);
+				story.setId_storie(id);;
 				storiesList.add(story);
 			}
 		} catch (SQLException e) {
@@ -67,10 +68,13 @@ public class StoryDAO implements DAO<Story>{
 			resultSet.next();
 			
 			String trama;
+			
 
 			trama = resultSet.getString("trama");
 			Story story = new Story(trama);
-			story.setId_storie(resultSet.getInt("id_story"));
+			
+			//todo fix artem 
+			story.setid_storie(resultSet.getInt("id"));
 
 			return story;
 		} catch (SQLException e) {

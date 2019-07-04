@@ -1,16 +1,16 @@
 package it.contrader.model;
 
-public class Story {
+public class Story{
 	
-	private int id_story ; 
+	private int id_storie ; 
 	private String trama ; 
 	
 	public Story() {
 		
 	}
 	
-	public Story(int id_story, String trama) {
-		this.id_story = id_story ;
+	public Story(int id_storie, String trama) {
+		this.id_storie = id_storie ;
 		this.trama = trama ; 
 	}
 	
@@ -18,12 +18,12 @@ public class Story {
 		this.trama = trama ; 
 	}
 
-	public int getId_story() {
-		return id_story;
+	public int getId_storie() {
+		return id_storie;
 	}
 
-	public void setId_story(int id_story) {
-		this.id_story = id_story;
+	public void setId_storie(int id_storie) {
+		this.id_storie = id_storie;
 	}
 
 	public String getTrama() {
@@ -36,7 +36,7 @@ public class Story {
 
 	@Override
 	public String toString() {
-		return "Story [id_story=" + id_story + ", trama=" + trama + "]";
+		return "storie [id_storie=" + id_storie + ", trama=" + trama + "]";
 	}
 
 
@@ -49,7 +49,7 @@ public class Story {
 		if (getClass() != obj.getClass())
 			return false;
 		Story other = (Story) obj;
-		if (id_story != other.id_story)
+		if (id_storie != other.id_storie)
 			return false;
 		if (trama == null) {
 			if (other.trama != null)
@@ -58,6 +58,9 @@ public class Story {
 			return false;
 		return true;
 	}
+
+
+
 	
 	
 	
