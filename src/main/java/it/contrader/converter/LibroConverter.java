@@ -18,7 +18,7 @@ public class LibroConverter  implements Converter<Libro, LibroDTO> {
 
 	
 	@Override
-	public Libro toEntity(UserDTO userDTO) {
+	public Libro toEntity(LibroDTO libroDTO) {
 		Libro libro = new Libro(libro.getId_Libro(), libro.getNome_Libro(), libro.getId_Categoria());
 		return libro;
 	}
