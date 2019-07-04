@@ -22,8 +22,9 @@ public class CategoryController implements Controller{
 		{
 			System.out.print(request.get("choice").toString());
 			MainDispatcher.getInstance().callView("CategoryChoice", request);
-			
 		}
+		
+		
 		else
 		{
 			// Menu generale categoria
