@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.contrader.dto.StoryDTO;
-import it.contrader.dto.UserDTO;
 import it.contrader.model.Story;
-import it.contrader.model.User;
 
 public class StoryConverter implements Converter<Story,StoryDTO>{
 
