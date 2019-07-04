@@ -35,6 +35,7 @@ CREATE TABLE `categorie` (
 
 LOCK TABLES `categorie` WRITE;
 /*!40000 ALTER TABLE `categorie` DISABLE KEYS */;
+INSERT INTO `categorie` VALUES (1,'Horror'),(2,'Fantasy');
 /*!40000 ALTER TABLE `categorie` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -48,14 +49,11 @@ DROP TABLE IF EXISTS `libro`;
 CREATE TABLE `libro` (
   `id_Libro` int(11) NOT NULL AUTO_INCREMENT,
   `nome_Libro` varchar(45) DEFAULT NULL,
-  `id_Utente` int(11) NOT NULL,
   `id_Categoria` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id_Libro`),
-  KEY `id_Utente_fk_idx` (`id_Utente`),
   KEY `idcategoria_idx` (`id_Categoria`),
-  CONSTRAINT `idcategoria` FOREIGN KEY (`id_Categoria`) REFERENCES `categorie` (`id`),
-  CONSTRAINT `idutente` FOREIGN KEY (`id_Utente`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `idcategoria` FOREIGN KEY (`id_Categoria`) REFERENCES `categorie` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,6 +62,7 @@ CREATE TABLE `libro` (
 
 LOCK TABLES `libro` WRITE;
 /*!40000 ALTER TABLE `libro` DISABLE KEYS */;
+INSERT INTO `libro` VALUES (1,'merda',1);
 /*!40000 ALTER TABLE `libro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -75,9 +74,9 @@ DROP TABLE IF EXISTS `personaggi`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `personaggi` (
-  `id_personaggio` int(11) NOT NULL,
+  `id_Personaggio` int(11) NOT NULL,
   `nota` varchar(254) DEFAULT NULL,
-  PRIMARY KEY (`id_personaggio`)
+  PRIMARY KEY (`id_Personaggio`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -87,6 +86,7 @@ CREATE TABLE `personaggi` (
 
 LOCK TABLES `personaggi` WRITE;
 /*!40000 ALTER TABLE `personaggi` DISABLE KEYS */;
+INSERT INTO `personaggi` VALUES (1,'Personaggio 1');
 /*!40000 ALTER TABLE `personaggi` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,22 +98,19 @@ DROP TABLE IF EXISTS `storie`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `storie` (
-  `id_Storie` int(11) NOT NULL,
-  `id_Utente` int(11) NOT NULL AUTO_INCREMENT,
+  `id_Storie` int(11) NOT NULL AUTO_INCREMENT,
+  `id_Utente` int(11) NOT NULL,
   `trama` varchar(254) NOT NULL,
   `id_Personaggio` int(11) NOT NULL,
   `id_Categoria` int(11) unsigned NOT NULL,
-  `id_Libro` int(11) NOT NULL,
   PRIMARY KEY (`id_Storie`),
   KEY `id_Categoria_fk_idx` (`id_Categoria`),
-  KEY `id_Libro_fk_idx` (`id_Libro`),
   KEY `id_Personaggio_fk_idx` (`id_Personaggio`),
   KEY `id_Utente_fk_idx` (`id_Utente`),
   CONSTRAINT `id_Categoria_fk` FOREIGN KEY (`id_Categoria`) REFERENCES `categorie` (`id`),
-  CONSTRAINT `id_Libro_fk` FOREIGN KEY (`id_Libro`) REFERENCES `libro` (`id_Libro`),
-  CONSTRAINT `id_Personaggio_fk` FOREIGN KEY (`id_Personaggio`) REFERENCES `personaggi` (`id_personaggio`),
+  CONSTRAINT `id_Personaggio_fk` FOREIGN KEY (`id_Personaggio`) REFERENCES `personaggi` (`id_Personaggio`),
   CONSTRAINT `id_Utente_fk` FOREIGN KEY (`id_Utente`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,6 +119,7 @@ CREATE TABLE `storie` (
 
 LOCK TABLES `storie` WRITE;
 /*!40000 ALTER TABLE `storie` DISABLE KEYS */;
+INSERT INTO `storie` VALUES (1,1,'commento  non so',1,1),(2,1,'dsadasdsa',1,2);
 /*!40000 ALTER TABLE `storie` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -138,7 +136,7 @@ CREATE TABLE `user` (
   `password` varchar(32) NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -147,7 +145,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('admin','ADMIN','admin',1),('user','USER','user',2),('prova','User','nonso',3),('caffe','admin','hobisogno',4);
+INSERT INTO `user` VALUES ('admin','ADMIN','admin',1),('user','USER','user',2),('prova','User','nonso',3),('caffe','admin','hobisogno',4),('prova','user','si',5),('pippo','user','cazz',6),('asdrubale','user','4444',7),('Abdul','USER','abdalah',8),('admin','USER','admin',9),('user','USER','user',10),('a','USER','a',11),('a','USER','a',12),('artem','ADMIN','mat',13),('artem','USER','mat',14),('ccc','user','ccc',15),('lmlm','USER','lmlm',16);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -160,4 +158,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-07-02 11:58:23
+-- Dump completed on 2019-07-04 15:09:06
