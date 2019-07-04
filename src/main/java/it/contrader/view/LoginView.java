@@ -60,12 +60,12 @@ public class LoginView extends AbstractView {
 			MainDispatcher.getInstance().callView("Registration", null);;
 			
 		} else {
-			Request request = new Request();
 			
-			request.put("username", username);
-			request.put("password", password);
 			
-			MainDispatcher.getInstance().callAction("Home", "doControl", request);
+			Request.getInstance().put("username", username);
+			Request.getInstance().put("password", password);
+			
+			MainDispatcher.getInstance().callAction("Home", "doControl", Request.getInstance());
 		}
 		
 	}

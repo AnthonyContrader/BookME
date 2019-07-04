@@ -40,7 +40,6 @@ public class PersonaggiInsertView extends AbstractView{
 	 */
 	@Override
 	public void submit() {
-		request = new Request();
 		request.put("nota", nota);
 		request.put("mode", mode);
 		MainDispatcher.getInstance().callAction("Personaggi", "doControl", request);

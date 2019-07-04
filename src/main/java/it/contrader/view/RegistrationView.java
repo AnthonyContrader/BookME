@@ -32,14 +32,13 @@ public class RegistrationView extends AbstractView {
 	
 		Request request;
 		if(!username.isEmpty() && !password.isEmpty()) {
-			request = new Request();
-			request.put("username", username);
-			request.put("password", password);			
+			Request.getInstance().put("username", username);
+			Request.getInstance().put("password", password);			
 		} else { 
 			System.out.println("Input invalido!!\n");
 			request = null;
 		}
 		
-		MainDispatcher.getInstance().callAction("Registration", "doControl", request);
+		MainDispatcher.getInstance().callAction("Registration", "doControl", Request.getInstance());
 	}
 }

@@ -40,7 +40,6 @@ public class PersonaggiDeleteView extends AbstractView {
 	 */
 	@Override
 	public void submit() {
-		request = new Request();
 		request.put("id Personaggio", id_Personaggio);
 		request.put("mode", mode);
 		MainDispatcher.getInstance().callAction("Personaggio", "doControl", request);

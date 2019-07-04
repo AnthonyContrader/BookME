@@ -49,7 +49,6 @@ public class StoryUpdateView extends AbstractView {
 	 */
 	@Override
 	public void submit() {
-		request = new Request();
 		request.put("id", id);
 		request.put("trama", trama);
 		request.put("mode", mode);

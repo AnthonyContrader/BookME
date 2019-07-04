@@ -71,8 +71,7 @@ public class UserController implements Controller {
 			UserDTO usertoinsert = new UserDTO(username, password, usertype);
 			//invoca il service
 			userService.insert(usertoinsert);
-			request = new Request();
-			request.put("mode", "mode");
+			Request.getInstance().put("mode", "mode");
 			//Rimanda alla view con la risposta
 			MainDispatcher.getInstance().callView(sub_package + "UserInsert", request);
 			break;
@@ -82,8 +81,7 @@ public class UserController implements Controller {
 			id = Integer.parseInt(request.get("id").toString());
 			//Qui chiama il service
 			userService.delete(id);
-			request = new Request();
-			request.put("mode", "mode");
+			Request.getInstance().put("mode", "mode");
 			MainDispatcher.getInstance().callView(sub_package + "UserDelete", request);
 			break;
 		
@@ -96,7 +94,6 @@ public class UserController implements Controller {
 			UserDTO usertoupdate = new UserDTO(username, password, usertype);
 			usertoupdate.setId(id);
 			userService.update(usertoupdate);
-			request = new Request();
 			request.put("mode", "mode");
 			MainDispatcher.getInstance().callView(sub_package + "UserUpdate", request);
 			break;

@@ -7,12 +7,10 @@ public class HomeUserView extends AbstractView{
 
 	String choice;
 
-	Request request ;
-
 
 	@Override
 	public void showResults(Request request) {
-		this.request = request;
+		
 	}
 
 	@Override
@@ -28,26 +26,25 @@ public class HomeUserView extends AbstractView{
 
 	@Override
 	public void submit() {
-		
-		request = new Request() ; 
-		request.put("choice",choice);
-		request.put("mode", "GETCHOICE");
+		 
+		Request.getInstance().put("choice",choice);
+		Request.getInstance().put("mode", "GETCHOICE");
 
 		switch (choice) {
 
 		case "i":
-			MainDispatcher.getInstance().callAction("Story", "doControl", request);
+			MainDispatcher.getInstance().callAction("Story", "doControl", Request.getInstance());
 			break;
 		case "c":
 		// TODO: crea menu categorie
-				MainDispatcher.getInstance().callAction("Category", "doControl", request);
+				MainDispatcher.getInstance().callAction("Category", "doControl", Request.getInstance());
 				break;
 		case "e":
-			MainDispatcher.getInstance().callAction("Login", "doControl", request);
+			MainDispatcher.getInstance().callAction("Login", "doControl", Request.getInstance());
 			break;
 
 		default:
-			MainDispatcher.getInstance().callAction("Login", "doControl", request);
+			MainDispatcher.getInstance().callAction("Login", "doControl", Request.getInstance());
 		}
 	}
 

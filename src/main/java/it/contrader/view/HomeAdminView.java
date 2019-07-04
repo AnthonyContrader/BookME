@@ -15,8 +15,6 @@ import it.contrader.main.MainDispatcher;
 public class HomeAdminView extends AbstractView {
 
     private String choice;
-    
-	private Request request;
 
 	/**
 	 * Se la request non è nulla mostra un messaggio di benvenuto
@@ -46,11 +44,10 @@ public class HomeAdminView extends AbstractView {
      */
     public void submit() {    
     	//crea una nuova Request (vedi classe Request)
-    	request = new Request();
         switch (choice) {
         case "u":
-        	this.request.put("mode", "USERLIST");
-        	MainDispatcher.getInstance().callAction("User", "doControl", request);
+        	Request.getInstance().put("mode", "USERLIST");
+        	MainDispatcher.getInstance().callAction("User", "doControl", Request.getInstance());
         	break;
  
         case "e":
@@ -58,8 +55,8 @@ public class HomeAdminView extends AbstractView {
         	break;
         default:
         	
-            request.put("choice", choice);
-        	MainDispatcher.getInstance().callAction("Login", "doControl", request);
+            Request.getInstance().put("choice", choice);
+        	MainDispatcher.getInstance().callAction("Login", "doControl", Request.getInstance());
         }
     }
 }

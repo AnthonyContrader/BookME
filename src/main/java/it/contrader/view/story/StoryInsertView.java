@@ -42,7 +42,6 @@ public class StoryInsertView extends AbstractView{
 	 */
 	@Override
 	public void submit() {
-		request = new Request();
 		request.put("trama", trama);
 		request.put("mode", mode);
 		MainDispatcher.getInstance().callAction("Story", "doControl", request);

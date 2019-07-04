@@ -52,7 +52,6 @@ public class PersonaggiReadView extends AbstractView {
 	 */
 	@Override
 	public void submit() {
-		request = new Request();
 		request.put("id_Personaggio", id_Personaggio);
 		request.put("mode", mode);
 		MainDispatcher.getInstance().callAction("Personaggio", "doControl", request);

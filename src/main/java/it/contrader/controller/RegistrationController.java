@@ -24,8 +24,7 @@ public class RegistrationController implements Controller{
 			UserDTO usertoinsert = new UserDTO(username, password, usertype);
 			//invoca il service
 			userService.insert(usertoinsert);
-			request = new Request();
-			request.put("mode", "mode");
+			Request.getInstance().put("mode", "mode");
 			//Rimanda alla view con la risposta
 			MainDispatcher.getInstance().callView("Registration", request);
 		
