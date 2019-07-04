@@ -63,20 +63,75 @@ public class CategorieDAO implements DAO<Categorie>{
 	}
 
 	@Override
-	public boolean insert(Categorie dto) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean insert(Categorie categoria) {
+		Connection connection = ConnectionSingleton.getInstance();
+		try {	
+			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_CREATE);
+			preparedStatement.setInt(1,categoria.getId());
+			preparedStatement.setString(2, categoria.getNome_Categorie());
+			preparedStatement.execute();
+			return true;
+		} catch (SQLException e) {
+			return false;
+		}
 	}
 
 	@Override
-	public boolean update(Categorie dto) {
-		// TODO Auto-generated method stub
+	public boolean update(Categorie categoriaToUpdate) {
+		Connection connection = ConnectionSingleton.getInstance();
+
+		// Check if id is present
+		if (categoriaToUpdate.getId() == 0)
+			return false;
+
+		Categorie categoriaRead = read(categoriaToUpdate.getId());
+		if (!categoriaRead.equals(categoriaToUpdate)) {
+			try {
+				// Fill the userToUpdate object
+				if (categoriaToUpdate.getUsername() == null || categoriaToUpdate.getUsername().equals("")) {
+					categoriaToUpdate.setUsername(categoriaRead.getUsername());
+				}
+
+				if (categoriaToUpdate.getPassword() == null || categoriaToUpdate.getPassword().equals("")) {
+					categoriaToUpdate.setPassword(categoriaRead.getPassword());
+				}
+
+				if (categoriaToUpdate.getUsertype() == null || categoriaToUpdate.getUsertype().equals("")) {
+					categoriaToUpdate.setUsertype(categoriaRead.getUsertype());
+				}
+
+				// Update the user
+				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
+				preparedStatement.setInt(1, categoriaToUpdate.getId());
+				preparedStatement.setString(2, categoriaToUpdate.getNome_Categorie());
+				preparedStatement.setInt(3, categoriaToUpdate.getId());
+				preparedStatement.setInt(4, categoriaToUpdate.getId());
+				int a = preparedStatement.executeUpdate();
+				if (a > 0)
+					return true;
+				else
+					return false;
+
+			} catch (SQLException e) {
+				return false;
+			}
+		}
+
 		return false;
 	}
 
 	@Override
 	public boolean delete(int id) {
-		// TODO Auto-generated method stub
+		Connection connection = ConnectionSingleton.getInstance();
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_DELETE);
+			preparedStatement.setInt(1, id);
+			int n = preparedStatement.executeUpdate();
+			if (n != 0)
+				return true;
+
+		} catch (SQLException e) {
+		}
 		return false;
 	}
 
