@@ -22,26 +22,33 @@ public class StoryController implements Controller{
 		
 		String choice = (String) request.get("choice") ;
 		String mode = (String) request.get("mode") ;
-		
-		System.out.println("mode =  "+mode);
-		//System.out.println("choice =  "+choice);
+		String read = (String) request.get("Read");
+		System.out.println("read =  "+read);
+		//System.out.println("choice =  "+choice);w
 		
 		int id_story;
 		String trama ; 
 		
-		switch (mode) {
+		switch (read) {
 		
 		default:
 			MainDispatcher.getInstance().callView("Story", request);
 			break;
 		
 		// Arriva qui dalla UserReadView. Invoca il Service con il parametro id e invia alla UserReadView uno user da mostrare 
+		
+			
+		
 		case "READ":
+			System.out.println("Sei entrato nel READ");
 			id_story = Integer.parseInt(request.get("id_Storie").toString());
 			StoryDTO storyDTO = storyService.read(id_story);
 			request.put("story", storyDTO);
+			
 			MainDispatcher.getInstance().callView(sub_package + "StoryRead", request);
 			break;
+			
+		
 		
 		// Arriva qui dalla UserInsertView. Estrae i parametri da inserire e chiama il service per inserire uno user con questi parametri
 		case "INSERT":

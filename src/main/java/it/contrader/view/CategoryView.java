@@ -10,6 +10,7 @@ public class CategoryView extends AbstractView{
 
 	private String choice;
 	private int lenght;
+	
 	Request request;
 	@Override
 	public void showResults(Request request) {

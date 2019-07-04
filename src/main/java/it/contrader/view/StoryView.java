@@ -34,8 +34,8 @@ public class StoryView extends AbstractView{
 	
 	public static void main(String[] args) {
 		
-		StoryView sv = new StoryView() ; 
-		sv.showOptions(); 
+		//StoryView sv = new StoryView() ; 
+		//sv.showOptions(); 
 	}
 
 
