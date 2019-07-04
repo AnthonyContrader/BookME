@@ -10,7 +10,7 @@ import it.contrader.model.Libro;
  * 
  * @author Vittorio
  *
- *Per i dettagli della classe vedi Guida sez 6: DAO
+ *         Per i dettagli della classe vedi Guida sez 6: DAO
  */
 public class LibroDAO implements DAO<Libro> {
 //todo artem
@@ -47,7 +47,7 @@ public class LibroDAO implements DAO<Libro> {
 
 	public boolean insert(Libro libroToInsert) {
 		Connection connection = ConnectionSingleton.getInstance();
-		try {	
+		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_CREATE);
 			preparedStatement.setString(1, libroToInsert.getNome_Libro());
 			preparedStatement.execute();
@@ -61,7 +61,6 @@ public class LibroDAO implements DAO<Libro> {
 	public Libro read(int libroid_Libro) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
-
 
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_READ);
 			preparedStatement.setInt(1, libroid_Libro);
@@ -88,7 +87,7 @@ public class LibroDAO implements DAO<Libro> {
 		Connection connection = ConnectionSingleton.getInstance();
 
 		// Check if id is present
-		if (libroToUpdate.getId_Libro()== 0)
+		if (libroToUpdate.getId_Libro() == 0)
 			return false;
 
 		Libro libroRead = read(libroToUpdate.getId_Libro());
@@ -98,7 +97,6 @@ public class LibroDAO implements DAO<Libro> {
 				if (libroToUpdate.getNome_Libro() == null || libroToUpdate.getNome_Libro().equals("")) {
 					libroToUpdate.setNome_Libro(libroRead.getNome_Libro());
 				}
-
 
 				// Update the user
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
@@ -132,8 +130,5 @@ public class LibroDAO implements DAO<Libro> {
 		}
 		return false;
 	}
-
-
-
 
 }
