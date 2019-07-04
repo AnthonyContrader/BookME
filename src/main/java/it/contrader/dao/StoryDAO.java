@@ -35,7 +35,7 @@ public class StoryDAO implements DAO<Story>{
 				int id = resultSet.getInt("id_Story");
 				String trama = resultSet.getString("trama");
 				story = new Story(id,trama);
-				story.setId_storie(id);;
+				story.setId_storie(id);
 				storiesList.add(story);
 			}
 		} catch (SQLException e) {
@@ -74,7 +74,7 @@ public class StoryDAO implements DAO<Story>{
 			Story story = new Story(trama);
 			
 			//todo fix artem 
-			story.setid_storie(resultSet.getInt("id"));
+			story.setId_storie(resultSet.getInt("id"));
 
 			return story;
 		} catch (SQLException e) {
