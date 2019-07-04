@@ -14,10 +14,18 @@ public class Request {
 	 * tramite i generici dichiaro i tipi di variabili che la variabile accetterà in questo caso String per la chiave
 	 * e Object per il valore associato
 	 */
+	private static Request request;
 	private Map<String, Object> parameters;
 
-	public Request(){
+	private Request(){
 		this.parameters = new HashMap<String, Object>();
+	}
+	
+	public static Request getInstance() {
+		if(request == null) {
+			request = new Request();
+		}
+		return request;
 	}
 	/*
 	 * metodo put:
@@ -30,8 +38,9 @@ public class Request {
 	 * output : void quindi niente
 	 */
 	public void put(String key, Object value){
-		this.parameters.put(key, value);
+		Request.getInstance().parameters.put(key, value);
 	}
+
 	/*
 	 * metodo get
 	 * parametri: String key : la chiave di cui voglio recuperare i valore associato
@@ -39,7 +48,7 @@ public class Request {
 	 * 					modo da non perdere informazioni
 	 */
 	public Object get(String key){
-		return this.parameters.get(key);
+			return Request.getInstance().parameters.get(key);
 	}
 	/*
 	 * metodo getString
@@ -49,10 +58,14 @@ public class Request {
 	 * 				quindi questo metodo non fa altro che chiamare il metodo to string dell' Object valore
 	 * 				PS: chiamare dall'esterno request.get(x).toString è la medesima cosa
 	 */
-	public Object getString(String key){
-		Object returnObject = get(key);
+	public String getString(String key){
+		Object returnObject = Request.getInstance().get(key);
 		if(returnObject != null)
 			return returnObject.toString();
 		return null;
+	}
+	
+	public Object remove(String key) {
+		return Request.getInstance().parameters.remove(key);
 	}
 }

@@ -40,7 +40,6 @@ public class StoryDeleteView extends AbstractView {
 	 */
 	@Override
 	public void submit() {
-		request = new Request();
 		request.put("id", id_story);
 		request.put("mode", mode);
 		MainDispatcher.getInstance().callAction("Story", "doControl", request);

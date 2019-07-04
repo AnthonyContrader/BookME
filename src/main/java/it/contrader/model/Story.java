@@ -33,6 +33,32 @@ public class Story {
 	public void setTrama(String trama) {
 		this.trama = trama;
 	}
+
+	@Override
+	public String toString() {
+		return "Story [id_story=" + id_story + ", trama=" + trama + "]";
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Story other = (Story) obj;
+		if (id_story != other.id_story)
+			return false;
+		if (trama == null) {
+			if (other.trama != null)
+				return false;
+		} else if (!trama.equals(other.trama))
+			return false;
+		return true;
+	}
+	
 	
 	
 

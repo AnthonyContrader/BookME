@@ -10,18 +10,20 @@ public class CategoryView extends AbstractView{
 
 	private String choice;
 	private int lenght;
+	Request request;
 	@Override
 	public void showResults(Request request) {
-		// TODO Auto-generated method stub
+		this.request = request;
+		
 		if (request != null) {
-			System.out.println("\n------------------- Categorie ----------------\n\n\n");
+			System.out.println("\n------------------- Categorie ----------------\n");
 			
 			@SuppressWarnings("unchecked")
 			List<CategorieDTO> categories = (List<CategorieDTO>) request.get("categorie");
 			int i = 0;
 				for (CategorieDTO u: categories)
 				{
-				System.out.println("\t" + "[" + ++i + "] " + u.toString());
+				System.out.println("\t" + "[" + i++ + "] " + u.toString());
 				}
 				lenght = i;
 			
@@ -38,21 +40,17 @@ public class CategoryView extends AbstractView{
 
 	@Override
 	public void submit() {
-		// TODO Auto-generated method stub
-		Request request;
-		if((Integer.parseInt(choice) > 0) && (Integer.parseInt(choice) < lenght)  )
-		{
-			request = new Request();
-			
-			
-			request.put("choice", choice);
-			MainDispatcher.getInstance().callAction("Category", "doControl", request);
-		} else 
-		{
-			request = null;
-			MainDispatcher.getInstance().callAction("Login", "doControl", request);
+		if(choice.matches("\\d+")) {
+			int categoryId = Integer.parseInt(choice);
+			System.out.println(categoryId);
+			if(categoryId >= 0 && categoryId < lenght) {
+				request.put("categoryId", categoryId);
+				MainDispatcher.getInstance().callAction("Category", "doControl", request);
+			}
+		} else {
+			request.remove("categoryId");
+			MainDispatcher.getInstance().callAction("Home", "doControl", request);
 		}
-	
 		
 	}
 }

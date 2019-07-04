@@ -45,7 +45,6 @@ public class UserInsertView extends AbstractView{
 	 */
 	@Override
 	public void submit() {
-		request = new Request();
 		request.put("username", username);
 		request.put("password", password);
 		request.put("usertype", usertype);

@@ -55,7 +55,6 @@ public class UserUpdateView extends AbstractView {
 	 */
 	@Override
 	public void submit() {
-		request = new Request();
 		request.put("id", id);
 		request.put("username", username);
 		request.put("password", password);

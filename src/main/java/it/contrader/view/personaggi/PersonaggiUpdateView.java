@@ -50,7 +50,6 @@ public class PersonaggiUpdateView extends AbstractView {
 	 */
 	@Override
 	public void submit() {
-		request = new Request();
 		request.put("id_Personaggio", id_Personaggio);
 		request.put("nota", nota);
 		request.put("mode", mode);

@@ -53,8 +53,7 @@ public class StoryController implements Controller{
 			StoryDTO storytoinsert = new StoryDTO(trama);
 			//invoca il service
 			storyService.insert(storytoinsert);
-			request = new Request();
-			request.put("mode", "");
+			Request.getInstance().put("mode", "");
 			//Rimanda alla view con la risposta
 			MainDispatcher.getInstance().callView("Story", request);
 			break;
@@ -64,8 +63,7 @@ public class StoryController implements Controller{
 			id_story = Integer.parseInt(request.get("id_Storie").toString());
 			//Qui chiama il service
 			storyService.delete(id_story);
-			request = new Request();
-			request.put("mode", "mode");
+			Request.getInstance().put("mode", "mode");
 			MainDispatcher.getInstance().callView(sub_package + "StoryDelete", request);
 			break;
 		
@@ -76,8 +74,7 @@ public class StoryController implements Controller{
 			StoryDTO storytoupdate = new StoryDTO(trama);
 			storytoupdate.setId_story(id_story);
 			storyService.update(storytoupdate);
-			request = new Request();
-			request.put("mode", "mode");
+			Request.getInstance().put("mode", "mode");
 			MainDispatcher.getInstance().callView(sub_package + "StoryUpdate", request);
 			break;
 			

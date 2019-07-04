@@ -47,16 +47,14 @@ public class PersonaggiController implements Controller {
 			
 			PersonaggiDTO Personaggitoinsert = new PersonaggiDTO(id_personaggio, nota);
 			PersonaggiService.insert(Personaggitoinsert);
-			request = new Request();
-			request.put("mode", "mode");
+			Request.getInstance().put("mode", "mode");
 			MainDispatcher.getInstance().callView(sub_package + "PersonaggiInsert", request);
 			break;
 		
 		case "DELETE":
 			id_personaggio = Integer.parseInt(request.get("id_personaggio").toString());
 			PersonaggiService.delete(id_personaggio);
-			request = new Request();
-			request.put("mode", "mode");
+			Request.getInstance().put("mode", "mode");
 			MainDispatcher.getInstance().callView(sub_package + "PersonaggiDelete", request);
 			break;
 		
@@ -67,8 +65,7 @@ public class PersonaggiController implements Controller {
 			PersonaggiDTO Personaggitoupdate = new PersonaggiDTO(id_personaggio, nota);
 			Personaggitoupdate.setId_Personaggio(id_personaggio);
 			PersonaggiService.update(Personaggitoupdate);
-			request = new Request();
-			request.put("mode", "mode");
+			Request.getInstance().put("mode", "mode");
 			MainDispatcher.getInstance().callView(sub_package + "PersonaggiUpdate", request);
 			break;
 			

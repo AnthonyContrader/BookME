@@ -19,7 +19,6 @@ public class UserView extends AbstractView {
 	private String choice;
 
 	public UserView() {
-		
 	}
 
 	/**
@@ -59,9 +58,8 @@ public class UserView extends AbstractView {
 	 */
 	@Override
 	public void submit() {
-		request = new Request();
-		request.put("choice", choice);
-		request.put("mode", "GETCHOICE");
+		Request.getInstance().put("choice", choice);
+		Request.getInstance().put("mode", "GETCHOICE");
 		MainDispatcher.getInstance().callAction("User", "doControl", this.request);
 	}
 
