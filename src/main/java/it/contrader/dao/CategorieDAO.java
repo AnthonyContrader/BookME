@@ -88,17 +88,14 @@ public class CategorieDAO implements DAO<Categorie>{
 		if (!categoriaRead.equals(categoriaToUpdate)) {
 			try {
 				// Fill the userToUpdate object
-				if (categoriaToUpdate.getUsername() == null || categoriaToUpdate.getUsername().equals("")) {
-					categoriaToUpdate.setUsername(categoriaRead.getUsername());
+				if (categoriaToUpdate.getNome_Categorie() == null || categoriaToUpdate.getNome_Categorie().equals("")) {
+					categoriaToUpdate.setNome_Categorie(categoriaRead.getNome_Categorie());
 				}
 
-				if (categoriaToUpdate.getPassword() == null || categoriaToUpdate.getPassword().equals("")) {
-					categoriaToUpdate.setPassword(categoriaRead.getPassword());
+				if (categoriaToUpdate.getId() < 0) {
+					categoriaToUpdate.setId(categoriaRead.getId());
 				}
 
-				if (categoriaToUpdate.getUsertype() == null || categoriaToUpdate.getUsertype().equals("")) {
-					categoriaToUpdate.setUsertype(categoriaRead.getUsertype());
-				}
 
 				// Update the user
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
