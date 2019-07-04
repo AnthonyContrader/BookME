@@ -14,10 +14,10 @@ public class LibroController implements Controller {
 	 */
 	private static String sub_package = "libro.";
 	
-	private LibroService userService;
+	private LibroService libroService;
 
 	public LibroController() {
-		this.LibroService = new LibroService();
+		libroService = new LibroService();
 	}
 	
 	
@@ -39,7 +39,7 @@ public class LibroController implements Controller {
 		
 		case "READ":
 			id = Integer.parseInt(request.get("id").toString());
-			LibroDTO userDTO = libroService.read(id);
+			LibroDTO libroDTO = libroService.read(id);
 			request.put("libro", libroDTO);
 			MainDispatcher.getInstance().callView(sub_package + "LibroRead", request);
 			break;
@@ -51,9 +51,9 @@ public class LibroController implements Controller {
 			usertype = request.get("usertype").toString();
 			
 			//costruisce l'oggetto user da inserire
-			LibroDTO librotoinsert = new LibroDTO(username, password, usertype);
+			LibroDTO librotoinsert = new LibroDTO();
 			//invoca il service
-			userService.insert(librotoinsert);
+			libroService.insert(librotoinsert);
 			Request.getInstance().put("mode", "mode");
 			//Rimanda alla view con la risposta
 			MainDispatcher.getInstance().callView(sub_package + "LibroInsert", request);
@@ -72,17 +72,17 @@ public class LibroController implements Controller {
 			username = request.get("username").toString();
 			password = request.get("password").toString();
 			usertype = request.get("usertype").toString();
-		    LibroDTO usertoupdate = new LibroDTO(username, password, usertype);
-			librotoupdate.setId(id);
+		    LibroDTO librotoupdate = new LibroDTO();
+			//librotoupdate.setId(id);
 			libroService.update(librotoupdate);
 			request.put("mode", "mode");
 			MainDispatcher.getInstance().callView(sub_package + "LibroUpdate", request);
 			break;
 			
 		case "LIBROLIST":
-			List<LibroDTO> usersDTO = libroService.getAll();
+			List<LibroDTO> libroDTOList = libroService.getAll();
 			//Impacchetta la request con la lista dei libri
-			request.put("libri", libroDTO);
+			request.put("libri", libroDTOList);
 			MainDispatcher.getInstance().callView("Libro", request);
 			break;
 			
