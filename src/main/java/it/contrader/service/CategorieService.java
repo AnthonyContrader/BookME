@@ -34,4 +34,8 @@ public class CategorieService extends AbstractService<Categorie, CategorieDTO>
 	public boolean insert(CategorieDTO newCategory) {
 		return dao.insert(converter.toEntity(newCategory));
 	}
+	
+	public boolean delete(int id) {
+		return dao.delete(id);
+	}
 }

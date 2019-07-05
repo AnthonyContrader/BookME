@@ -41,7 +41,13 @@ public class CategoryController implements Controller{
 					break;
 					
 				case "DELETE":
-					MainDispatcher.getInstance().callView(sub_package + "CategoryDelete", Request.getInstance());
+					if(request.get("idToDelete")!= null) {
+						int idToDelete = (int) request.remove("idToDelete");
+						categoryService.delete(idToDelete);
+						request.remove("mode");
+					} else {
+						MainDispatcher.getInstance().callView(sub_package + "CategoryDelete", Request.getInstance());
+					}	
 					break;
 					
 				case "UPDATE":
