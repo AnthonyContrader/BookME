@@ -6,6 +6,7 @@ import it.contrader.main.MainDispatcher;
 public class HomeUserView extends AbstractView {
 
 	String choice;
+	private Request request ;
 
 	@Override
 	public void showResults(Request request) {
@@ -26,10 +27,11 @@ public class HomeUserView extends AbstractView {
 	@Override
 	public void submit() {
 
+		Request.getInstance().put("choice", choice);
 		switch (choice) {
 
 		case "s":
-			MainDispatcher.getInstance().callAction("Storie", "doControl", Request.getInstance());
+			MainDispatcher.getInstance().callAction("Story", "doControl", Request.getInstance());
 			break;
 		case "c":
 			// TODO: crea menu categorie
