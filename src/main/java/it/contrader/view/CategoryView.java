@@ -20,7 +20,7 @@ public class CategoryView extends AbstractView{
 			System.out.println("\n------------------- Categorie ----------------\n");
 			
 			@SuppressWarnings("unchecked")
-			List<CategorieDTO> categories = (List<CategorieDTO>) request.get("categorie");
+			List<CategorieDTO> categories = (List<CategorieDTO>)request.get("categorie");
 			int i = 0;
 				for (CategorieDTO u: categories)
 				{
