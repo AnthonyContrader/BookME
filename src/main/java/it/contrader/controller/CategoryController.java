@@ -30,7 +30,14 @@ public class CategoryController implements Controller{
 					break;
 					
 				case "INSERT":
-					MainDispatcher.getInstance().callView(sub_package + "CategoryInsert", Request.getInstance());
+					if(request.get("newCategory")!=null) {
+						String newCategoryName = request.remove("newCategory").toString();
+						CategorieDTO nuovaCategoria = new CategorieDTO(newCategoryName);
+						System.out.println(categoryService.insert(nuovaCategoria));
+						request.remove("mode");
+					} else {
+						MainDispatcher.getInstance().callView(sub_package + "CategoryInsert", Request.getInstance());
+					}
 					break;
 					
 				case "DELETE":
@@ -42,16 +49,17 @@ public class CategoryController implements Controller{
 					break;
 					
 				default:
-				
+					
 					break;
 			}
-		} else {
-			List<CategorieDTO> categoryList = categoryService.GetCategoryList();
-			request.put("categorie", categoryList);
-			MainDispatcher.getInstance().callView("Category", Request.getInstance());
-		}
-
+		}		
+		// else
+		List<CategorieDTO> categoryList = categoryService.GetCategoryList();
+		request.put("categorie", categoryList);
+		MainDispatcher.getInstance().callView("Category", Request.getInstance());
+		
 		
 	}
+	
 
 }

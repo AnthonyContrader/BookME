@@ -26,9 +26,6 @@ public class HomeUserView extends AbstractView {
 	@Override
 	public void submit() {
 
-	
-
-
 		switch (choice) {
 
 		case "s":

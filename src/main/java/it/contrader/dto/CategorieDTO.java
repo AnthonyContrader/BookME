@@ -15,6 +15,10 @@ public class CategorieDTO
 		this.nome_Categorie = nome_Categorie;
 		this.id = id;
 	}
+	
+	public CategorieDTO(String newCategoryName) {
+		this.nome_Categorie = newCategoryName;
+	}
 	public String getNome_Categorie() {
 		return nome_Categorie;
 	}
