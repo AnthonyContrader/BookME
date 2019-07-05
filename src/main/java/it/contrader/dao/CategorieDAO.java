@@ -75,6 +75,7 @@ public class CategorieDAO implements DAO<Categorie>{
 		}
 	}
 
+
 	@Override
 	public boolean update(Categorie categoriaToUpdate) {
 		Connection connection = ConnectionSingleton.getInstance();
@@ -101,7 +102,6 @@ public class CategorieDAO implements DAO<Categorie>{
 				preparedStatement.setInt(1, categoriaToUpdate.getId());
 				preparedStatement.setString(2, categoriaToUpdate.getNome_Categorie());
 				preparedStatement.setInt(3, categoriaToUpdate.getId());
-				preparedStatement.setInt(4, categoriaToUpdate.getId());
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)
 					return true;
