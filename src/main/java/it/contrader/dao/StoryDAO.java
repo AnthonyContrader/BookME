@@ -32,10 +32,10 @@ public class StoryDAO implements DAO<Story>{
 			ResultSet resultSet = statement.executeQuery(QUERY_ALL);
 			Story story;
 			while (resultSet.next()) {
-				int id = resultSet.getInt("id_Story");
+				int id = resultSet.getInt("id_Storie");
 				String trama = resultSet.getString("trama");
 				story = new Story(id,trama);
-				story.setId_story(id);
+				story.setId_storie(id);
 				storiesList.add(story);
 			}
 		} catch (SQLException e) {
@@ -66,12 +66,11 @@ public class StoryDAO implements DAO<Story>{
 			preparedStatement.setInt(1, storyId);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
-			
 			String trama;
 
 			trama = resultSet.getString("trama");
 			Story story = new Story(trama);
-			story.setId_story(resultSet.getInt("id_story"));
+			story.setId_storie(resultSet.getInt("id_Storie"));
 
 			return story;
 		} catch (SQLException e) {
@@ -84,10 +83,10 @@ public class StoryDAO implements DAO<Story>{
 		Connection connection = ConnectionSingleton.getInstance();
 
 		// Check if id is present
-		if (storyToUpdate.getId_story() == 0)
+		if (storyToUpdate.getId_storie() == 0)
 			return false;
 
-		Story storyRead = read(storyToUpdate.getId_story());
+		Story storyRead = read(storyToUpdate.getId_storie());
 		if (!storyRead.equals(storyToUpdate)) {
 			try {
 				// Fill the storyToUpdate object
@@ -98,7 +97,7 @@ public class StoryDAO implements DAO<Story>{
 				// Update the user
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 				preparedStatement.setString(1, storyToUpdate.getTrama());
-				preparedStatement.setInt(2, storyToUpdate.getId_story());
+				preparedStatement.setInt(2, storyToUpdate.getId_storie());
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)
 					return true;

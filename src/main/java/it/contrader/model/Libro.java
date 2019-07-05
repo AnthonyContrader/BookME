@@ -11,7 +11,7 @@ public class Libro {
 	public Libro(int id_Libro, String nome_Libro, int id_Categoria) {
 		this.id_Libro = id_Libro;
 		this.nome_Libro = nome_Libro;
-		this.id_Categoria = id_Categoria;
+	//	this.id_Categoria = id_Categoria;
 	}
 
 	public Libro(String nome_Libro2, String id_Categoria2) {
@@ -44,7 +44,7 @@ public class Libro {
 
 	@Override
 	public String toString() {
-		return "Libro [id_Libro=" + id_Libro + ", nome_Libro=" + nome_Libro + ", id_Categoria=" + id_Categoria + "]";
+		return "Libro [id_Libro=" + id_Libro + ", nome_Libro=" + nome_Libro +  "]";
 	}
 
 }

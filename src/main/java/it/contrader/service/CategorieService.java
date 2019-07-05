@@ -30,4 +30,17 @@ public class CategorieService extends AbstractService<Categorie, CategorieDTO>
 		CategorieDTO categoriaDTO = converter.toDTO(categoria);
 		return categoriaDTO.getNome_Categorie();
 	}
+	
+	public boolean insert(CategorieDTO newCategory) {
+		return dao.insert(converter.toEntity(newCategory));
+	}
+	
+	public boolean delete(int id) {
+		return dao.delete(id);
+	}
+	
+	public boolean update(CategorieDTO category) {
+		return dao.update(converter.toEntity(category));
+		
+	}
 }

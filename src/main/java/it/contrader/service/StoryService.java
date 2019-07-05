@@ -25,4 +25,15 @@ public class StoryService extends AbstractService<Story, StoryDTO> {
 		StoryDTO storyDTO = new StoryDTO(trama);
 		dao.insert(converter.toEntity(storyDTO));
 	}
+	
+	public StoryDTO read(int id_storie) {
+		
+		return converter.toDTO(dao.read(id_storie));
+	}
+	
+	public boolean update(StoryDTO story) {
+		return dao.update(converter.toEntity(story));
+	}
+	
+
 }
