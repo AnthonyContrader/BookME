@@ -19,18 +19,24 @@ public class StoryController implements Controller{
 	@Override
 	public void doControl(Request request) {
 		// TODO Auto-generated method stub
-		
-		String choice = (String) request.get("choice") ;
+		String choice= (String) request.get("choice") ;
+		if(choice== null) {
+			choice = "default";
+
+		} else {
+			//choice = "GETCHOICE";
+		}
+
 		String mode = (String) request.get("mode") ;
-		
+		if(mode == null) {
+			mode = "default";
+		}
 		//System.out.println("choice =  "+choice);
 	    //System.out.println("mode =  "+mode);
 		
 		int id_storie;
 		String trama ; 
-		if(mode == null) {
-			mode = "default";
-		}
+		
 		switch (mode) {
 		
 		default:
@@ -42,10 +48,9 @@ public class StoryController implements Controller{
 		// Arriva qui dalla UserReadView. Invoca il Service con il parametro id e invia alla UserReadView uno user da mostrare 
 		
 		case "READ":
-			id_storie = Integer.parseInt(request.get("id_Storie").toString());
-			//System.out.println("cioooo");
+			id_storie = (int) request.get("id_storia");
 			StoryDTO storyDTO = storyService.read(id_storie);
-			request.put("story", storyDTO);
+			request.put("storyRead", storyDTO);
 			MainDispatcher.getInstance().callView(sub_package + "StoryRead", request);
 			break;
 			

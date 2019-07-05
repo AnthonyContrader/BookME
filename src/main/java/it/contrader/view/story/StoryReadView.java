@@ -32,16 +32,11 @@ public class StoryReadView extends AbstractView {
 	@Override
 	public void showResults(Request request) {
 
-		if (request != null) {
-			
-			this.request = request ; 
-			System.out.println("Inserisci id storia : ");
-			
-			StoryDTO storie = (StoryDTO) request.get("story");
-			
-			System.out.println(storie.getTrama());
-			MainDispatcher.getInstance().callView("Storie", null); 
-		}
+			this.request = request ; 	
+			if(request.get("storyRead") != null) {
+				StoryDTO story = (StoryDTO)request.get("storyRead");
+				System.out.println(story.getId_story()+ " "+story.getTrama());
+			}
 	}
 
 	
@@ -50,9 +45,14 @@ public class StoryReadView extends AbstractView {
 	 */
 	@Override
 	public void showOptions() {
-		/*
-		System.out.println("Inserisci l'ID della storia:");
-		id_Storie = Integer.parseInt(getInput()); */
+		
+		if(request.get("storyRead") == null) {
+			System.out.println("Inserisci l'ID della storia:");
+			id_Storie = Integer.parseInt(getInput());
+		}else {
+			getInput();
+		}
+		
 	}
 
 	/**
@@ -60,9 +60,15 @@ public class StoryReadView extends AbstractView {
 	 */
 	@Override
 	public void submit() {
-		request.put("id", id_Storie);
-		request.put("mode", mode);
+		if(request.remove("storyRead") == null) {
+			request.put("id_storia", id_Storie);
+			request.put("mode", mode);
+		}else {
+			request.put("mode","default");
+		}
+		
 		MainDispatcher.getInstance().callAction("Story", "doControl", request);
+		
 	}
 
 }

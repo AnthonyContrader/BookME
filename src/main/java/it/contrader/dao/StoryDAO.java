@@ -66,15 +66,11 @@ public class StoryDAO implements DAO<Story>{
 			preparedStatement.setInt(1, storyId);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
-			
 			String trama;
-			
 
 			trama = resultSet.getString("trama");
 			Story story = new Story(trama);
-			
-			//todo fix artem 
-			story.setId_storie(resultSet.getInt("id"));
+			story.setId_storie(resultSet.getInt("id_Storie"));
 
 			return story;
 		} catch (SQLException e) {
