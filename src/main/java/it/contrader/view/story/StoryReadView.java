@@ -22,8 +22,8 @@ public class StoryReadView extends AbstractView {
 	}
 
 	/**
-	 * Se la request è null (ovvero quando arriva dal controller con mode GETCHOICE e choice L 
-	 * il metodo è vuoto.
+	 * Se la request ï¿½ null (ovvero quando arriva dal controller con mode GETCHOICE e choice L 
+	 * il metodo ï¿½ vuoto.
 	 * 
 	 * Altrimenti se arriva con uno user nella request (ovvero quando arriva
 	 * dal controller con mode READ) mostra lo user. In questo caso torna alla UserView senza eseguire
@@ -32,9 +32,13 @@ public class StoryReadView extends AbstractView {
 	@Override
 	public void showResults(Request request) {
 		if (request != null) {
-			StoryDTO storie = (StoryDTO) request.get("Storie");
-			System.out.println(storie);
-			MainDispatcher.getInstance().callView("Storie", null);
+			
+			System.out.println("Sono nella storyReadView");
+			
+			StoryDTO storie = (StoryDTO) request.get("story");
+			
+			System.out.println(storie.getTrama());
+			MainDispatcher.getInstance().callView("Storie", null); 
 		}
 	}
 
@@ -44,8 +48,9 @@ public class StoryReadView extends AbstractView {
 	 */
 	@Override
 	public void showOptions() {
+		/*
 		System.out.println("Inserisci l'ID della storia:");
-		id_Storie = Integer.parseInt(getInput());
+		id_Storie = Integer.parseInt(getInput()); */
 	}
 
 	/**
@@ -55,7 +60,7 @@ public class StoryReadView extends AbstractView {
 	public void submit() {
 		request.put("id", id_Storie);
 		request.put("mode", mode);
-		MainDispatcher.getInstance().callAction("User", "doControl", request);
+		MainDispatcher.getInstance().callAction("Story", "doControl", request);
 	}
 
 }

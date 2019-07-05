@@ -32,7 +32,7 @@ public class StoryDAO implements DAO<Story>{
 			ResultSet resultSet = statement.executeQuery(QUERY_ALL);
 			Story story;
 			while (resultSet.next()) {
-				int id = resultSet.getInt("id_Story");
+				int id = resultSet.getInt("id_Storie");
 				String trama = resultSet.getString("trama");
 				story = new Story(id,trama);
 				story.setId_storie(id);

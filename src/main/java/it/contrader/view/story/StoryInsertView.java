@@ -19,9 +19,10 @@ public class StoryInsertView extends AbstractView{
 	 */
 	@Override
 	public void showResults(Request request) {
-
+		this.request = request;
+		//System.out.println("INSERT VIEW");
 		if (request!=null) {
-			System.out.println("Inserimento andato a buon fine.\n");
+			
 		}
 	}
 
@@ -34,7 +35,8 @@ public class StoryInsertView extends AbstractView{
 		//System.out.println("Sono dentro la StoryInsertView");
 			System.out.print("Racconta la tua storia:");
 			trama = getInput();
-			
+			//System.out.print("mode: "+mode);
+			//System.out.print("trama:"+ trama);
 	}
 
 	/**

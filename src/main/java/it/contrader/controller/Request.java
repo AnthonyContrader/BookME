@@ -4,20 +4,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 /*
- * la classe Request è un implementazione di una HashMap
+ * la classe Request ï¿½ un implementazione di una HashMap
  * mappa esattamente ogni metodo in un metodo della suddetta classe
  * a livello pratico rappresenta un insieme di dati salvati secondo il concetto che ad ogni chiave corrisponde un valore
  */
 public class Request {
 	
 	/*
-	 * tramite i generici dichiaro i tipi di variabili che la variabile accetterà in questo caso String per la chiave
+	 * tramite i generici dichiaro i tipi di variabili che la variabile accetterï¿½ in questo caso String per la chiave
 	 * e Object per il valore associato
 	 */
 	private static Request request;
 	private Map<String, Object> parameters;
 
-	private Request(){
+	public Request(){
 		this.parameters = new HashMap<String, Object>();
 	}
 	
@@ -29,12 +29,12 @@ public class Request {
 	}
 	/*
 	 * metodo put:
-	 * paramentri: String key : stringa che rapprenseterà la chiave di ricerca per il valore
-	 * 							PS: se la chiave gia esiste il valore verrà sovrascritto
+	 * paramentri: String key : stringa che rapprenseterï¿½ la chiave di ricerca per il valore
+	 * 							PS: se la chiave gia esiste il valore verrï¿½ sovrascritto
 	 * 			   Object value : rapprenseta il valore associato alla chiave
-	 * 							dichiarato come Object in quando più che un valore vero e proprio rappresenta una parte di memoria
+	 * 							dichiarato come Object in quando piï¿½ che un valore vero e proprio rappresenta una parte di memoria
 	 * 							quindi potrei inserire come value un oggetto di tipo String , un Integer o volendo anche un 
-	 * 							Oggetto più complesso come tutto un user
+	 * 							Oggetto piï¿½ complesso come tutto un user
 	 * output : void quindi niente
 	 */
 	public void put(String key, Object value){
@@ -44,7 +44,7 @@ public class Request {
 	/*
 	 * metodo get
 	 * parametri: String key : la chiave di cui voglio recuperare i valore associato
-	 * output: Object : l'output sarà l'oggetto associato alal chiave dovrò quindi eseguire in fase di richiamo il giusto cast in 
+	 * output: Object : l'output sarï¿½ l'oggetto associato alal chiave dovrï¿½ quindi eseguire in fase di richiamo il giusto cast in 
 	 * 					modo da non perdere informazioni
 	 */
 	public Object get(String key){
@@ -53,10 +53,10 @@ public class Request {
 	/*
 	 * metodo getString
 	 * paramentro : String key: la chiave di cui voglio recuperare il valore
-	 * output: Object : l'output sarà il corrispettivo String del valore associato
+	 * output: Object : l'output sarï¿½ il corrispettivo String del valore associato
 	 * funzionamento: il metodo toString viene ereditato in maniera standard da tutti gli oggetti non primitivi di java
 	 * 				quindi questo metodo non fa altro che chiamare il metodo to string dell' Object valore
-	 * 				PS: chiamare dall'esterno request.get(x).toString è la medesima cosa
+	 * 				PS: chiamare dall'esterno request.get(x).toString ï¿½ la medesima cosa
 	 */
 	public String getString(String key){
 		Object returnObject = Request.getInstance().get(key);

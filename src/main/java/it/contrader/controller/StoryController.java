@@ -22,64 +22,65 @@ public class StoryController implements Controller{
 		
 		String choice = (String) request.get("choice") ;
 		String mode = (String) request.get("mode") ;
-		String read = (String) request.get("Read");
-		System.out.println("read =  "+read);
-		//System.out.println("choice =  "+choice);w
 		
-		int id_story;
+		//System.out.println("choice =  "+choice);
+	    //System.out.println("mode =  "+mode);
+		
+		int id_storie;
 		String trama ; 
 		
-		switch (read) {
+		switch (mode) {
 		
 		default:
+			List<StoryDTO> lista = storyService.getAll();
+			request.put("lista", lista);
 			MainDispatcher.getInstance().callView("Story", request);
 			break;
 		
 		// Arriva qui dalla UserReadView. Invoca il Service con il parametro id e invia alla UserReadView uno user da mostrare 
 		
-			
-		
 		case "READ":
-			System.out.println("Sei entrato nel READ");
-			id_story = Integer.parseInt(request.get("id_Storie").toString());
-			StoryDTO storyDTO = storyService.read(id_story);
+			id_storie = Integer.parseInt(request.get("id_Storie").toString());
+			//System.out.println("cioooo");
+			StoryDTO storyDTO = storyService.read(id_storie);
 			request.put("story", storyDTO);
-			
 			MainDispatcher.getInstance().callView(sub_package + "StoryRead", request);
 			break;
 			
-		
 		
 		// Arriva qui dalla UserInsertView. Estrae i parametri da inserire e chiama il service per inserire uno user con questi parametri
 		case "INSERT":
 			
 			trama = request.get("trama").toString();
-			System.out.println("trama = "+trama);
 			
-			//costruisce l'oggetto user da inserire
+			//costruisce l'oggetto story da inserire
 			StoryDTO storytoinsert = new StoryDTO(trama);
 			//invoca il service
 			storyService.insert(storytoinsert);
-			Request.getInstance().put("mode", "");
+			Request.getInstance().put("mode", "mode");
 			//Rimanda alla view con la risposta
+			
+			List<StoryDTO> l = storyService.getAll();
+			request.put("lista", l);
 			MainDispatcher.getInstance().callView("Story", request);
+			
 			break;
 		
 		// Arriva qui dalla UserDeleteView. Estrae l'id dell'utente da cancellare e lo passa al Service
 		case "DELETE":
-			id_story = Integer.parseInt(request.get("id_Storie").toString());
+			id_storie = Integer.parseInt(request.get("id_Storie").toString());
 			//Qui chiama il service
-			storyService.delete(id_story);
+			storyService.delete(id_storie);
 			Request.getInstance().put("mode", "mode");
 			MainDispatcher.getInstance().callView(sub_package + "StoryDelete", request);
 			break;
 		
 		// Arriva qui dalla UserUpdateView
 		case "UPDATE":
-			id_story = Integer.parseInt(request.get("id_Storie").toString());
+			id_storie = Integer.parseInt(request.get("id_Storie").toString());
 			trama = request.get("trama").toString();
 			StoryDTO storytoupdate = new StoryDTO(trama);
-			storytoupdate.setId_story(id_story);
+			storytoupdate.setId_story(id_storie);
 			storyService.update(storytoupdate);
 			Request.getInstance().put("mode", "mode");
 			MainDispatcher.getInstance().callView(sub_package + "StoryUpdate", request);
@@ -100,20 +101,20 @@ public class StoryController implements Controller{
 				switch (choice.toUpperCase()) {
 				
 				case "L":
-					MainDispatcher.getInstance().callView(sub_package + "StoryRead", null);
+					MainDispatcher.getInstance().callView(sub_package + "StoryRead", request);
 					break;
 					
 				case "I":
 					//System.out.println("chiamo la StoryInsertView");
-					MainDispatcher.getInstance().callView(sub_package + "StoryInsert", null);
+					MainDispatcher.getInstance().callView(sub_package + "StoryInsert", request);
 					break;
 					
 				case "M":
-					MainDispatcher.getInstance().callView(sub_package + "StoryUpdate", null);
+					MainDispatcher.getInstance().callView(sub_package + "StoryUpdate", request);
 					break;
 					
 				case "C":
-					MainDispatcher.getInstance().callView(sub_package + "StoryDelete", null);
+					MainDispatcher.getInstance().callView(sub_package + "StoryDelete", request);
 					break;
 					
 				case "E":
