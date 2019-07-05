@@ -6,7 +6,7 @@ import it.contrader.view.AbstractView;
 
 public class CategoryInsertView extends AbstractView{
 
-	private String choice;
+	private String categoryName;
 	private Request request;
 	
 	@Override
@@ -14,26 +14,20 @@ public class CategoryInsertView extends AbstractView{
 		
 		this.request = request;
 		System.out.println("------------------- INSERT VIEW ----------------\n");
-		System.out.println("Nothing to display apparently...\n");
 		
 	}
 
 	@Override
 	public void showOptions() {
-		// TODO Auto-generated method stub
-		System.out.println("[T]orna al menù");
-		choice = getInput();
+		
+		System.out.print("Nome nuova categoria: ");
+		categoryName = getInput();
 	}
 
 	@Override
 	public void submit() {
-		switch(choice.toUpperCase())
-		{
-			default : 
-				request.remove("mode");
-				MainDispatcher.getInstance().callAction("Category", "doControl", request);
-				break;
-		}
+		request.put("newCategory", categoryName);
+		MainDispatcher.getInstance().callAction("Category", "doControl", request);
 		
 	}
 

@@ -14,11 +14,11 @@ import it.contrader.model.User;
 
 public class CategorieDAO implements DAO<Categorie>{
 
-	private final String QUERY_ALL = "SELECT * FROM Categorie";
-	private final String QUERY_CREATE = "INSERT INTO Categorie (id, nome_Categorie) VALUES (?,?)";
-	private final String QUERY_READ = "SELECT * FROM Categorie WHERE id=?";
-	private final String QUERY_UPDATE = "UPDATE Categorie SET id=?, nome_Categorie=? WHERE id=?";
-	private final String QUERY_DELETE = "DELETE FROM Categorie WHERE id=?";
+	private final String QUERY_ALL = "SELECT * FROM categorie";
+	private final String QUERY_CREATE = "INSERT INTO categorie (nome_Categorie) VALUES (?)";
+	private final String QUERY_READ = "SELECT * FROM categorie WHERE id=?";
+	private final String QUERY_UPDATE = "UPDATE categorie SET id=?, nome_Categorie=? WHERE id=?";
+	private final String QUERY_DELETE = "DELETE FROM categorie WHERE id=?";
 	@Override
 	public List<Categorie> getAll() {
 		// TODO Auto-generated method stub
@@ -67,8 +67,7 @@ public class CategorieDAO implements DAO<Categorie>{
 		Connection connection = ConnectionSingleton.getInstance();
 		try {	
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_CREATE);
-			preparedStatement.setInt(1,categoria.getId());
-			preparedStatement.setString(2, categoria.getNome_Categorie());
+			preparedStatement.setString(1, categoria.getNome_Categorie());
 			preparedStatement.execute();
 			return true;
 		} catch (SQLException e) {
