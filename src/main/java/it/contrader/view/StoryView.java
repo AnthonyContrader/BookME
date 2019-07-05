@@ -12,7 +12,7 @@ import it.contrader.main.MainDispatcher;
 public class StoryView extends AbstractView{
 
      private Request request; 
-     private String choice ; 
+     private String choice; 
 	
 	@Override
 	public void showResults(Request request) {

@@ -23,9 +23,7 @@ public class StoryController implements Controller{
 		if(choice== null) {
 			choice = "default";
 
-		} else {
-			//choice = "GETCHOICE";
-		}
+		} 
 
 		String mode = (String) request.get("mode") ;
 		if(mode == null) {
@@ -75,11 +73,14 @@ public class StoryController implements Controller{
 		
 		// Arriva qui dalla UserDeleteView. Estrae l'id dell'utente da cancellare e lo passa al Service
 		case "DELETE":
-			id_storie = Integer.parseInt(request.get("id_Storie").toString());
+			id_storie = Integer.parseInt(request.get("id_storia").toString());
 			//Qui chiama il service
 			storyService.delete(id_storie);
 			Request.getInstance().put("mode", "mode");
-			MainDispatcher.getInstance().callView(sub_package + "StoryDelete", request);
+			
+			List<StoryDTO> l2 = storyService.getAll();
+			request.put("lista", l2);
+			MainDispatcher.getInstance().callView("Story", request);
 			break;
 		
 		// Arriva qui dalla UserUpdateView

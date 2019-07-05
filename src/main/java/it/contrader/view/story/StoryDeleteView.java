@@ -19,9 +19,14 @@ public class StoryDeleteView extends AbstractView {
 	 */
 	@Override
 	public void showResults(Request request) {
+		
+		this.request = request ; 
+		// System.out.println("StoryDeleteView\n");
+		
 		if (request!=null) {
-			System.out.println("Cancellazione andata a buon fine.\n");
-			MainDispatcher.getInstance().callView("Story", null);
+			
+			//System.out.println("Cancellazione andata a buon fine.\n");
+			//MainDispatcher.getInstance().callView("Story", null);
 		}
 	}
 
@@ -30,8 +35,9 @@ public class StoryDeleteView extends AbstractView {
 	 */
 	@Override
 	public void showOptions() {
-			System.out.println("Inserisci id della storia:");
-			id_story = Integer.parseInt(getInput());
+		
+			System.out.print("Inserisci id della storia da cancellare:");
+			this.id_story = Integer.parseInt(getInput());
 
 	}
 
@@ -40,7 +46,7 @@ public class StoryDeleteView extends AbstractView {
 	 */
 	@Override
 	public void submit() {
-		request.put("id", id_story);
+		request.put("id_storia", id_story);
 		request.put("mode", mode);
 		MainDispatcher.getInstance().callAction("Story", "doControl", request);
 	}
