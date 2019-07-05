@@ -51,7 +51,16 @@ public class CategoryController implements Controller{
 					break;
 					
 				case "UPDATE":
-					MainDispatcher.getInstance().callView(sub_package + "CategoryUpdate", Request.getInstance());
+					if(request.get("idToUpdate")!= null) {
+						int idToUpdate = (int) request.remove("idToUpdate");
+						String nametoUpdate = (String) request.remove("nameToUpdate");
+						CategorieDTO categorytoUpdate = new CategorieDTO(nametoUpdate,idToUpdate);
+						//System.out.print("CONTROLLER:" + idToUpdate + " " + nametoUpdate);
+						categoryService.update(categorytoUpdate);
+						request.remove("mode");
+					} else {
+						MainDispatcher.getInstance().callView(sub_package + "CategoryUpdate", Request.getInstance());
+					}	
 					break;
 					
 				default:

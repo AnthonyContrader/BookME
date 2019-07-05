@@ -38,4 +38,9 @@ public class CategorieService extends AbstractService<Categorie, CategorieDTO>
 	public boolean delete(int id) {
 		return dao.delete(id);
 	}
+	
+	public boolean update(CategorieDTO category) {
+		return dao.update(converter.toEntity(category));
+		
+	}
 }
