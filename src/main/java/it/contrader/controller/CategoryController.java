@@ -9,7 +9,7 @@ import it.contrader.service.CategorieService;
 public class CategoryController implements Controller{
 
 	private CategorieService categoryService;
-	private Request request;
+	private final String sub_package = "category.";
 	
 	public CategoryController()
 	{
@@ -18,23 +18,39 @@ public class CategoryController implements Controller{
 	
 	@Override
 	public void doControl(Request request) {
-		// TODO Auto-generated method stub
-		//entri in questo blocco se hai scelto la categoria
-		this.request = request;
-		int categoryId;
-		if(this.request.get("categoryId") != null)
-		{
-			categoryId = (int) this.request.remove("categoryId");
-			String categoryName = categoryService.getCategoryName(categoryId);
-			this.request.put("categoryName", categoryName);
-			MainDispatcher.getInstance().callView("CategoryChoice", this.request);
-		}
-		else
-		{
+		if(request.get("mode")!=null) {
+			switch(request.get("mode").toString()) {
+			
+				case "READ":
+					int categoryId;
+					categoryId = (int) request.get("categoryId");
+					String categoryName = categoryService.getCategoryName(categoryId);
+					request.put("categoryName", categoryName);
+					MainDispatcher.getInstance().callView(sub_package + "CategoryRead", Request.getInstance());
+					break;
+					
+				case "INSERT":
+					MainDispatcher.getInstance().callView(sub_package + "CategoryInsert", Request.getInstance());
+					break;
+					
+				case "DELETE":
+					MainDispatcher.getInstance().callView(sub_package + "CategoryDelete", Request.getInstance());
+					break;
+					
+				case "UPDATE":
+					MainDispatcher.getInstance().callView(sub_package + "CategoryUpdate", Request.getInstance());
+					break;
+					
+				default:
+				
+					break;
+			}
+		} else {
 			List<CategorieDTO> categoryList = categoryService.GetCategoryList();
-			this.request.put("categorie", categoryList);
-			MainDispatcher.getInstance().callView("Category", this.request);
+			request.put("categorie", categoryList);
+			MainDispatcher.getInstance().callView("Category", Request.getInstance());
 		}
+
 		
 	}
 
