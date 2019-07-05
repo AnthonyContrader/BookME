@@ -28,7 +28,9 @@ public class StoryController implements Controller{
 		
 		int id_storie;
 		String trama ; 
-		
+		if(mode == null) {
+			mode = "default";
+		}
 		switch (mode) {
 		
 		default:

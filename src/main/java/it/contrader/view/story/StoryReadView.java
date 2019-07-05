@@ -31,9 +31,11 @@ public class StoryReadView extends AbstractView {
 	 */
 	@Override
 	public void showResults(Request request) {
+
 		if (request != null) {
 			
-			System.out.println("Sono nella storyReadView");
+			this.request = request ; 
+			System.out.println("Inserisci id storia : ");
 			
 			StoryDTO storie = (StoryDTO) request.get("story");
 			

@@ -28,7 +28,7 @@ public class HomeUserView extends AbstractView {
 	public void submit() {
         
 		Request.getInstance().put("choice", choice);
-		Request.getInstance().put("mode","DEFAULT");
+
 
 		switch (choice) {
 
