@@ -13,15 +13,11 @@ public class StoryDeleteView extends AbstractView {
 	public StoryDeleteView() {
 	}
 
-	/**
-	 * Se la request non � nulla (ovvero se si arriva dalla mode DELETE del controller) mostra
-	 * l'esito dell'operazione
-	 */
 	@Override
 	public void showResults(Request request) {
 		
 		this.request = request ; 
-		// System.out.println("StoryDeleteView\n");
+		System.out.println("StoryDeleteView\n");
 		
 		if (request!=null) {
 			

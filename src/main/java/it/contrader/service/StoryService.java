@@ -30,4 +30,10 @@ public class StoryService extends AbstractService<Story, StoryDTO> {
 		
 		return converter.toDTO(dao.read(id_storie));
 	}
+	
+	public boolean update(StoryDTO story) {
+		return dao.update(converter.toEntity(story));
+	}
+	
+
 }

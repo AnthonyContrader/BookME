@@ -85,13 +85,16 @@ public class StoryController implements Controller{
 		
 		// Arriva qui dalla UserUpdateView
 		case "UPDATE":
-			id_storie = Integer.parseInt(request.get("id_Storie").toString());
-			trama = request.get("trama").toString();
-			StoryDTO storytoupdate = new StoryDTO(trama);
-			storytoupdate.setId_story(id_storie);
-			storyService.update(storytoupdate);
+			id_storie = Integer.parseInt(request.get("id_storia").toString());
+			trama = request.getString("trama").toString();
+			StoryDTO story = new StoryDTO(id_storie,trama);
+			storyService.update(story);
 			Request.getInstance().put("mode", "mode");
-			MainDispatcher.getInstance().callView(sub_package + "StoryUpdate", request);
+
+			List<StoryDTO> l3 = storyService.getAll();
+			request.put("lista", l3);
+			MainDispatcher.getInstance().callView("Story", request);
+			
 			break;
 			
 		//Arriva qui dalla UserView Invoca il Service e invia alla UserView il risultato da mostrare 

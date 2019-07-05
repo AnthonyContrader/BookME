@@ -18,14 +18,17 @@ public class StoryUpdateView extends AbstractView {
 	}
 
 	/**
-	 * Se la request non è nulla (ovvero se si arriva dalla mode UPDATE del controller) mostra
+	 * Se la request non ï¿½ nulla (ovvero se si arriva dalla mode UPDATE del controller) mostra
 	 * l'esito dell'operazione
 	 */
 	@Override
 	public void showResults(Request request) {
+		
+		this.request = request ; 
+		
 		if (request!=null) {
-			System.out.println("Modifica andata a buon fine.\n");
-			MainDispatcher.getInstance().callView("Storie", null);
+			//System.out.println("Modifica andata a buon fine.\n");
+			//MainDispatcher.getInstance().callView("Storie", null);
 		}
 	}
 
@@ -34,15 +37,11 @@ public class StoryUpdateView extends AbstractView {
 	 */
 	@Override
 	public void showOptions() {
-		try {
-			System.out.println("Inserisci id della storia:");
-			id_storie = Integer.parseInt(getInput());
-			System.out.println("Inserisci il contenuto della storia:");
-			trama = getInput();
-
-		} catch (Exception e) {
-
-		}
+		
+		System.out.print("Inserisci id storia da modificare:");
+		id_storie = Integer.parseInt(getInput());
+		System.out.print("Inserisci nuova trama:");
+		trama = getInput();
 	}
 
 
@@ -51,10 +50,12 @@ public class StoryUpdateView extends AbstractView {
 	 */
 	@Override
 	public void submit() {
-		request.put("id", id_storie);
-		request.put("Trama", trama);
+		
+		request.put("id_storia", id_storie);
+		request.put("trama", trama);
 		request.put("mode", mode);
-		MainDispatcher.getInstance().callAction("User", "doControl", request);
+		
+		MainDispatcher.getInstance().callAction("Story", "doControl", request);
 	}
 
 }
