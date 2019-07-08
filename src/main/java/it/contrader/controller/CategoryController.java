@@ -33,7 +33,7 @@ public class CategoryController implements Controller{
 					if(request.get("newCategory")!=null) {
 						String newCategoryName = request.remove("newCategory").toString();
 						CategorieDTO nuovaCategoria = new CategorieDTO(newCategoryName);
-						System.out.println(categoryService.insert(nuovaCategoria));
+						categoryService.insert(nuovaCategoria);
 						request.remove("mode");
 					} else {
 						MainDispatcher.getInstance().callView(sub_package + "CategoryInsert", Request.getInstance());
