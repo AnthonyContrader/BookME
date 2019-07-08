@@ -19,8 +19,10 @@ public class CategoryView extends AbstractView{
 			this.request = request;
 			System.out.println("\n------------------- Categorie ----------------\n");
 			
+
 			
 			categories = (List<CategorieDTO>) request.get("categorie");
+
 				for (CategorieDTO u: categories)
 				{
 					System.out.println("\t" + "[" + u.getId() + "] " + u.toString());

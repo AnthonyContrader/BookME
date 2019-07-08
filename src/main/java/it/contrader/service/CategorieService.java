@@ -43,4 +43,5 @@ public class CategorieService extends AbstractService<Categorie, CategorieDTO>
 		return dao.update(converter.toEntity(category));
 		
 	}
+
 }

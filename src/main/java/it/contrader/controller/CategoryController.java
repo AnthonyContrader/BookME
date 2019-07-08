@@ -26,6 +26,7 @@ public class CategoryController implements Controller{
 					categoryId = (int) request.get("categoryId");
 					String categoryName = categoryService.getCategoryName(categoryId);
 					request.put("categoryName", categoryName);
+					request.put("categoryId", categoryId );
 					MainDispatcher.getInstance().callView(sub_package + "CategoryRead", Request.getInstance());
 					break;
 					

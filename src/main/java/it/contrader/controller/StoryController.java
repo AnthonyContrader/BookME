@@ -25,7 +25,7 @@ public class StoryController implements Controller{
 
 		} 
 
-		String mode = (String) request.get("mode") ;
+		String mode = (String) request.get("mode");
 		if(mode == null) {
 			mode = "default";
 		}
@@ -46,6 +46,7 @@ public class StoryController implements Controller{
 		// Arriva qui dalla UserReadView. Invoca il Service con il parametro id e invia alla UserReadView uno user da mostrare 
 		
 		case "READ":
+			System.out.print("Sei nel read");
 			id_storie = (int) request.get("id_storia");
 			StoryDTO storyDTO = storyService.read(id_storie);
 			request.put("storyRead", storyDTO);
@@ -127,6 +128,10 @@ public class StoryController implements Controller{
 				case "C":
 					MainDispatcher.getInstance().callView(sub_package + "StoryDelete", request);
 					break;
+					
+				case "T":
+					MainDispatcher.getInstance().callView("HomeUser",request);
+					break ;  
 					
 				case "E":
 					MainDispatcher.getInstance().callView("Login", null);
