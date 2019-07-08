@@ -40,7 +40,7 @@ public class StoryView extends AbstractView{
 	public void showOptions() {
 		// TODO Auto-generated method stub
 		
-		System.out.print(" [I]nserisci , [C]ancella , [M]odifica , [L]eggi :  ");
+		System.out.print(" [I]nserisci , [C]ancella , [M]odifica , [L]eggi , [T]orna al menu :  ");
 		choice = getInput() ; 
 	}
 

@@ -10,11 +10,16 @@ public class HomeUserView extends AbstractView {
 
 	@Override
 	public void showResults(Request request) {
+		if(request!=null) {
+			this.request=request;
+		}
 
 	}
 
 	@Override
 	public void showOptions() {
+		request.remove("mode");
+		request.remove("choice");
 		System.out.println("Benvenuto su BookMe\n");
 		System.out.println("-------------MENU------------\n");
 
