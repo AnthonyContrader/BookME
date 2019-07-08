@@ -57,6 +57,7 @@ public class CategoryView extends AbstractView{
 					break;
 				case "T":
 					Request.getInstance().remove("mode");
+					Request.getInstance().remove("choice");
 					MainDispatcher.getInstance().callAction("Home", "doControl", request);
 				default:
 					Request.getInstance().remove("mode");

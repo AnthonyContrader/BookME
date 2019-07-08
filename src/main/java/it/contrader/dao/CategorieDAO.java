@@ -23,6 +23,8 @@ public class CategorieDAO implements DAO<Categorie>{
 	public List<Categorie> getAll() {
 		// TODO Auto-generated method stub
 		
+		
+		
 		List<Categorie> CategorieList = new ArrayList<>();
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
