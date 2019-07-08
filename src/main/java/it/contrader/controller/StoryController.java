@@ -16,6 +16,7 @@ public class StoryController implements Controller{
 		this.storyService = new StoryService() ; 
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	public void doControl(Request request) {
 		// TODO Auto-generated method stub
@@ -29,11 +30,11 @@ public class StoryController implements Controller{
 		if(mode == null) {
 			mode = "default";
 		}
-		//System.out.println("choice =  "+choice);
-	    //System.out.println("mode =  "+mode);
+
 		
 		int id_storie;
 		String trama ; 
+		int id_Categoria;
 		
 		switch (mode) {
 		
@@ -50,6 +51,7 @@ public class StoryController implements Controller{
 			id_storie = (int) request.get("id_storia");
 			StoryDTO storyDTO = storyService.read(id_storie);
 			request.put("storyRead", storyDTO);
+			
 			MainDispatcher.getInstance().callView(sub_package + "StoryRead", request);
 			break;
 			
@@ -57,18 +59,38 @@ public class StoryController implements Controller{
 		// Arriva qui dalla UserInsertView. Estrae i parametri da inserire e chiama il service per inserire uno user con questi parametri
 		case "INSERT":
 			
-			trama = request.get("trama").toString();
 			
+		    
+		    //String check = (String) request.remove("check");
+		    //if(check == "check")
+		if(request.get("trama")!=null)    
+		{
+		    	id_Categoria = (int)request.get("categoryId");
+			    trama = request.remove("trama").toString();
+		    	
+		    	System.out.print("DEBUG1");
+		    	StoryDTO story = new StoryDTO(trama, id_Categoria);
+		    	storyService.insert(story);
+		    	MainDispatcher.getInstance().callView(sub_package + "Story", request);
+		    	
+		    }
+
+		    
+			
+		
+			MainDispatcher.getInstance().callView(sub_package + "StoryInsert", request);
+		
+			//id_Categoria = request.get("id_Categoria").to
 			//costruisce l'oggetto story da inserire
-			StoryDTO storytoinsert = new StoryDTO(trama);
+			//
 			//invoca il service
-			storyService.insert(storytoinsert);
-			Request.getInstance().put("mode", "mode");
+			//storyService.insert(storytoinsert);
+			//Request.getInstance().put("mode", "mode");
 			//Rimanda alla view con la risposta
 			
-			List<StoryDTO> l = storyService.getAll();
-			request.put("lista", l);
-			MainDispatcher.getInstance().callView("Story", request);
+			//List<StoryDTO> l = storyService.getAll();
+			//request.put("lista", l);
+			//MainDispatcher.getInstance().callView("StoryInsert", request);
 			
 			break;
 		
@@ -88,7 +110,8 @@ public class StoryController implements Controller{
 		case "UPDATE":
 			id_storie = Integer.parseInt(request.get("id_storia").toString());
 			trama = request.getString("trama").toString();
-			StoryDTO story = new StoryDTO(id_storie,trama);
+			int idCategorie = (int)request.get("idCategoria");
+			StoryDTO story = new StoryDTO(id_storie,trama,idCategorie);
 			storyService.update(story);
 			Request.getInstance().put("mode", "mode");
 

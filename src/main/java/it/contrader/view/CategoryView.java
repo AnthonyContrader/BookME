@@ -38,6 +38,7 @@ public class CategoryView extends AbstractView{
 		System.out.print("\t[M]odifica");
 		System.out.print("\t[T]orna al menù\n");
 		action = getInput();
+		//System.out.print(action);
 	}
 
 	@Override

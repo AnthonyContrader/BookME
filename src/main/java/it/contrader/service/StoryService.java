@@ -24,8 +24,8 @@ public class StoryService extends AbstractService<Story, StoryDTO> {
 		this.converter = new StoryConverter();
 	}
 	
-	public void insert(String trama) {
-		StoryDTO storyDTO = new StoryDTO(trama);
+	public void insert(String trama, int idCategoria) {
+		StoryDTO storyDTO = new StoryDTO(trama, idCategoria);
 		dao.insert(converter.toEntity(storyDTO));
 	}
 	
@@ -37,12 +37,30 @@ public class StoryService extends AbstractService<Story, StoryDTO> {
 	public boolean update(StoryDTO story) {
 		return dao.update(converter.toEntity(story));
 	}
+
+	public List<StoryDTO> getStoryByCategoryId(int categoryId)
+	{
+		
+		List<StoryDTO> listDTO = new ArrayList<>();
+		List<Story> list = dao.getAll();
+		for(Story t : list)
+		{
+			
+			if(categoryId == t.getId_Categoria())
+			{
+				listDTO.add(converter.toDTO(t));
+			}
+		}
+		
+		return listDTO;
+		
+	}
 	
 	public List<StoryDTO> getStoriesByCategoryId(int id){
 		List<StoryDTO> lista = new ArrayList<>();
 		List<Story> storyList = dao.getAll();
 		for(Story s : storyList) {
-			if(s.getId_categoria() == id) {
+			if(s.getId_Categoria() == id) {
 				StoryDTO storia = converter.toDTO(s);
 				lista.add(storia);
 			}

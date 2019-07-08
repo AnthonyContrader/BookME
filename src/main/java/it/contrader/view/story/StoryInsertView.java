@@ -9,6 +9,7 @@ public class StoryInsertView extends AbstractView{
 
 	private String trama;
 	private final String mode = "INSERT";
+	private String check;
 
 	public StoryInsertView() {
 	}
@@ -20,7 +21,7 @@ public class StoryInsertView extends AbstractView{
 	@Override
 	public void showResults(Request request) {
 		this.request = request;
-		//System.out.println("INSERT VIEW");
+		System.out.println("INSERT VIEW");
 		if (request!=null) {
 			
 		}
@@ -44,8 +45,10 @@ public class StoryInsertView extends AbstractView{
 	 */
 	@Override
 	public void submit() {
+		check = "check";
 		request.put("trama", trama);
 		request.put("mode", mode);
+		request.put("check", check);
 		MainDispatcher.getInstance().callAction("Story", "doControl", request);
 	}
 

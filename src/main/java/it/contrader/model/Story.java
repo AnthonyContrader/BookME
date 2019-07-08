@@ -3,28 +3,24 @@ package it.contrader.model;
 public class Story{
 	
 	private int id_storie ; 
-	private String trama ; 
-	private int id_categoria;
+	private String trama ;
+	private int id_Categoria;
 	
 	public Story() {
 		
 	}
 	
-	public Story(int id_storie, String trama) {
+	public Story(int id_storie, String trama, int idCategoria) {
 		this.id_storie = id_storie ;
 		this.trama = trama ; 
+		this.id_Categoria = idCategoria;
 	}
 	
-	public Story(String trama) {
-		this.trama = trama ; 
+	public Story(String trama, int idCategoria) {
+		this.trama = trama ;
+		this.id_Categoria = idCategoria;
 	}
 
-	public Story(int id_story, String trama, int id_category) {
-		this.id_storie = id_story ;
-		this.trama = trama ; 
-		this.id_categoria = id_category;
-		
-	}
 
 	public int getId_storie() {
 		return id_storie;
@@ -67,12 +63,13 @@ public class Story{
 		return true;
 	}
 
-	public int getId_categoria() {
-		return id_categoria;
+
+	public int getId_Categoria() {
+		return id_Categoria;
 	}
 
-	public void setId_categoria(int id_categoria) {
-		this.id_categoria = id_categoria;
+	public void setId_Categoria(int id_Categoria) {
+		this.id_Categoria = id_Categoria;
 	}
 
 

@@ -10,13 +10,17 @@ public class StoryConverter implements Converter<Story,StoryDTO>{
 
 	@Override
 	public StoryDTO toDTO(Story story) {
-		StoryDTO storyDTO = new StoryDTO(story.getId_storie(), story.getTrama(), story.getId_categoria());
+
+		StoryDTO storyDTO = new StoryDTO(story.getId_storie(), story.getTrama(), story.getId_Categoria());
+
 		return storyDTO;
 	}
 
 	@Override
 	public Story toEntity(StoryDTO storyDTO) {
-		Story story = new Story(storyDTO.getId_story(),storyDTO.getTrama(), storyDTO.getId_category());
+
+		Story story = new Story(storyDTO.getId_story(),storyDTO.getTrama(),storyDTO.getId_Categoria());
+
 		return story;
 	}
 

@@ -4,22 +4,23 @@ public class StoryDTO {
 	
     private int id_story ; 
     private String trama ;
-    private int id_category;
+
+    private int id_Categoria;
     
-	public StoryDTO(int id_story, String trama) {
+	public StoryDTO(int id_story, String trama, int idCategoria) {
 		this.id_story = id_story;
 		this.trama = trama;
+		this.id_Categoria = idCategoria;
 	}
 	
-	public StoryDTO(int storyId,String trama,int categoryId) {
-		id_story = storyId;
+
+	public StoryDTO(String trama, int idCategoria) {
+
 		this.trama = trama;
-		id_category = categoryId;
+		this.id_Categoria = idCategoria;
 	}
 	
-	public StoryDTO(String trama) {
-		this.trama = trama;
-	}
+	
 	
 	public StoryDTO() {
 		
@@ -38,12 +39,13 @@ public class StoryDTO {
 		this.trama = trama;
 	}
 
-	public int getId_category() {
-		return id_category;
+	public int getId_Categoria() {
+		return id_Categoria;
 	}
 
-	public void setId_category(int id_category) {
-		this.id_category = id_category;
+	public void setId_Categoria(int id_Categoria) {
+		this.id_Categoria = id_Categoria;
+
 	} 
    
    
