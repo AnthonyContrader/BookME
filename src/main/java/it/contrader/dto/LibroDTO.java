@@ -7,6 +7,8 @@ public class LibroDTO {
 	private String nome_Libro;
 
 	private int id_Categoria;
+	
+	private String storia;
 
 	public LibroDTO() {
 
@@ -17,10 +19,11 @@ public class LibroDTO {
 
 	}
 
-	public LibroDTO(int id_Libro, String nome_Libro, int id_Categoria) {
+	public LibroDTO(int id_Libro, String nome_Libro, int id_Categoria, String storia) {
 		this.id_Libro = id_Libro;
 		this.nome_Libro = nome_Libro;
 		this.id_Categoria = id_Categoria;
+		this.storia = storia;
 
 	}
 	
@@ -41,6 +44,10 @@ public class LibroDTO {
 	public void setNome_Libro(String nome_Libro) {
 		this.nome_Libro = nome_Libro;
 	}
+	
+	public void setStoria(String storia) {
+		this.storia = storia;
+	}
 
 	public int getId_Categoria() {
 		return id_Categoria;
@@ -53,6 +60,11 @@ public class LibroDTO {
 	@Override
 	public String toString() {
 		return "LibroDTO [id_Libro=" + id_Libro + ", nome_Libro=" + nome_Libro + ", id_Categoria=" + id_Categoria + "]";
+	}
+
+	public String getStoria() {
+		
+		 return storia;
 	}
 
 }

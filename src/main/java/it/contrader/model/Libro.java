@@ -7,11 +7,14 @@ public class Libro {
 	private String nome_Libro;
 
 	private int id_Categoria;
+	
+	private String storia;
 
-	public Libro(int id_Libro, String nome_Libro, int id_Categoria) {
+	public Libro(int id_Libro, String nome_Libro, int id_Categoria, String storia) {
 		this.id_Libro = id_Libro;
 		this.nome_Libro = nome_Libro;
-	//	this.id_Categoria = id_Categoria;
+		this.id_Categoria = id_Categoria;
+		this.storia = storia;
 	}
 
 	public Libro(String nome_Libro2, String id_Categoria2) {
@@ -45,6 +48,15 @@ public class Libro {
 	@Override
 	public String toString() {
 		return "Libro [id_Libro=" + id_Libro + ", nome_Libro=" + nome_Libro +  "]";
+	}
+
+	public void setStoria(String storia_Libro) {
+		this.storia = storia_Libro;
+		
+	}
+	
+	public String getStoria() {
+		return storia;
 	}
 
 }

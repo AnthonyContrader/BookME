@@ -11,26 +11,22 @@ public class LibroView extends AbstractView{
 
      private Request request; 
      private String choice ; 
-	
+     
+     @SuppressWarnings("unchecked")
 	@Override
 	public void showResults(Request request) {
 		
 		this.request = request ; 
 		
-		System.out.println("----- .:STORIA VIEW:. ------- ");
+		System.out.println("----- .:LIBRO VIEW:. ------- \n");
 		
-		 List<LibroDTO> lista = (List<LibroDTO>) request.get("lista") ; 
+		 
+		List<LibroDTO> lista = (List<LibroDTO>) request.get("libri") ; 
 		 
 		 for(LibroDTO libro: lista) {
-			 System.out.println(libro.getId_Libro()+" "+libro.getNome_Libro());
+			 System.out.println("[" + libro.getId_Libro()+"] "+libro.getNome_Libro());
 		 }
 				 
-		/**
-		 * prendi la lista che Ã¨ contenuta nella  richiesta
-		 * ciclo foreach per ogni elemento lista 
-		 * stampi elemento
-		 */
-		// TODO Auto-generated method stub
 	}
 	
 
@@ -38,25 +34,26 @@ public class LibroView extends AbstractView{
 	public void showOptions() {
 		// TODO Auto-generated method stub
 		
-		System.out.print(" [I]nserisci , [C]ancella , [M]odifica , [L]eggi :  ");
+		System.out.println("[0~9] Leggi libro, [T]orna al menù");
 		choice = getInput() ; 
 	}
 
 	@Override
 	public void submit() {
-		// TODO Auto-generated method stub
-		//System.out.println("hai scelto l'opzione : "+choice);  
-		request.put("choice",choice);
-		request.put("mode","GETCHOICE");
-		MainDispatcher.getInstance().callAction("Libro", "doControl", this.request);
+		if(choice.matches("\\d+")) {
+			int libroId = Integer.parseInt(choice);
+			request.put("idLibro", libroId);
+			request.put("mode","READ");
+			MainDispatcher.getInstance().callAction("Libro", "doControl", this.request);
+		} else {
+			
+			MainDispatcher.getInstance().callAction("Home", "doControl", this.request);
+		}
+		
+		
 		
 	}
 	
-	public static void main(String[] args) {
-		
-		//StoryView sv = new StoryView() ; 
-		//sv.showOptions(); 
-	}
 
 
 }

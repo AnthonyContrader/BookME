@@ -32,11 +32,11 @@ public class LibroDAO implements DAO<Libro> {
 			ResultSet resultSet = statement.executeQuery(QUERY_ALL);
 			Libro libro;
 			while (resultSet.next()) {
-				int id_Libro = resultSet.getInt("id");
-				String nome_Libro = resultSet.getString("NomeLibro");
-				int id_Categoria = resultSet.getInt("IdCategoria");
-				libro = new Libro(id_Libro, nome_Libro, id_Categoria);
-				libro.setId_Libro(id_Libro);
+				int id_Libro = resultSet.getInt("id_Libro");
+				String nome_Libro = resultSet.getString("nome_Libro");
+				int id_Categoria = resultSet.getInt("id_Categoria");
+				String storia_Libro = resultSet.getString("storia");
+				libro = new Libro(id_Libro, nome_Libro, id_Categoria, storia_Libro);
 				libriList.add(libro);
 			}
 		} catch (SQLException e) {
@@ -68,13 +68,13 @@ public class LibroDAO implements DAO<Libro> {
 			resultSet.next();
 			int id_Libro;
 			int id_Categoria;
-			String nome_Libro;
+			String nome_Libro,storia;
 
-			id_Libro = resultSet.getInt("ID");
-			nome_Libro = resultSet.getString("nomeLibro");
-			id_Categoria = resultSet.getInt("CategoriaID");
-			Libro libro = new Libro(id_Libro, nome_Libro, id_Categoria);
-			libro.setId_Libro(id_Libro);
+			id_Libro = resultSet.getInt("id_Libro");
+			nome_Libro = resultSet.getString("nome_Libro");
+			id_Categoria = resultSet.getInt("id_Categoria");
+			storia = resultSet.getString("storia");
+			Libro libro = new Libro(id_Libro, nome_Libro, id_Categoria,storia);
 
 			return libro;
 		} catch (SQLException e) {

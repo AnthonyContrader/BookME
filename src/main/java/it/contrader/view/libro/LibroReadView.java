@@ -8,9 +8,7 @@ import it.contrader.view.AbstractView;
 
 public class LibroReadView extends AbstractView {
 
-	private int id_Libro;
 	private Request request;
-	private final String mode = "READ";
 
 	public LibroReadView() {
 	}
@@ -18,25 +16,23 @@ public class LibroReadView extends AbstractView {
 	
 	@Override
 	public void showResults(Request request) {
-		if (request != null) {
-			LibroDTO Libro = (LibroDTO) request.get("Libro");
-			System.out.println(Libro);
-			MainDispatcher.getInstance().callView("Libro", null);
+		if (request.get("libro") != null) {
+			LibroDTO libro = (LibroDTO) request.remove("libro");
+			System.out.println(libro.getNome_Libro());
+			System.out.println("\nContenuto:\n" + libro.getStoria());
 		}
 	}
 
 
 	@Override
 	public void showOptions() {
-		System.out.println("Inserisci l'ID del Libro:");
-		id_Libro = Integer.parseInt(getInput());
+		System.out.println("\n[T]orna al menù");
+		getInput();
 	}
 
 	
 	@Override
 	public void submit() {
-		request.put("ID Libro", id_Libro);
-		request.put("mode", mode);
 		MainDispatcher.getInstance().callAction("Libro", "doControl", request);
 	}
 
