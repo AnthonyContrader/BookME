@@ -25,7 +25,7 @@ public class StoryController implements Controller{
 
 		} 
 
-		String mode = (String) request.get("mode") ;
+		String mode = (String) request.get("mode");
 		if(mode == null) {
 			mode = "default";
 		}
@@ -127,6 +127,10 @@ public class StoryController implements Controller{
 				case "C":
 					MainDispatcher.getInstance().callView(sub_package + "StoryDelete", request);
 					break;
+					
+				case "T":
+					MainDispatcher.getInstance().callView("HomeUser",request);
+					break ;  
 					
 				case "E":
 					MainDispatcher.getInstance().callView("Login", null);
