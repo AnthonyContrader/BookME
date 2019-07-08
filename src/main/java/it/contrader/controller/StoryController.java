@@ -46,6 +46,7 @@ public class StoryController implements Controller{
 		// Arriva qui dalla UserReadView. Invoca il Service con il parametro id e invia alla UserReadView uno user da mostrare 
 		
 		case "READ":
+			System.out.print("Sei nel read");
 			id_storie = (int) request.get("id_storia");
 			StoryDTO storyDTO = storyService.read(id_storie);
 			request.put("storyRead", storyDTO);
