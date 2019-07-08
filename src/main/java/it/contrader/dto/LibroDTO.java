@@ -8,10 +8,10 @@ public class LibroDTO {
 
 	private int id_Categoria;
 	
-	private String storia;
+	private String storia = null;
 
 	public LibroDTO() {
-
+		
 	}
 
 	public LibroDTO(String nome_Libro) {
@@ -65,6 +65,15 @@ public class LibroDTO {
 	public String getStoria() {
 		
 		 return storia;
+	}
+
+	public void addStoria(String trama) {
+		if(storia != null) {
+			storia += ("\n" + trama);
+		} else {
+			storia = trama;
+		}
+		
 	}
 
 }

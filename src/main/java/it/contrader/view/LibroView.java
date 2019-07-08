@@ -10,7 +10,7 @@ import it.contrader.main.MainDispatcher;
 public class LibroView extends AbstractView{
 
      private Request request; 
-     private String choice ; 
+     private String choice ;
      
      @SuppressWarnings("unchecked")
 	@Override
@@ -23,7 +23,7 @@ public class LibroView extends AbstractView{
 		 
 		List<LibroDTO> lista = (List<LibroDTO>) request.get("libri") ; 
 		 
-		 for(LibroDTO libro: lista) {
+		 for(LibroDTO libro: lista) { 
 			 System.out.println("[" + libro.getId_Libro()+"] "+libro.getNome_Libro());
 		 }
 				 

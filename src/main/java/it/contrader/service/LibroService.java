@@ -32,4 +32,15 @@ public class LibroService extends AbstractService<Libro, LibroDTO>{
 	public boolean delete(int id) {
 		return dao.delete(id);
 	}
+
+	public LibroDTO getLibroByName(String nome_Libro) {
+		List<Libro> lista = dao.getAll();
+		for(Libro l : lista) {
+			
+			if(l.getNome_Libro().contains(nome_Libro)) {
+				return converter.toDTO(l);
+			}
+		}
+		return null;
+	}
 }

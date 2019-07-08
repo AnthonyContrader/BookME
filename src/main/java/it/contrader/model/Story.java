@@ -4,6 +4,7 @@ public class Story{
 	
 	private int id_storie ; 
 	private String trama ; 
+	private int id_categoria;
 	
 	public Story() {
 		
@@ -16,6 +17,13 @@ public class Story{
 	
 	public Story(String trama) {
 		this.trama = trama ; 
+	}
+
+	public Story(int id_story, String trama, int id_category) {
+		this.id_storie = id_story ;
+		this.trama = trama ; 
+		this.id_categoria = id_category;
+		
 	}
 
 	public int getId_storie() {
@@ -57,6 +65,14 @@ public class Story{
 		} else if (!trama.equals(other.trama))
 			return false;
 		return true;
+	}
+
+	public int getId_categoria() {
+		return id_categoria;
+	}
+
+	public void setId_categoria(int id_categoria) {
+		this.id_categoria = id_categoria;
 	}
 
 

@@ -15,9 +15,9 @@ import it.contrader.model.Libro;
 public class LibroDAO implements DAO<Libro> {
 //todo artem
 	private final String QUERY_ALL = "SELECT * FROM libro";
-	private final String QUERY_CREATE = "INSERT INTO libro (nome_Libro, id_Categoria) VALUES (?,?)";
+	private final String QUERY_CREATE = "INSERT INTO libro (nome_Libro, id_Categoria, storia) VALUES (?,?,?)";
 	private final String QUERY_READ = "SELECT * FROM libro WHERE id_Libro=?";
-	private final String QUERY_UPDATE = "UPDATE libro SET id_libro=?, nome_Libro=?, id_Categoria=?";
+	private final String QUERY_UPDATE = "UPDATE libro SET id_libro=?, nome_Libro=?, id_Categoria=?, storia=?";
 	private final String QUERY_DELETE = "DELETE FROM libro WHERE id_Libro=?";
 
 	public LibroDAO() {
@@ -50,6 +50,8 @@ public class LibroDAO implements DAO<Libro> {
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_CREATE);
 			preparedStatement.setString(1, libroToInsert.getNome_Libro());
+			preparedStatement.setInt(2, libroToInsert.getId_Categoria());
+			preparedStatement.setString(3, libroToInsert.getStoria());
 			preparedStatement.execute();
 			return true;
 		} catch (SQLException e) {
@@ -102,6 +104,8 @@ public class LibroDAO implements DAO<Libro> {
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 				preparedStatement.setString(1, libroToUpdate.getNome_Libro());
 				preparedStatement.setInt(2, libroToUpdate.getId_Libro());
+				preparedStatement.setInt(3, libroToUpdate.getId_Categoria());
+				preparedStatement.setString(4, libroToUpdate.getStoria());
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)
 					return true;

@@ -18,8 +18,9 @@ public class LibroReadView extends AbstractView {
 	public void showResults(Request request) {
 		if (request.get("libro") != null) {
 			LibroDTO libro = (LibroDTO) request.remove("libro");
-			System.out.println(libro.getNome_Libro());
+			System.out.println("\nTitolo: " + libro.getNome_Libro());
 			System.out.println("\nContenuto:\n" + libro.getStoria());
+			
 		}
 	}
 
