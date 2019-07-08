@@ -18,7 +18,7 @@ public class HomeUserView extends AbstractView {
 		System.out.println("Benvenuto su BookMe\n");
 		System.out.println("-------------MENU------------\n");
 
-		System.out.println("[E]sci, [C]ategorie, [S]torie");
+		System.out.println("[E]sci, [C]ategorie, [S]torie, [L]ibro");
 
 		choice = this.getInput();
 
@@ -38,6 +38,9 @@ public class HomeUserView extends AbstractView {
 			break;
 		case "e":
 			MainDispatcher.getInstance().callAction("Login", "doControl", Request.getInstance());
+			break;
+		case "l":
+			MainDispatcher.getInstance().callAction("Libro", "doControl", Request.getInstance());
 			break;
 
 		default:

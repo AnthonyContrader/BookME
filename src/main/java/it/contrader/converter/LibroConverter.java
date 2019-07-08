@@ -12,14 +12,14 @@ public class LibroConverter  implements Converter<Libro, LibroDTO> {
 	
 	@Override
 	public LibroDTO toDTO(Libro libro) {
-		LibroDTO libroDTO = new LibroDTO(libro.getId_Libro(), libro.getNome_Libro(), libro.getId_Categoria());
+		LibroDTO libroDTO = new LibroDTO(libro.getId_Libro(), libro.getNome_Libro(), libro.getId_Categoria(),libro.getStoria());
 		return libroDTO;
 	}
 
 	
 	@Override
 	public Libro toEntity(LibroDTO libroDTO) {
-		Libro libro = new Libro(libroDTO.getId_Libro(), libroDTO.getNome_Libro(), libroDTO.getId_Categoria());
+		Libro libro = new Libro(libroDTO.getId_Libro(), libroDTO.getNome_Libro(), libroDTO.getId_Categoria(), libroDTO.getStoria());
 		
 		return libro;
 	}
