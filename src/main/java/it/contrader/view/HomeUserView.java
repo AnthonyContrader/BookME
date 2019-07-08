@@ -17,13 +17,9 @@ public class HomeUserView extends AbstractView {
 	public void showOptions() {
 		System.out.println("Benvenuto su BookMe\n");
 		System.out.println("-------------MENU------------\n");
-<<<<<<< HEAD
-		
-		System.out.println("[E]sci, [C]ategorie, [I]nserisci storia [N]Cani");
-=======
+
 
 		System.out.println("[E]sci, [C]ategorie, [S]torie");
->>>>>>> 625f4e3ea0cbe71d13d2efd648e6ec33fb974e3d
 
 		choice = this.getInput();
 
