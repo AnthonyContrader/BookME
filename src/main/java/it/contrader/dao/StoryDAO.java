@@ -15,9 +15,8 @@ import it.contrader.model.User;
 public class StoryDAO implements DAO<Story>{
 	
 	private final String QUERY_ALL = "SELECT * FROM storie";
-	private final String QUERY_CREATE = "INSERT INTO storie (trama) VALUES (?)";
+	private final String QUERY_CREATE = "INSERT INTO storie (trama,id_Categoria) VALUES (?,?)";
 	private final String QUERY_READ = "SELECT * FROM storie WHERE id_Storie=?";
-	private final String QUERY_STORIESBYCATEGORYID = "SELECT * FROM storie WHERE id_Categoria=?";
 	private final String QUERY_UPDATE = "UPDATE storie SET trama=? WHERE id_Storie=?";
 	private final String QUERY_DELETE = "DELETE FROM storie WHERE id_Storie=?";
 	
@@ -35,8 +34,8 @@ public class StoryDAO implements DAO<Story>{
 			while (resultSet.next()) {
 				int id = resultSet.getInt("id_Storie");
 				String trama = resultSet.getString("trama");
-				story = new Story(id,trama);
-				story.setId_storie(id);
+				int idCategoria = resultSet.getInt("id_Categoria");
+				story = new Story(id,trama,idCategoria);
 				storiesList.add(story);
 			}
 		} catch (SQLException e) {
@@ -50,6 +49,7 @@ public class StoryDAO implements DAO<Story>{
 		try {	
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_CREATE);
 			preparedStatement.setString(1, storyToInsert.getTrama());
+			preparedStatement.setInt(2, storyToInsert.getId_Categoria());
 			preparedStatement.execute();
 			return true;
 		} catch (SQLException e) {
@@ -68,9 +68,10 @@ public class StoryDAO implements DAO<Story>{
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
 			String trama;
-
+			int idCategoria;
 			trama = resultSet.getString("trama");
-			Story story = new Story(trama);
+			idCategoria = resultSet.getInt("id_Categoria");
+			Story story = new Story(trama,idCategoria);
 			story.setId_storie(resultSet.getInt("id_Storie"));
 
 			return story;
@@ -128,26 +129,7 @@ public class StoryDAO implements DAO<Story>{
 		return false;
 	}
 	
-	public List<Story> getStoriesByCategoryId(int categoryId) {
-		List<Story> storiesList = new ArrayList<>();
-		Connection connection = ConnectionSingleton.getInstance();
-		try {
-			PreparedStatement statement = connection.prepareStatement(QUERY_STORIESBYCATEGORYID);
-			statement.setInt(1, categoryId);
-			ResultSet resultSet = statement.executeQuery();
-			
-			Story story;
-			while (resultSet.next()) {
-				int id = resultSet.getInt("id_Storie");
-				String trama = resultSet.getString("trama");
-				story = new Story(id, trama);
-				storiesList.add(story);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return storiesList;
-	}
+	
 
 
 	

@@ -1,5 +1,8 @@
 package it.contrader.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import it.contrader.converter.StoryConverter;
 import it.contrader.dao.StoryDAO;
 import it.contrader.dto.StoryDTO;
@@ -21,8 +24,8 @@ public class StoryService extends AbstractService<Story, StoryDTO> {
 		this.converter = new StoryConverter();
 	}
 	
-	public void insert(String trama) {
-		StoryDTO storyDTO = new StoryDTO(trama);
+	public void insert(String trama, int idCategoria) {
+		StoryDTO storyDTO = new StoryDTO(trama, idCategoria);
 		dao.insert(converter.toEntity(storyDTO));
 	}
 	
@@ -33,6 +36,24 @@ public class StoryService extends AbstractService<Story, StoryDTO> {
 	
 	public boolean update(StoryDTO story) {
 		return dao.update(converter.toEntity(story));
+	}
+
+	public List<StoryDTO> getStoryByCategoryId(int categoryId)
+	{
+		
+		List<StoryDTO> listDTO = new ArrayList<>();
+		List<Story> list = dao.getAll();
+		for(Story t : list)
+		{
+			
+			if(categoryId == t.getId_Categoria())
+			{
+				listDTO.add(converter.toDTO(t));
+			}
+		}
+		
+		return listDTO;
+		
 	}
 	
 

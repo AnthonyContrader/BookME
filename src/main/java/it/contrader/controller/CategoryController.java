@@ -3,17 +3,21 @@ package it.contrader.controller;
 import java.util.List;
 
 import it.contrader.dto.CategorieDTO;
+import it.contrader.dto.StoryDTO;
 import it.contrader.main.MainDispatcher;
 import it.contrader.service.CategorieService;
+import it.contrader.service.StoryService;
 
 public class CategoryController implements Controller{
 
 	private CategorieService categoryService;
+	private StoryService storyService;
 	private final String sub_package = "category.";
 	
 	public CategoryController()
 	{
 		categoryService = new CategorieService();
+		storyService = new StoryService();
 	}
 	
 	@Override
@@ -23,10 +27,14 @@ public class CategoryController implements Controller{
 			
 				case "READ":
 					int categoryId;
+					
 					categoryId = (int) request.get("categoryId");
 					String categoryName = categoryService.getCategoryName(categoryId);
 					request.put("categoryName", categoryName);
-					request.put("categoryId", categoryId );
+					
+					List<StoryDTO> stories = storyService.getStoryByCategoryId(categoryId);
+					
+					request.put("lista", stories);
 					MainDispatcher.getInstance().callView(sub_package + "CategoryRead", Request.getInstance());
 					break;
 					

@@ -1,5 +1,7 @@
 package it.contrader.view.story;
 
+import java.util.List;
+
 import it.contrader.controller.Request;
 
 import it.contrader.dto.StoryDTO;
@@ -17,11 +19,12 @@ public class StoryReadView extends AbstractView {
 	private int id_Storie;
 	private Request request;
 	private final String mode = "READ";
+	
 
 	public StoryReadView() {
 	}
-
-	/**
+		
+	/*
 	 * Se la request � null (ovvero quando arriva dal controller con mode GETCHOICE e choice L 
 	 * il metodo � vuoto.
 	 * 
@@ -29,14 +32,18 @@ public class StoryReadView extends AbstractView {
 	 * dal controller con mode READ) mostra lo user. In questo caso torna alla UserView senza eseguire
 	 * gli altri due metodi
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void showResults(Request request) {
 
-			this.request = request ; 	
+			this.request = request ; 
+			
 			if(request.get("storyRead") != null) {
+				
 				StoryDTO story = (StoryDTO)request.get("storyRead");
 				System.out.println(story.getId_story()+ " "+story.getTrama());
 			}
+			
 	}
 
 	

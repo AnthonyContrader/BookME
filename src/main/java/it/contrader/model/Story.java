@@ -4,18 +4,21 @@ public class Story{
 	
 	private int id_storie ; 
 	private String trama ; 
+	private int id_Categoria;
 	
 	public Story() {
 		
 	}
 	
-	public Story(int id_storie, String trama) {
+	public Story(int id_storie, String trama, int idCategoria) {
 		this.id_storie = id_storie ;
 		this.trama = trama ; 
+		this.id_Categoria = idCategoria;
 	}
 	
-	public Story(String trama) {
-		this.trama = trama ; 
+	public Story(String trama, int idCategoria) {
+		this.trama = trama ;
+		this.id_Categoria = idCategoria;
 	}
 
 	public int getId_storie() {
@@ -57,6 +60,14 @@ public class Story{
 		} else if (!trama.equals(other.trama))
 			return false;
 		return true;
+	}
+
+	public int getId_Categoria() {
+		return id_Categoria;
+	}
+
+	public void setId_Categoria(int id_Categoria) {
+		this.id_Categoria = id_Categoria;
 	}
 
 

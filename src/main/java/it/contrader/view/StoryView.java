@@ -13,18 +13,19 @@ public class StoryView extends AbstractView{
 
      private Request request; 
      private String choice; 
-	
+     private int idCategoria;
 	@Override
 	public void showResults(Request request) {
 		
 		this.request = request ; 
+		idCategoria = (int)request.get("idCategoria");
 		
 		System.out.println("----- .:STORIA VIEW:. ------- ");
 		
 		 List<StoryDTO> lista = (List<StoryDTO>) request.get("lista") ; 
 		 
 		 for(StoryDTO story: lista) {
-			 System.out.println(story.getId_story()+" "+story.getTrama());
+			 System.out.println(story.getId_story()+" "+story.getTrama()+" "+idCategoria);
 		 }
 				 
 		/**
@@ -50,6 +51,7 @@ public class StoryView extends AbstractView{
 		//System.out.println("hai scelto l'opzione : "+choice);  
 		request.put("choice",choice);
 		request.put("mode","GETCHOICE");
+		request.put("idCategoria", idCategoria );
 		MainDispatcher.getInstance().callAction("Story", "doControl", this.request);
 		
 	}
