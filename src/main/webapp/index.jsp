@@ -6,11 +6,16 @@
   <meta charset="UTF-8">
   <title>BookMe</title>
   
-	  <link rel="stylesheet" href="./style.css">
+	  <link rel="stylesheet" href="./style.css">	  <link rel="stylesheet" href="./style21.css">
 	  
 </head>
 
 <body>
+
+<canvas id="canvas"></canvas>
+  <script src='https://codepen.io/Tibixx/pen/BbBxRG.js'></script>
+<script src='https://codepen.io/Tibixx/pen/rRBKBm.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.5/dat.gui.min.js'></script>
 
 <script src="https://code.jquery.com/jquery-2.1.0.min.js" ></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -40,7 +45,7 @@
 </body>
 </html>
 
-    <script  src="./script.js"></script>
+    <script  src="./script21.js"></script>    <script  src="./script.js"></script>
 
 </body>
 
