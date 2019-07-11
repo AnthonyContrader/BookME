@@ -1,0 +1,117 @@
+/* Fallback styles */
+.book3d {
+  display: inline-block;
+  box-shadow: 5px 5px 20px #333;
+  margin: 10px;
+}
+
+.book3d img { vertical-align: middle; }
+
+/*
+ *  In order for this to work, you must use Modernizer
+ *  to detect 3D transform browser support. This will add
+ *  a "csstransforms3d" class to the HTML element.
+ *
+ *  Visit https://modernizr.com/ for installation instructions
+ */
+
+.csstransforms3d  .books {
+  -moz-perspective: 100px;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.csstransforms3d  .book3d {
+  position: relative;
+  -moz-perspective: 100px;
+  -moz-transform: rotateY(-3deg);
+  -webkit-transform: perspective(100) rotateY(-3deg);
+  outline: 1px solid transparent; /* Helps smooth jagged edges in Firefox */
+  box-shadow: none;
+  margin: 0;
+}
+
+.csstransforms3d  .book3d img {
+  position: relative;
+  max-width: 100%;
+}
+
+.csstransforms3d  .book3d:before,
+.csstransforms3d  .book3d:after {
+  position: absolute;
+  top: 2%;
+  height: 96%;
+  content: ' ';
+  z-index: -1;
+}
+
+.csstransforms3d  .book3d:before {
+  width: 100%;
+  left: 7.5%;
+  background-color: #5a2d18;
+  box-shadow: 5px 5px 20px #333;
+}
+
+.csstransforms3d  .book3d:after {
+  width: 5%;
+  left: 100%;
+  background-color: #EFEFEF;
+  box-shadow: inset 0px 0px 5px #aaa;
+  -moz-transform: rotateY(20deg);
+  -webkit-transform: perspective(100) rotateY(20deg);
+}
+​
+
+.csstransforms3d  #book2:before { background-color: #333; }
+.csstransforms3d  #book3:before { background-color: #254053; }
+
+
+
+
+
+
+.book-image {
+-webkit-box-shadow: 0 2px 7.68px .32px rgba(0, 0, 0, 0.4),0 12px 26px 0 rgba(0, 0, 0, 0.4);
+box-shadow: 0 2px 7.68px .32px rgba(0, 0, 0, 0.4),0 12px 26px 0 rgba(0, 0, 0, 0.4);
+position: relative;
+background-color: #FFF;
+width: 108px;
+height: 162px;
+}
+a {
+color: #3A5875;
+text-decoration: none;
+line-height: inherit;
+font-weight: inherit;
+}
+.book-image img {
+border: 0;
+width: 108px;
+height: 162px;
+vertical-align: top;
+font-size: 0;
+position: relative;
+z-index: 1;
+}
+.book-texture {
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+z-index: 2;
+-webkit-box-shadow: inset 4px -5px 4px -4px rgba(0, 0, 0, 0.3),inset 0 1px 0 0 rgba(0, 0, 0, 0.2),inset 0 2px 0 0 rgba(255, 255, 255, 0.2);
+box-shadow: inset 4px -5px 4px -4px rgba(0, 0, 0, 0.3),inset 0 1px 0 0 rgba(0, 0, 0, 0.2),inset 0 2px 0 0 rgba(255, 255, 255, 0.2);
+background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(255, 255, 255, 0.2)),color-stop(50%,rgba(255, 255, 255, 0)),color-stop(100%,rgba(255, 255, 255, 0)));
+background: -webkit-linear-gradient(top,rgba(255, 255, 255, 0.2) 0,rgba(255, 255, 255, 0) 50%,rgba(255, 255, 255, 0) 100%);
+background: -webkit-gradient(linear,top left,bottom left,from(rgba(255,255,255,.2)),color-stop(50%,rgba(255,255,255,0)),to(rgba(255,255,255,0)));
+background: linear-gradient(to bottom,rgba(255, 255, 255, 0.2) 0,rgba(255, 255, 255, 0) 50%,rgba(255, 255, 255, 0) 100%);
+}
+
+
+
+
+.book-pre{
+  display: inline-block;
+  margin: 10px;
+}
