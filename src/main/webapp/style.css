@@ -105,8 +105,8 @@ input.form-style {
 
 div.form-item .form-style:focus {
   outline: none;
-  border: 2px solid #12AA3E;
-  color: #12AA3E;
+  border: 2px solid #00bfff;
+  color: #00bfff;
 }
 
 div.form-item p.formLabel {
@@ -114,7 +114,7 @@ div.form-item p.formLabel {
   left: 26px;
   top: -1px;
   transition: all .4s ease;
-  color: #bbb;
+  color: #00bfff;
 }
 
 .formTop {
@@ -123,7 +123,7 @@ div.form-item p.formLabel {
   background-color: #fff;
   padding: 0 5px;
   font-size: 14px;
-  color: #12AA3E !important;
+  color: #00bfff !important;
 }
 
 .formStatus {
@@ -138,7 +138,7 @@ a.login {
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  background-color: #12AA3E;
+  background-color: #00bfff;
   border: none;
   color: #fff;
   font-size: 16px;
@@ -146,7 +146,7 @@ a.login {
 
 input[type="submit"].login:hover,
 a.login:hover {
-  background-color: rgba(18, 170, 62, 0.85);
+  background-color: #2da9d2;
   color: #fff;
   cursor: pointer;
 }
