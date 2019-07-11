@@ -24,13 +24,21 @@
 	      <i class="fa fa-caret-down"></i>
 	    </button>
 	    <div class="dropdown-content">
-	      <a href="http://ww.facebook.com">Horror</a>
-	      <a href="#">Fantasy</a>
+	      <a href="#">Biographies</a>
+	      <a href="#">Comics</a>
+	      <a href="#">Dramatics</a>
+	      <a href="#">History</a>
+	      <a href="#">Horror</a>
+	      <a href="#">Mysteries</a>
+	      <a href="#">Religion</a>
 	      <a href="#">Romance</a>
-	      <a href="#">Dramatic</a>
+	      <a href="#">Sport</a>
+	      <a href="#">Travel</a>
+	      
 	    </div>
 	  </div> 
 	  <a href="#about">About us</a>
+	  <a href="#about">Logout</a>
 	  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
 	</div>
 	
