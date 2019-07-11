@@ -24,7 +24,7 @@
 	      <i class="fa fa-caret-down"></i>
 	    </button>
 	    <div class="dropdown-content">
-	      <a href="#">Horror</a>
+	      <a href="http://ww.facebook.com">Horror</a>
 	      <a href="#">Fantasy</a>
 	      <a href="#">Romance</a>
 	      <a href="#">Dramatic</a>
