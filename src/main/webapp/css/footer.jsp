@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="footer">
-Stuff about copyright, legal notes and other useless informations...
+Copyright by BookMe Team
 </div>
 </body>
 </html>

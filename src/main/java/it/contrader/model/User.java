@@ -1,7 +1,5 @@
 package it.contrader.model;
-/**
- * Per dettagli vedi guida sez 4 Model
- */
+
 public class User {
 
 	/**

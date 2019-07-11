@@ -6,7 +6,7 @@ import java.util.List;
  * 
  * @author Vittorio
  *
- * @param <DTO> questo è un tipo generico!
+ * @param <DTO> questo ï¿½ un tipo generico!
  */
 public interface Service<DTO> {
 	/**

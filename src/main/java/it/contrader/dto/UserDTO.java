@@ -1,14 +1,5 @@
 package it.contrader.dto;
 
-/**
- * 
- * @author Vittorio
- *
- *Il DTO è simile al Model ma può contenere meno attributi (ad esempio d dati sensibili
- *che non devono arrivare alla View). GLi oggetti vengono trasformati da oggetti del Model
- *a oggetti del DTO tramite i Converter (chiamati dai Service). 
- *Per la descrizione della classe far riferimento al Model "User".
- */
 public class UserDTO {
 	
 	private int id;
