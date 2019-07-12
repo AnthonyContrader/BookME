@@ -7,7 +7,7 @@ import it.contrader.dto.PersonaggiDTO;
 import it.contrader.model.Personaggi;
 
 
-public class PersonaggiConverter implements Converter<Story, StoryDTO> {
+public class PersonaggiConverter implements Converter<Personaggi, PersonaggiDTO> {
 
 	@Override
 	public PersonaggiDTO toDTO(Personaggi personaggi) {

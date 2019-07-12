@@ -5,7 +5,7 @@ public class PersonaggiDTO {
 	
 	private int id_Personaggio;
 	
-	private String nota;
+	private String nome;
 	
 	private int id_Storia;
 
@@ -22,16 +22,16 @@ public class PersonaggiDTO {
 	}
 
 	public String getNota() {
-		return nota;
+		return nome;
 	}
 
 	public void setNota(String nota) {
-		this.nota = nota;
+		this.nome = nota;
 	}
 
 	@Override
 	public String toString() {
-		return "PersonaggiDTO [id_Personaggio=" + id_Personaggio + ", nota=" + nota + "]";
+		return "PersonaggiDTO [id_Personaggio=" + id_Personaggio + ", nota=" + getNota() + "]";
 	}
 
 	public int getId_Storia() {
