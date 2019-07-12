@@ -3,6 +3,7 @@ package it.contrader.service;
 import it.contrader.converter.UserConverter;
 import it.contrader.dao.LoginDAO;
 import it.contrader.dto.UserDTO;
+import it.contrader.model.User;
 
 public class LoginService {
 
@@ -21,7 +22,10 @@ public class LoginService {
 	 * Chiama il metodo del DAO e ottiene una stringa (lo usertype)
 	 * @return 
 	 */
-	public UserDTO login(String username, String password) {
-		return converter.toDTO(dao.login(username, password));
+	public UserDTO login(String username, String password)
+	{
+		User user = dao.login(username, password);
+		UserDTO userDTO = converter.toDTO(user);
+		return userDTO;
 	}
 }

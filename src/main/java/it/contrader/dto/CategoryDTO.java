@@ -23,6 +23,9 @@ public class CategoryDTO
 		this.id = id;
 		this.nomeCategoria = nomeCategoria;
 	}
+	public CategoryDTO() {
+		// TODO Auto-generated constructor stub
+	}
 	public int getId() {
 		return id;
 	}

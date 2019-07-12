@@ -28,6 +28,12 @@
   	<description></description>
   	<servlet-class>it.contrader.servlets.CategoryServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>CategoryServlett</servlet-name>
+  	<display-name>CategoryServlett</display-name>
+  	<description></description>
+  	<servlet-class>it.contrader.servlets.CategoryServlett</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>LoginServlet</servlet-name>
   	<url-pattern>/LoginServlet</url-pattern>
@@ -43,6 +49,10 @@
   <servlet-mapping>
   	<servlet-name>CategoryServlet</servlet-name>
   	<url-pattern>/CategoryServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CategoryServlett</servlet-name>
+  	<url-pattern>/CategoryServlett</url-pattern>
   </servlet-mapping>
 
 </web-app>

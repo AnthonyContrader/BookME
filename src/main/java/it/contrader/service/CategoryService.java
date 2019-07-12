@@ -4,9 +4,9 @@ import java.util.List;
 
 import it.contrader.converter.CategoryConverter;
 import it.contrader.dao.CategoryDAO;
-import it.contrader.dto.CategorieDTO;
+
 import it.contrader.dto.CategoryDTO;
-import it.contrader.model.Categorie;
+
 import it.contrader.model.Category;
 
 public class CategoryService extends AbstractService<Category, CategoryDTO>
