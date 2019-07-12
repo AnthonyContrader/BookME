@@ -21,17 +21,17 @@ public class PersonaggiDTO {
 		this.id_Personaggio = id_Personaggio;
 	}
 
-	public String getNota() {
+	public String getNome() {
 		return nome;
 	}
 
-	public void setNota(String nota) {
+	public void setNome(String nota) {
 		this.nome = nota;
 	}
 
 	@Override
 	public String toString() {
-		return "PersonaggiDTO [id_Personaggio=" + id_Personaggio + ", nota=" + getNota() + "]";
+		return "PersonaggiDTO [id_Personaggio=" + id_Personaggio + ", nome=" + nome + "]";
 	}
 
 	public int getId_Storia() {
