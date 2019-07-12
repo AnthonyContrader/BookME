@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.contrader.dto.PersonaggiDTO;
-import it.contrader.dto.StoryDTO;
 import it.contrader.model.Personaggi;
-import it.contrader.model.Story;
 
 public class PersonaggiConverter implements Converter<Personaggi, PersonaggiDTO> {
 
