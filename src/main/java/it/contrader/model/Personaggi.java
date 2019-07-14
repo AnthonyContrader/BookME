@@ -1,5 +1,6 @@
 package it.contrader.model;
 
+
 public class Personaggi {
 	
 	private int id_Personaggio;
