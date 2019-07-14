@@ -23,7 +23,8 @@ public class LoginServlet extends HttpServlet {
 	 * 
 	 * Metodo che gestisce le request che arrivano dalla JSP.
 	 */
-	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
 		final HttpSession session = request.getSession();
 		session.setAttribute("utente", null);
 
@@ -49,6 +50,7 @@ public class LoginServlet extends HttpServlet {
 				break;
 				
 			case "USER":
+				
 				getServletContext().getRequestDispatcher("/homeuser.jsp").forward(request, response);
 				break;
 				

@@ -32,7 +32,8 @@ public class CategoryServlett extends HttpServlet {
     	
     	
     	int numOfCategory = request.getIntHeader("Category");
-    	CategoryDTO cat;
+    	CategoryDTO cat = new CategoryDTO();
+    	
     	if(request != null)
     	{
     		
@@ -42,7 +43,13 @@ public class CategoryServlett extends HttpServlet {
 	    		case "READ" :
 	    		cat = service.Read(numOfCategory);
 	    		cat.getNomeCategoria();
+	    		cat.getId();
+	    		getServletContext().getRequestDispatcher("/storyRead.jsp").forward(request, response);
 	    		break;
+	    		
+	    		
+	    		
+	    		
 	    		
 	    		case "GETCATEGORYLIST" :
 	    		List<CategoryDTO> categories = service.GetAll();

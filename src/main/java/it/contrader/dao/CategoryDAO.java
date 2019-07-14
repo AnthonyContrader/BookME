@@ -56,7 +56,8 @@ public class CategoryDAO implements DAO<Category>
 
 			
 			nomeCategoria = resultSet.getString("nome_Categorie");
-			Category c = new Category(nomeCategoria);
+			Category c = new Category(id, nomeCategoria);
+			
 			
 
 			return c;
