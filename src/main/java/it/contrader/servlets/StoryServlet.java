@@ -57,8 +57,12 @@ public class StoryServlet extends HttpServlet {
 			break;
 
 		case "INSERT":
+			
 			String trama = request.getParameter("trama").toString();
 			int id_Categoria = Integer.parseInt(request.getParameter("id_Categoria"));
+			
+			System.out.println("id = "+id_Categoria+"\n"+"trama = "+trama);
+			
 			dto = new StoryDTO(trama, id_Categoria);
 			ans = service.insert(dto);
 			request.setAttribute("ans", ans);

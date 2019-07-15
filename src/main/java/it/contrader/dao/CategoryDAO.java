@@ -19,7 +19,7 @@ public class CategoryDAO implements DAO<Category>
 	private final String QUERY_UPDATE = "UPDATE categorie SET nome_Categorie=? WHERE id=?";
 	private final String QUERY_DELETE = "DELETE FROM categorie WHERE id=?";
 
-	@Override
+
 	public List<Category> getAll()
 	{
 		List<Category> categoryList = new ArrayList<Category>();
@@ -42,7 +42,7 @@ public class CategoryDAO implements DAO<Category>
 		return categoryList;
 	}
 
-	@Override
+	
 	public Category read(int id) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
@@ -66,19 +66,19 @@ public class CategoryDAO implements DAO<Category>
 		}
 	}
 
-	@Override
+	
 	public boolean insert(Category dto) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
+	
 	public boolean update(Category dto) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
+	
 	public boolean delete(int id) {
 		// TODO Auto-generated method stub
 		return false;

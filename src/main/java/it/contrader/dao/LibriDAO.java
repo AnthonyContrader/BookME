@@ -20,7 +20,7 @@ public class LibriDAO implements DAO<Libro>
 	private final String QUERY_UPDATE = "UPDATE libro SET nome_Libro=? ,id_Categoria=? WHERE id_Libro=?";
 	private final String QUERY_DELETE = "DELETE FROM libro WHERE id_Libro=?";
 
-	@Override
+	
 	public List<Libro> getAll() {
 		
 		List<Libro> listaLibri = new ArrayList<>();
@@ -43,7 +43,7 @@ public class LibriDAO implements DAO<Libro>
 		return listaLibri;
 	}
 
-	@Override
+	
 	public Libro read(int id) {
 		try {
 
@@ -68,7 +68,7 @@ public class LibriDAO implements DAO<Libro>
 
 	}
 
-	@Override
+
 	public boolean insert(Libro libroDto) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {	
@@ -82,13 +82,13 @@ public class LibriDAO implements DAO<Libro>
 		}
 	}
 
-	@Override
+
 	public boolean update(Libro dto) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
+	
 	public boolean delete(int id_Libro) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
