@@ -13,10 +13,10 @@ import it.contrader.dto.LibroDTO;
 import it.contrader.service.LibroService;
 
 
-public class LibroServlet extends HttpServlet {
+public class LibriServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
-    public LibroServlet() {
+    public LibriServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,7 +32,7 @@ public class LibroServlet extends HttpServlet {
     	{
     		switch(option.toUpperCase())
     		{
-    			case "GETLIBROLIST" :
+    			case "LIBRILIST" :
     			List<LibroDTO> listLibriDTO = service.GetAll();
     			request.setAttribute("libroyList", listLibriDTO);
 	    		getServletContext().getRequestDispatcher("libro/libromanager.jsp").forward(request, response);

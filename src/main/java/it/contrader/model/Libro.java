@@ -2,6 +2,7 @@ package it.contrader.model;
 
 public class Libro
 {
+	
 	private String nomeLibro;
 	private int id_Libro;
 	private int id_Categoria;

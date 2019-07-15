@@ -17,6 +17,13 @@
   	<servlet-class>it.contrader.servlets.LogoutServlet</servlet-class>
   </servlet>
   
+   <servlet>
+  	<servlet-name>LibriServlet</servlet-name>
+  	<display-name>LibriServlet</display-name>
+  	<description></description>
+  	<servlet-class>it.contrader.servlets.LibroServlet</servlet-class>
+  </servlet>
+  
     <servlet>
   	<servlet-name>StoryServlet</servlet-name>
   	<display-name>StoryServlet</display-name>
@@ -77,6 +84,11 @@
   <servlet-mapping>
   	<servlet-name>PersonaggiServlet</servlet-name>
   	<url-pattern>/PersonaggiServlet</url-pattern>
+  </servlet-mapping>
+  
+    <servlet-mapping>
+  	<servlet-name>LibriServlet</servlet-name>
+  	<url-pattern>/LibriServlet</url-pattern>
   </servlet-mapping>
 
 </web-app>
