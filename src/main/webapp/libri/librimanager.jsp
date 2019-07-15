@@ -50,7 +50,7 @@
 		<form id="floatright" action="LibroServlet?mode=insert" method="post">
 			<div class="row">
 				<div class="col-25">
-					<label for="nomeLibro">nomeLibro</label>
+					<label for="user">nomeLibro</label>
 				</div>
 				<div class="col-75">
 					<input type="text" id="nomeLibro" name="nomeLibro"

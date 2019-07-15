@@ -12,7 +12,7 @@ import it.contrader.model.Libro;
 import it.contrader.model.Story;
 import it.contrader.utils.ConnectionSingleton;
 
-public class LibriDAO implements DAO<Libro>
+public class LibroDAO implements DAO<Libro>
 {
 	private final String QUERY_ALL = "SELECT * FROM libro";
 	private final String QUERY_CREATE = "INSERT INTO libro (nome_Libro, id_Categoria) VALUES (?,?)";
