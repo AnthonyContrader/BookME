@@ -60,6 +60,12 @@
   	<servlet-name>UserServlet</servlet-name>
   	<url-pattern>/UserServlet</url-pattern>
   </servlet-mapping>
+  
+    <servlet-mapping>
+  	<servlet-name>StoryServlet</servlet-name>
+  	<url-pattern>/StoryServlet</url-pattern>
+  </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>CategoryServlet</servlet-name>
   	<url-pattern>/CategoryServlet</url-pattern>
