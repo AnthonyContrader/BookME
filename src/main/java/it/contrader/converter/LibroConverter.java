@@ -11,7 +11,7 @@ public class LibroConverter implements Converter<Libro, LibroDTO>
 
 
 	public LibroDTO toDTO(Libro entity) {
-		LibroDTO libro = new LibroDTO(entity.getNomeLibro(),entity.getId_Categoria(), entity.getId_Libro());
+		LibroDTO libro = new LibroDTO(entity.getNomeLibro(),entity.getId_Categoria());
 		return libro;
 	}
 

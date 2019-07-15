@@ -21,7 +21,7 @@
 
 		<table>
 			<tr>
-				<th>Nome</th>
+				<th>Nome Personaggio</th>
 				<th>id_Storie</th>
 				<th></th>
 				<th></th>

@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import it.contrader.dto.LibroDTO;
-import it.contrader.dto.StoryDTO;
-import it.contrader.dto.UserDTO;
 import it.contrader.service.LibroService;
 import it.contrader.service.Service;
 

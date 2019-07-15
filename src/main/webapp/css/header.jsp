@@ -64,7 +64,7 @@
   <a href="UserServlet?mode=userlist">Users</a>
    <a href="StoryServlet?mode=storylist">Stories</a>
    <a href="PersonaggiServlet?mode=personaggilist">Personaggi</a>
-   <a href="LibriServlet?mode=librilist">Libri</a>
+   <a href="LibroServlet?mode=librolist">Libri</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>  
 
