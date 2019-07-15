@@ -36,7 +36,7 @@ public class StoryServlet extends HttpServlet {
 
 		switch (mode.toUpperCase()) {
 
-		case "storylist":
+		case "STORYLIST":
 			updateList(request);
 			getServletContext().getRequestDispatcher("/story/storymanager.jsp").forward(request, response);
 			break;
