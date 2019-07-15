@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="it.contrader.dto.UserDTO"%>
+    pageEncoding="ISO-8859-1" import="it.contrader.dto.PersonaggiDTO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,38 +13,38 @@
 <br>
 <div class="main">
 
-<%UserDTO u = (UserDTO) request.getAttribute("dto");%>
+<%PersonaggiDTO u = (PersonaggiDTO) request.getAttribute("dto");%>
 
 
-<form id="floatleft" action="UserServlet?mode=update&id=<%=u.getId()%>" method="post">
+<form id="floatleft" action="PersonaggiServlet?mode=update&id=<%=u.getId_Personaggio()%>" method="post">
   <div class="row">
     <div class="col-25">
-      <label for="user">Username</label>
+      <label for="user">Nome</label>
     </div>
     <div class="col-75">
-      <input type="text" id="user" name="username" value=<%=u.getUsername()%>>
+      <input type="text" id="nome" name="nome" value=<%=u.getNome()%>>
     </div>
   </div>
   <div class="row">
     <div class="col-25">
-     <label for="pass">Password</label>
+     <label for="text">id_Storie</label>
     </div>
     <div class="col-75">
       <input
-			type="text" id="pass" name="password" value=<%=u.getPassword()%>> 
+			type="text" id="text" name="id_Storie" value=<%=u.getId_Storia()%>> 
     </div>
   </div>
-  <div class="row">
-    <div class="col-25">
-      <label for="type">Usertype</label>
-    </div>
-   		 <div class="col-75">
- 			<select id="type" name="usertype">
-  				<option value="ADMIN" <%if(u.getUsertype().equals("ADMIN")) {%>selected<%}%>>ADMIN</option>
-  				<option value="USER" <%if(u.getUsertype().equals("USER")) {%>selected<%}%>>USER</option>
-			</select>
-    	</div>
-  </div>
+<!--   <div class="row"> -->
+<!--     <div class="col-25"> -->
+<!--       <label for="type">Usertype</label> -->
+<!--     </div> -->
+<!--    		 <div class="col-75"> -->
+<!--  			<select id="type" name="usertype"> -->
+<%--   				<option value="ADMIN" <%if(u.getUsertype().equals("ADMIN")) {%>selected<%}%>>ADMIN</option> --%>
+<%--   				<option value="USER" <%if(u.getUsertype().equals("USER")) {%>selected<%}%>>USER</option> --%>
+<!-- 			</select> -->
+<!--     	</div> -->
+<!--   </div> -->
       <button type="submit" >Edit</button>
 </form>
 
