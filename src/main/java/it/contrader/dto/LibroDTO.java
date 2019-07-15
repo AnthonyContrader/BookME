@@ -28,10 +28,10 @@ public class LibroDTO
 	 * @param id_Libro
 	 * @param id_Categoria
 	 */
-	public LibroDTO(String nomeLibro, int id_Libro, int id_Categoria) {
+	public LibroDTO(String nomeLibro, int id_Categoria) {
 		super();
 		this.nomeLibro = nomeLibro;
-		this.id_Libro = id_Libro;
+
 		this.id_Categoria = id_Categoria;
 	}
 	public String getNomeLibro() {
