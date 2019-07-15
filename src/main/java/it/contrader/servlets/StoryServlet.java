@@ -1,5 +1,6 @@
 package it.contrader.servlets;
 
+
 import java.io.IOException;
 import java.util.List;
 
@@ -7,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import it.contrader.dto.StoryDTO;
 import it.contrader.service.Service;
 import it.contrader.service.StoryService;
@@ -34,7 +36,7 @@ public class StoryServlet extends HttpServlet {
 
 		switch (mode.toUpperCase()) {
 
-		case "STORYLIST":
+		case "storylist":
 			updateList(request);
 			getServletContext().getRequestDispatcher("/story/storymanager.jsp").forward(request, response);
 			break;

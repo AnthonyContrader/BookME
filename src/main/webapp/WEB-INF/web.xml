@@ -16,6 +16,14 @@
   	<description></description>
   	<servlet-class>it.contrader.servlets.LogoutServlet</servlet-class>
   </servlet>
+  
+    <servlet>
+  	<servlet-name>StoryServlet</servlet-name>
+  	<display-name>StoryServlet</display-name>
+  	<description></description>
+  	<servlet-class>it.contrader.servlets.StoryServlet</servlet-class>
+  </servlet>
+  
   <servlet>
   	<servlet-name>UserServlet</servlet-name>
   	<display-name>UserServlet</display-name>
