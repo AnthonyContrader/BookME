@@ -23,7 +23,7 @@
 			<tr>
 				<th>trama</th>
 				<th>id_Categoria</th>
-				<th></th>
+				<th>id_Storie</th>
 			</tr>
 			<%
 				for (StoryDTO u : list) {

@@ -67,9 +67,17 @@ public class CategoryDAO implements DAO<Category>
 	}
 
 	
-	public boolean insert(Category dto) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean insert(Category categoryToInsert) {
+		Connection connection = ConnectionSingleton.getInstance();
+		try {	
+			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_CREATE);
+			preparedStatement.setString(1, categoryToInsert.getNomeCategoria());
+			//preparedStatement.setInt(2, storyToInsert.getId_Categoria());
+			preparedStatement.execute();
+			return true;
+		} catch (SQLException e) {
+			return false;
+		}
 	}
 
 	
@@ -80,7 +88,16 @@ public class CategoryDAO implements DAO<Category>
 
 	
 	public boolean delete(int id) {
-		// TODO Auto-generated method stub
+		Connection connection = ConnectionSingleton.getInstance();
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_DELETE);
+			preparedStatement.setInt(1, id);
+			int n = preparedStatement.executeUpdate();
+			if (n != 0)
+				return true;
+
+		} catch (SQLException e) {
+		}
 		return false;
 	}
 

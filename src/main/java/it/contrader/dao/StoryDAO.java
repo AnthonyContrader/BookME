@@ -120,7 +120,8 @@ public class StoryDAO implements DAO<Story>{
 	}
 
 
-	public boolean delete(int id_Storie) {
+	public boolean delete(int id_Storie)
+	{
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_DELETE);

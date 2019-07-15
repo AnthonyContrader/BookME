@@ -37,7 +37,9 @@ public class StoryServlet extends HttpServlet {
 		switch (mode.toUpperCase()) {
 
 		case "STORYLIST":
-			updateList(request);
+			Service<StoryDTO> servicee = new StoryService();
+			List<StoryDTO> listDTO = servicee.getAll();
+			request.setAttribute("list", listDTO);
 			getServletContext().getRequestDispatcher("/story/storymanager.jsp").forward(request, response);
 			break;
 
