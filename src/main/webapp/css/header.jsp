@@ -60,7 +60,7 @@
 
 
  <div class="navbar">
-  <a class="active" href="homeadmin.jsp">Home</a>
+  <a class="active" href="homeuser.jsp">Home</a>
   <a href="UserServlet?mode=userlist">Users</a>
    <a href="StoryServlet?mode=storylist">Stories</a>
   <a href="LogoutServlet" id="logout">Logout</a>
