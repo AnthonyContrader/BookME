@@ -22,6 +22,10 @@ body {margin:0;font-family:Arial}
   color: white;
 }
 
+.topnav-right {
+  float: right;
+}
+
 .topnav .icon {
   display: none;
 }

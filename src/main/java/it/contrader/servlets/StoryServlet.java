@@ -11,19 +11,19 @@ import it.contrader.dto.StoryDTO;
 import it.contrader.service.Service;
 import it.contrader.service.StoryService;
 
-public class StoryServlet extends HttpServlet{
-	
-	
+public class StoryServlet extends HttpServlet {
+
+	private static final long serialVersionUID = 1L;
+
 	public StoryServlet() {
-		
+
 	}
-	
+
 	public void updateList(HttpServletRequest request) {
 		Service<StoryDTO> service = new StoryService();
-		List<StoryDTO>listDTO = service.getAll();
+		List<StoryDTO> listDTO = service.getAll();
 		request.setAttribute("list", listDTO);
 	}
-	
 
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Service<StoryDTO> service = new StoryService();
@@ -35,9 +35,7 @@ public class StoryServlet extends HttpServlet{
 		switch (mode.toUpperCase()) {
 
 		case "STORYLIST":
-			List<StoryDTO>listDTO = service.getAll();
-			request.setAttribute("list", listDTO);
-			
+			updateList(request);
 			getServletContext().getRequestDispatcher("/story/storymanager.jsp").forward(request, response);
 			break;
 
@@ -45,31 +43,32 @@ public class StoryServlet extends HttpServlet{
 			id_Storie = Integer.parseInt(request.getParameter("id_Storie"));
 			dto = service.read(id_Storie);
 			request.setAttribute("dto", dto);
-			
+
 			if (request.getParameter("update") == null) {
-				 getServletContext().getRequestDispatcher("/story/readstory.jsp").forward(request, response);
-				
+				getServletContext().getRequestDispatcher("/story/readstory.jsp").forward(request, response);
+
 			}
-			
-			else getServletContext().getRequestDispatcher("/story/updatestory.jsp").forward(request, response);
-			
+
+			else
+				getServletContext().getRequestDispatcher("/story/updatestory.jsp").forward(request, response);
+
 			break;
 
 		case "INSERT":
 			String trama = request.getParameter("trama").toString();
 			int id_Categoria = Integer.parseInt(request.getParameter("id_Categoria"));
-			dto = new StoryDTO (trama,id_Categoria);
+			dto = new StoryDTO(trama, id_Categoria);
 			ans = service.insert(dto);
 			request.setAttribute("ans", ans);
 			updateList(request);
 			getServletContext().getRequestDispatcher("/story/storymanager.jsp").forward(request, response);
 			break;
-			
+
 		case "UPDATE":
 			trama = request.getParameter("trama");
 			id_Categoria = Integer.parseInt(request.getParameter("id_Categoria"));
 			id_Storie = Integer.parseInt(request.getParameter("id_Storie"));
-			dto = new StoryDTO (trama,id_Categoria);
+			dto = new StoryDTO(trama, id_Categoria);
 			ans = service.update(dto);
 			updateList(request);
 			getServletContext().getRequestDispatcher("/story/storymanager.jsp").forward(request, response);

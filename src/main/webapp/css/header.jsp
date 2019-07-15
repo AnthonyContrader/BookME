@@ -7,7 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
- <link href="css/homeuserStyle.css" rel="stylesheet"> 
+ <link href="css/vittoriostyle.css" rel="stylesheet"> 
 
 </head>
 
@@ -17,7 +17,7 @@
 </div> -->
 
   
-     <div class="topnav" id="myTopnav">
+   <!--  <div class="topnav" id="myTopnav">
 	  <a href="#home" class="active">Home</a>
 	  <div class="dropdown">
 	    <button class="dropbtn">Categorie 
@@ -34,11 +34,14 @@
 	      <a href="#">Romance</a>
 	      <a href="#">Sport</a>
 	      <a href="#">Travel</a>
-	      
 	    </div>
 	  </div> 
 	  <a href="#about">About us</a>
-	  <a href="#about">Logout</a>
+	  <div class="topnav-right">
+	      <a href="#about">Logout</a>
+	  </div>
+	  
+	  
 	  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
 	</div>
 	
@@ -52,16 +55,16 @@
 	    x.className = "topnav";
 	  }
 	 }
-	</script>
+	</script>  -->
 
 
 
-<!-- <div class="navbar">
+ <div class="navbar">
   <a class="active" href="homeadmin.jsp">Home</a>
   <a href="UserServlet?mode=userlist">Users</a>
    <a href="StoryServlet?mode=storylist">Stories</a>
   <a href="LogoutServlet" id="logout">Logout</a>
-</div>   -->
+</div>  
 
 </body>
 </html>
