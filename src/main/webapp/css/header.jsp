@@ -58,15 +58,15 @@
 	</script>  -->
 
 
-
  <div class="navbar">
-  <a class="active" href="homeuser.jsp">Home</a>
-  <a href="UserServlet?mode=userlist">Users</a>
+  <a class="active" data-toggle="tab" href="homeuser.jsp">Home</a>
+  <a data-toggle="tab" href="UserServlet?mode=userlist">Users</a>
    <a href="StoryServlet?mode=storylist">Stories</a>
    <a href="PersonaggiServlet?mode=personaggilist">Personaggi</a>
    <a href="LibroServlet?mode=librolist">Libri</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>  
+
 
 </body>
 </html>

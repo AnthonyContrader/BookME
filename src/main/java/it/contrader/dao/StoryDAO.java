@@ -17,7 +17,7 @@ public class StoryDAO implements DAO<Story>{
 	private final String QUERY_ALL = "SELECT * FROM storie";
 	private final String QUERY_CREATE = "INSERT INTO storie (trama, id_Categoria) VALUES (?,?)";
 	private final String QUERY_READ = "SELECT * FROM storie WHERE id_Storie=?";
-	private final String QUERY_UPDATE = "UPDATE storie SET trama=? ,id_Categoria=? WHERE id_Storie=?";
+	private final String QUERY_UPDATE = "UPDATE storie SET trama=? WHERE id_Storie=?";
 	private final String QUERY_DELETE = "DELETE FROM storie WHERE id_Storie=?";
 
 	@Override
@@ -33,7 +33,7 @@ public class StoryDAO implements DAO<Story>{
 				int id_Storie = resultSet.getInt("id_Storie");
 				String trama = resultSet.getString("trama");
 				int id_Categoria = resultSet.getInt("id_Categoria");
-				story = new Story(trama, id_Categoria);
+				story = new Story(trama, id_Categoria,id_Storie);
 				//user.setId(id);
 				storyList.add(story);
 			}
@@ -60,7 +60,7 @@ public class StoryDAO implements DAO<Story>{
 			trama = resultSet.getString("trama");
 			id_Categoria = resultSet.getInt("id_Categoria");
 			
-			Story story = new Story(trama, id_Categoria);
+			Story story = new Story(trama, id_Categoria,id_Storie);
 			story.setId_Storie(resultSet.getInt("id_Storie"));
 
 			return story;
@@ -102,8 +102,8 @@ public class StoryDAO implements DAO<Story>{
 				// Update the user
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 				preparedStatement.setString(1, storyToUpdate.getTrama());
-				preparedStatement.setInt(2, storyToUpdate.getId_Categoria());
-				preparedStatement.setInt(3, storyToUpdate.getId_Storie());
+				//preparedStatement.setInt(2, storyToUpdate.getId_Categoria());
+				preparedStatement.setInt(2, storyToUpdate.getId_Storie());
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)
 					return true;

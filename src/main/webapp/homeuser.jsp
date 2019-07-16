@@ -13,7 +13,6 @@
 	<body>
 
 	     <%@include file="css/header.jsp"%>
-	     <%@include file="css/LibriHome.html"%>
 	     <%@include file="css/footer.jsp"%>
 	     
 	</body>

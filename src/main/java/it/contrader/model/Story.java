@@ -10,9 +10,19 @@ public class Story {
 		
 	}
 
-	public Story(String trama, int id_Categoria) {
+	public Story(String trama, int id_Categoria,int id_Storie) {
 		this.trama = trama;
 		this.id_Categoria = id_Categoria;
+		this.id_Storie = id_Storie ; 
+	}
+	
+	public Story(String trama,int id_Storie) {
+		this.id_Storie = id_Storie;
+		this.trama = trama;
+	}
+	
+	public Story(String trama) {
+		this.trama = trama;
 	}
 
 	public int getId_Storie() {

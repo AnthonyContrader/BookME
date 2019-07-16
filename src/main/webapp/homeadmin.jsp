@@ -20,14 +20,6 @@
 </div>  -->
 
 
-<div class="main">
-<h1>Welcome ${user.getUsername()}</h1>
-
-"Testo"
-
-</div>
-
-
 <%@ include file="css/footer.jsp" %>
 
 </body>

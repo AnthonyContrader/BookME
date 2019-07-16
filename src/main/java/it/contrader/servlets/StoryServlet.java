@@ -44,7 +44,7 @@ public class StoryServlet extends HttpServlet {
 			break;
 
 		case "READ":
-			id_Storie = Integer.parseInt(request.getParameter("id_Storie"));
+			id_Storie = Integer.parseInt(request.getParameter("id"));
 			dto = service.read(id_Storie);
 			request.setAttribute("dto", dto);
 
@@ -65,7 +65,7 @@ public class StoryServlet extends HttpServlet {
 			
 			System.out.println("id = "+id_Categoria+"\n"+"trama = "+trama);
 			
-			dto = new StoryDTO(trama, id_Categoria);
+			dto = new StoryDTO(trama, id_Categoria,-1);
 			ans = service.insert(dto);
 			request.setAttribute("ans", ans);
 			updateList(request);
@@ -74,16 +74,18 @@ public class StoryServlet extends HttpServlet {
 
 		case "UPDATE":
 			trama = request.getParameter("trama");
-			id_Categoria = Integer.parseInt(request.getParameter("id_Categoria"));
-			id_Storie = Integer.parseInt(request.getParameter("id_Storie"));
-			dto = new StoryDTO(trama, id_Categoria);
+			System.out.println("trama =  "+trama);
+			//id_Categoria = Integer.parseInt(request.getParameter("id_Categoria"));
+			id_Storie = Integer.parseInt(request.getParameter("id"));
+			dto = new StoryDTO(trama,id_Storie);
 			ans = service.update(dto);
 			updateList(request);
 			getServletContext().getRequestDispatcher("/story/storymanager.jsp").forward(request, response);
 			break;
 
 		case "DELETE":
-			id_Storie = Integer.parseInt(request.getParameter("id_Storie"));
+			//System.out.println("devo fare la delete");
+			id_Storie = (int)Integer.parseInt(request.getParameter("id"));
 			ans = service.delete(id_Storie);
 			request.setAttribute("ans", ans);
 			updateList(request);

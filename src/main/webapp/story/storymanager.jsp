@@ -11,7 +11,6 @@
 <body>
 	<%@ include file="../css/header.jsp"%>
 
-
 	<div class="main">
 		<%
 			List<StoryDTO> list = (List<StoryDTO>) request.getAttribute("list");
@@ -29,14 +28,13 @@
 				for (StoryDTO u : list) {
 			%>
 			<tr>
-				<td><a href=StoryServlet?mode=read&id= <%=u.getId_Storie()%>>
+				<td><a href="StoryServlet?mode=read&id=<%=u.getId_Storie()%>">
 						<%=u.getTrama()%>
 				</a></td>
 				<td><%=u.getId_Categoria()%></td>
 
-				<td><a href=StoryServlet?mode=read&update=true&id=
-					<%=u.getId_Storie()%>>Edit</a></td>
-				<td><a href=StoryServlet?mode=delete&id= <%=u.getId_Storie()%>>Delete</a>
+				<td><a href="StoryServlet?mode=read&update=true&id=<%=u.getId_Storie()%>">Edit</a></td>
+				<td><a href="StoryServlet?mode=delete&id= <%=u.getId_Storie()%>">Delete</a>
 				</td>
 
 			</tr>

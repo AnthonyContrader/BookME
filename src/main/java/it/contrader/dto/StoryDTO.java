@@ -6,9 +6,19 @@ public class StoryDTO {
 	private String trama ; 
 	private int id_Categoria;
 	
-	public StoryDTO(String trama, int id_Categoria) {
+	public StoryDTO(String trama, int id_Categoria,int id_Storie) {
 		this.trama = trama;
 		this.id_Categoria = id_Categoria;
+		this.id_Storie = id_Storie;
+	}
+	
+	public StoryDTO(String trama,int id_Storie) {
+		this.id_Storie = id_Storie;
+		this.trama = trama;
+	}
+	
+	public StoryDTO(String trama) {
+		this.trama = trama;
 	}
 
 	public StoryDTO() {
