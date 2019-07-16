@@ -88,6 +88,7 @@ public class UserController {
 		session = request.getSession();
 		final String username = request.getParameter("username");
 		final String password = request.getParameter("password");
+		
 		final UserDTO userDTO = userService.getByUsernameAndPassword(username, password);
 		final String ruolo = userDTO.getRuolo();
 		if (!StringUtils.isEmpty(ruolo)) {
@@ -98,6 +99,6 @@ public class UserController {
 				return "home";
 			}
 		}
-		return "index";
+		return "home";
 	}
 }
