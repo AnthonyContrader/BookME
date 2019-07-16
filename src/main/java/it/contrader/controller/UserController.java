@@ -74,7 +74,7 @@ public class UserController {
 		String password = request.getParameter("password").toString();
 		String ruolo = request.getParameter("ruolo").toString();
 
-		UserDTO userObj = new UserDTO(0, username, password, ruolo,"");
+		UserDTO userObj = new UserDTO(0, username, password, ruolo, "");
 		
 		userService.insertUser(userObj);
 
@@ -94,10 +94,10 @@ public class UserController {
 			session.setAttribute("utenteCollegato", userDTO);
 			if (ruolo.equals("ADMIN")) {
 				return "home";
-			} else if (ruolo.equals("CHATMASTER")) {
+			} else if (ruolo.equals("USER")) {
 				return "home";
 			}
 		}
-		return "index";
+		return "home";
 	}
 }

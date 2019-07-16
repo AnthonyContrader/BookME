@@ -24,6 +24,7 @@
          <ul class='nav navbar-nav navbar-inverse navbar-custom'>
             <li><a href="/Home/userManagement/">User</a></li>
             <li><a href="/Home/chatManagement/">Chatbot</a></li>
+            <li><a href="/Category/categoryManagement/">Categorie</a></li>
             <li><a href="/Home/logout/">Logout</a></li>
          </ul>
     </div>
