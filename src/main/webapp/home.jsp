@@ -14,23 +14,14 @@
 
 	<!-- ******* YOUR CODE ******* -->
 
-	<div class="content">
-		<div class="container-fluid">
-			<div class="card">
-				<div class="card-header">
-					<h4 class="card-title">Non mi Toccare <3</h4>
-					<p>
-						<!-- EHI TU NON TOCCARMI I PUNTINI -->
-						<%@ include file="/css/puntini.html"%>
+
+	<h4 class="card-title">Non mi Toccare <3</h4>
+	<p>
+		<!-- EHI TU NON TOCCARMI I PUNTINI -->
+		<%@ include file="/css/puntini.html"%>
 
 
-					</p>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
+	</p>
 
 	<!-- MUST BE INCLUDED AT THE END -->
 	<%@ include file="/include/footer.jsp"%>

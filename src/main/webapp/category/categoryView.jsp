@@ -6,9 +6,12 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Category View</title>
+<%@ include file="/include/header.jsp" %>
 </head>
 <body>
+<%@ include file="/include/navbar.jsp" %> 
  <% CategoryDTO category = (CategoryDTO) request.getAttribute("category"); %>
  <h2><%= category.getName() %></h2>
+ <%@ include file="/include/footer.jsp" %> 
 </body>
 </html>

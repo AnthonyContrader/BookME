@@ -6,15 +6,10 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Category List</title>
-<link href="/css/bootstrap.min.css" rel="stylesheet">
 <%@ include file="/include/header.jsp" %>
 </head>
 <style type="text/css">
-	body{
-		background: #2980b9; /* fallback for old browsers */
-  		background: -webkit-linear-gradient(to right, #2980b9, #6dd5fa, #ffffff);
-  		background: linear-gradient(to right, #2980b9, #6dd5fa, #ffffff);
-	}
+	
 	#mycont{
 		max-width: 500px;
 	}

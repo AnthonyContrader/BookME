@@ -69,4 +69,7 @@
 		</div>
 	</nav>
 	<div class="content">
+	<div class="container-fluid">
+			<div class="card text-white bg-primary">
+				<div class="card-body">
 				
