@@ -1,0 +1,125 @@
+@charset "UTF-8";
+.filter-container {
+  padding-bottom: 100px;
+}
+
+.card {
+  width: 300px;
+  height: 500px;
+  position: relative;
+  box-shadow: none;
+  display: inline-block;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  text-align: left;
+  box-shadow: 2px 3px 12px 0px rgba(0, 0, 0, 0.75);
+  transition: all .8s;
+}
+
+.card-img-container {
+  background: url(https://picsum.photos/300/300) center center no-repeat;
+  background-size: cover;
+  height: 200px;
+  width: auto;
+  border-radius: 5px 5px 0 0;
+  filter: contrast(2) invert(0.2) sepia(0.7);
+  transition: .4s all;
+}
+
+.card:hover .card-img-container {
+  filter: none;
+}
+
+.card-text-container {
+  padding: 20px;
+  height: 250px;
+  overflow: hidden;
+}
+
+.card-text-container.expanded {
+  height: 500px;
+}
+
+.card-text-container h2,
+.card-text-container p {
+  color: #13505c;
+}
+
+.card-text-container h2 {
+  letter-spacing: 1px;
+  font-size: 24px;
+}
+
+.card-text-container p {
+  letter-spacing: 1px;
+  line-height: 22px;
+  margin-top: 10px;
+}
+
+.card-link-container {
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+  padding: 10px 20px 10px 20px;
+}
+
+.card-link-container a {
+  color: #892f23;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.more-link:hover {
+  cursor: pointer;
+}
+
+.filter-btn-row {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.filter-btn {
+  margin: 5px;
+  width: 100px;
+  font-size: 18px;
+}
+
+.selected {
+  background: #f0862c;
+  border: 2px solid #f0862c;
+  color: #fff;
+  box-shadow: none;
+}
+
+.card-location {
+  display: none;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 0) and (max-width: 425px) {
+  .filtered-cards {
+    padding: 0;
+  }
+
+  .card {
+    margin: 0px;
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: #fff;
+    text-align: left;
+    box-shadow: 2px 3px 12px 0px rgba(0, 0, 0, 0.75);
+  }
+
+  .filter-btn {
+    width: 100px;
+    font-size: 18px;
+    margin: 10px;
+  }
+}
+/** Remove img filter on mobile **/
+@media screen and (min-width: 0) and (max-width: 768px) {
+  .card-img-container {
+    filter: none;
+  }
+}

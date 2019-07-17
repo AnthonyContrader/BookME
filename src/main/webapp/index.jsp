@@ -29,11 +29,13 @@
 			placeholder="Username" required autofocus> <label
 			for="inputPassword" class="sr-only">Password</label> <input
 			type="password" name="password" id="inputPassword"
-			class="form-control" placeholder="Password" required> <input
-			type="text" name="richiesta" value="login" hidden>
+			class="form-control" placeholder="Password" required> 
+			<input type="text" name="richiesta" value="login" hidden>
 
 		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign
 			in</button>
 	</form>
+	
 </body>
+
 </html>
