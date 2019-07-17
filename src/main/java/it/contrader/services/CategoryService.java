@@ -25,9 +25,9 @@ public class CategoryService {
 		return ConverterCategory.toListDTO((List<Category>) categoryRepository.findAll());
 	}
 
-//	public CategoryDTO getCategoryDTOById(Integer id) {
-//		return ConverterCategory.toDTO(categoryRepository.findById(id).get());
-//	}
+	public CategoryDTO getCategoryDTOByIdCategory(Integer id) {
+		return ConverterCategory.toDTO(categoryRepository.findCategoryByIdCategory(id));//.findById(id).get());
+	}
 
 
 	public boolean insertCategory(CategoryDTO categoryDTO) {
