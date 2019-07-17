@@ -69,6 +69,10 @@
 			
 			<button class="btn btn-primary" type="submit">ELIMINA</button>
 	</form>
-						
+		
+		<a class="btn btn-primary" href="/Home/gobackhome"> <i
+							class="nc-icon nc-paper-2"></i>
+							<p>Torna alla home</p>
+					</a>		
 </body>
 </html>

@@ -101,7 +101,7 @@
 							class="nc-icon nc-chart-pie-35"></i>
 							<p>Dashboard</p>
 					</a></li>
-					<li><a class="nav-link" href="./UserManager.html"> <i
+					<li><a class="nav-link" href="/User/send"> <i
 							class="nc-icon nc-circle-09"></i>
 							<p>User Profile</p>
 					</a></li>
@@ -109,7 +109,7 @@
 							class="nc-icon nc-notes"></i>
 							<p>Write Story</p>
 					</a></li>
-					<li><a class="nav-link" href="./typography.html"> <i
+					<li><a class="nav-link" href="/Category/categoryManagement"> <i
 							class="nc-icon nc-paper-2"></i>
 							<p>Category</p>
 					</a></li>
