@@ -7,6 +7,7 @@
 <meta charset="ISO-8859-1">
 <title>Category List</title>
 <link href="/css/bootstrap.min.css" rel="stylesheet">
+<%@ include file="/include/header.jsp" %>
 </head>
 <style type="text/css">
 	body{
@@ -19,6 +20,7 @@
 	}
 </style>
 <body>
+<%@ include file="/include/navbar.jsp" %> 
     <script type="text/javascript">
 		function getNewName(){
 			var name = prompt("Enter a new category name:","new name");
@@ -67,6 +69,6 @@
 			</div>
 		</div>
 	</div>
-	
+<%@ include file="/include/footer.jsp" %> 
 </body>
 </html>
