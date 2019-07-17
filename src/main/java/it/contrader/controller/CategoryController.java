@@ -60,11 +60,12 @@ public class CategoryController {
 		return "category/category";
 	}
 	
-	@RequestMapping(value = "/categoryUpdate", method = RequestMethod.GET)
+	@RequestMapping(value = "/categoryUpdate", method = RequestMethod.POST)
 	public String categoryUpdate(HttpServletRequest request) {
-		
-		//TODO: implement update method
-		
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		String name = request.getParameter("newName");
+		CategoryDTO category = new CategoryDTO(id,name);
+		this.service.updateCategory(category);
 		List<CategoryDTO> list = this.service.getListaCategoryDTO();
 		request.setAttribute("categories", list);
 		return "category/category";
