@@ -98,6 +98,7 @@ public class UserController {
 		//String ruolo = request.getParameter("ruolo").toString();
 		String ruolo = "USER";
 
+
 		UserDTO userObj = new UserDTO(0, username, password, ruolo, email);
 		
 		userService.insertUser(userObj);
@@ -129,10 +130,11 @@ public class UserController {
 			}
 				
 			} else if (ruolo.equals("CHATMASTER")) {
+
 				return "home";
 				
 			}
-		
+
 		return "home";
 	}
 }

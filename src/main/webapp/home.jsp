@@ -1,14 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 
-<html lang="en">
-<head>
-
-</head>
-
-<body>
-
-  <html lang="en"><head>
+<html lang="en"><head>
     <meta charset="utf-8">
     <link rel="apple-touch-icon" sizes="76x76" href="https://demos.creative-tim.com/light-bootstrap-dashboard/assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="https://demos.creative-tim.com/light-bootstrap-dashboard/assets/img/favicon.ico">
@@ -81,9 +74,9 @@
                         </a>
                     </li>
                     <li>
-                        <a class="nav-link" href="./typography.html">
+                        <a class="nav-link" href="/Category/categoryManagement">
                             <i class="nc-icon nc-paper-2"></i>
-                            <p>Category</p>
+                            <p>Categories</p>
                         </a>
                     </li>
                     <li>
@@ -174,6 +167,7 @@
 <!--                 </div> -->
 <!--             </footer> -->
         </div>
+
     </div>
 
 
