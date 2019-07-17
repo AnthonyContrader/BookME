@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Home</title>
+<title>Welcome in the HomePage</title>
 
 <!-- Bootstrap core CSS -->
 <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -28,6 +28,6 @@
          </ul>
     </div>
 </nav>
-<h1>Progetto METABOT</h1>
+<h1>CIAO</h1>
 </body>
 </html>
