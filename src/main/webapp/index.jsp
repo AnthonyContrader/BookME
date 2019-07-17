@@ -17,7 +17,13 @@
 
 <!-- Custom styles for this template -->
 <link href="/css/signin.css" rel="stylesheet">
-
+<style type="text/css">  
+		body
+		{
+		background: rgb(238,174,202);
+		background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+		}
+</style>
 </head>
 
 <body class="text-center">
