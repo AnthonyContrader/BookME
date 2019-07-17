@@ -7,6 +7,13 @@
 <meta charset="ISO-8859-1">
 <title>WELCOME IN THE USERMANAGER PAGE</title>
 <link href="/css/bootstrap.min.css" rel="stylesheet">
+<style type="text/css">  
+		body
+		{
+		background: rgb(238,174,202);
+		background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+		}
+</style>
 </head>
 <body>
 <h1 class="h3 mb-3 font-weight-normal">LISTA UTENTI</h1>
