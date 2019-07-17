@@ -81,6 +81,15 @@ public class UserController {
 
 	}
 	
+	@RequestMapping(value = "/send")   //METODO CREATO DA ME 
+	public String send(HttpServletRequest request)
+	{
+		visualUser(request);
+		System.out.print("Ciaoooo");
+		return "UserManager";
+
+	}
+	
 	@RequestMapping(value = "/creaUser", method = RequestMethod.POST)
 	public String insertUser(HttpServletRequest request) {
 		String username = request.getParameter("username").toString();
@@ -116,7 +125,7 @@ public class UserController {
 			else if(ruolo.equals("USER"))
 			{
 				visualUser(request);
-					return "UserManager";
+					return "home";
 			}
 				
 			} else if (ruolo.equals("CHATMASTER")) {
