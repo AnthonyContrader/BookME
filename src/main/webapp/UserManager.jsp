@@ -9,12 +9,12 @@
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-LISTA UTENTI:
+<h1 class="h3 mb-3 font-weight-normal">LISTA UTENTI</h1>
 <%List<UserDTO> list = (List<UserDTO>) request.getAttribute("allUserDTO");%>
 <table>
 <% for(UserDTO u : list){ %>
 <tr>
-<td>
+<td width='50'>
 <%= u.getIdUser() %>
  </td>
 <td>
@@ -34,31 +34,32 @@ LISTA UTENTI:
 
 
 
-	<form class="form-signin" action="/User/creaUser" method="post">
+	<form class="form-signin text-primary" action="/User/creaUser" method="post">
 		<h1 class="h3 mb-3 font-weight-normal">CREATE NEW USER</h1>
 
 		<label for="inputUser" class="sr-only ">Username</label> <input
-			type="text" name="username" id="inputUser" class="form-control"
+			type="text" name="username" id="inputUser" class=" text-primary"
 			placeholder="Username" required autofocus> <label
 			for="inputPassword" class="sr-only">Password</label> <input
 			type="password" name="password" id="inputPassword"
-			class="form-control" placeholder="Password" required>
+			class="text-primary" placeholder="Password" required>
 			 <label for="inputEmail" class="sr-only">Email</label> <input
 			type="text" name="email" id="inputEmail"
-			class="form-control" placeholder="Email" required> 
-			
-			
-			
-		<button class="btn btn-dark" type="submit">CREA</button>
+			class="text-primary" placeholder="Email" required> 
+
+		<button class="btn btn-dark"  type="submit">CREA</button>
 	</form>
 	
 	
-	<form class="form-delete" action="/User/delete" method="get">
+	<form class="form-delete text-danger" action="/User/delete" method="get">
 		<h1 class="h3 mb-3 font-weight-normal">CANCELLA USER</h1>
 
-		<label for="deleteUser" class="sr-only">Inserisci ID</label> <input
-			type="text" name="id" id="deleteUser" class="form-control"
+		<label for="deleteUser" class="sr-only">Inserisci ID</label>
+		 <input
+			type="text" name="id" id="deleteUser" class=" text-danger"
 			placeholder="Id utente" required autofocus> </label>
+			
+			
 			<button class="btn btn-primary" type="submit">ELIMINA</button>
 	</form>
 						
