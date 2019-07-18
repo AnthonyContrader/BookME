@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <div class="wrapper">
+
 	<div class="sidebar" data-image="../assets/img/sidebar-5.jpg">
 
 		<div class="sidebar-wrapper">
@@ -26,10 +27,7 @@
 						class="nc-icon nc-paper-2"></i>
 						<p>Categories</p>
 				</a></li>
-				<li><a class="nav-link" href="./icons.html"> <i
-						class="nc-icon nc-atom"></i>
-						<p>NonSO</p>
-				</a></li>
+				
 
 
 			</ul>

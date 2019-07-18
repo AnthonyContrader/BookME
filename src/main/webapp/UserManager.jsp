@@ -33,11 +33,8 @@
 	
 	<div class="col-md-3"><%=u.getId()%></div>
 	<div class="col-md-3"><%=u.getUsername()%></div>
-	
 	<div class="col-md-3"><%=u.getPassword()%></div>
 	<div class="col-md-3"><%=u.getUsertype()%></div>
-	
-	
 </div>
 <%}%>
 </div>

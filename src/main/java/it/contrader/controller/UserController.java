@@ -51,7 +51,7 @@ public class UserController {
 		request.setAttribute("id", id);
 		this.userService.deleteUserById(id);
 		visualUser(request);
-		return "homeUser";
+		return "UserManager";
 		
 	}
 	
@@ -111,7 +111,7 @@ public class UserController {
 		final String password = request.getParameter("password");
 		final UserDTO userDTO = userService.getByUsernameAndPassword(username, password);
 		final String usertype = userDTO.getUsertype().toUpperCase();
-		int id = userDTO.getId();
+		final int id = userDTO.getId();
 		if (!StringUtils.isEmpty(usertype)) {
 			session.setAttribute("utenteCollegato", userDTO);
 			if (usertype.equals("ADMIN"))
@@ -123,5 +123,6 @@ public class UserController {
 			}
 		}
 		return "index";
+		
 	}
 }
