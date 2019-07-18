@@ -6,6 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>WELCOME IN THE USERMANAGER PAGE</title>
+<%@ include file="/include/header.jsp"%>
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 <style type="text/css">  
 		body
@@ -13,36 +14,32 @@
 		background: rgb(238,174,202);
 		background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 		}
+		
+		.row div{padding : 5px 5px; border : 1px solid}
 </style>
+
 </head>
 <body>
+<%@ include file="/include/navbar.jsp"%>
 <h1 class="h3 mb-3 font-weight-normal">LISTA UTENTI</h1>
+
+
 <%List<UserDTO> list = (List<UserDTO>) request.getAttribute("allUserDTO");%>
-<table>
-<% for(UserDTO u : list){ %>
-<tr>
-<td width='50'>
-<%= u.getIdUser() %>
- </td>
-<td>
-<%= u.getUsername() %>
- </td>
- <td>
-<%= u.getEmail() %>
- </td>
- <td>
-<%= u.getPassword() %>
- </td>
- 
-</tr>
+
+<div class="container">
+<% for(UserDTO u : list)
+{ %>
+<div class = "row" style= "background : lightblue">
+	<div class="col-md-3"><%=u.getIdUser()%></div>
+	<div class="col-md-3"><%=u.getUsername()%></div>
+	<div class="col-md-3"><%=u.getEmail()%></div>
+	<div class="col-md-3"><%=u.getPassword()%></div>
+</div>
 <%}%>
-</table>
-
-
-
+</div>
 
 	<form class="form-signin text-primary" action="/User/creaUser" method="post">
-		<h1 class="h3 mb-3 font-weight-normal">CREATE NEW USER</h1>
+		<h2 class="h3 mb-3 font-weight-normal" > CREATE NEW USER</h2>
 
 		<label for="inputUser" class="sr-only ">Username</label> <input
 			type="text" name="username" id="inputUser" class=" text-primary"
@@ -59,7 +56,7 @@
 	
 	
 	<form class="form-delete text-danger" action="/User/delete" method="get">
-		<h1 class="h3 mb-3 font-weight-normal">CANCELLA USER</h1>
+		<h2 class="h3 mb-3 font-weight-normal">CANCELLA USER</h2>
 
 		<label for="deleteUser" class="sr-only">Inserisci ID</label>
 		 <input
@@ -70,9 +67,7 @@
 			<button class="btn btn-primary" type="submit">ELIMINA</button>
 	</form>
 		
-		<a class="btn btn-primary" href="/Home/gobackhome"> <i
-							class="nc-icon nc-paper-2"></i>
-							<p>Torna alla home</p>
-					</a>		
+			
+<%@ include file="/include/footer.jsp"%>	
 </body>
 </html>
