@@ -31,14 +31,18 @@
 { %>
 <div class = "row" style= "background : lightblue">
 	
+	<div class="col-md-3"><%=u.getId()%></div>
 	<div class="col-md-3"><%=u.getUsername()%></div>
 	
 	<div class="col-md-3"><%=u.getPassword()%></div>
+	<div class="col-md-3"><%=u.getUsertype()%></div>
+	
+	
 </div>
 <%}%>
 </div>
 
-	<form class="form-signin text-primary" action="/User/creaUser" method="post">
+	<form class="form-signin text-primary" action="/User/creaUserByAdminPage" method="post">
 		<h2 class="h3 mb-3 font-weight-normal" > CREATE NEW USER</h2>
 
 		<label for="inputUser" class="sr-only ">Username</label> <input
@@ -46,7 +50,11 @@
 			placeholder="Username" required autofocus> <label
 			for="inputPassword" class="sr-only">Password</label> <input
 			type="password" name="password" id="inputPassword"
-			class="text-primary" placeholder="Password" required>
+			class="text-primary" placeholder="Password" required>	
+		<label for="inputUserType" class="sr-only ">UserType</label> <input
+			type="text" name="usertype" id="inputUser" class=" text-primary"
+			placeholder="Usertype" required autofocus>
+			
 			 
 
 		<button class="btn btn-dark"  type="submit">CREA</button>

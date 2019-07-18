@@ -79,7 +79,7 @@ public class UserController {
 	public String insertUser(HttpServletRequest request) {
 		String username = request.getParameter("username").toString();
 		String password = request.getParameter("password").toString();
-		String usertype = request.getParameter("usertype").toString();
+		String usertype = "USER";
 
 		UserDTO userObj = new UserDTO(0, username, password, usertype);
 		
@@ -87,6 +87,20 @@ public class UserController {
 
 		visualUser(request);
 		return "register";
+	}
+	@RequestMapping(value = "/creaUserByAdminPage", method = RequestMethod.POST)
+	public String creaUserByAdminPage(HttpServletRequest request) {
+		String username = request.getParameter("username").toString();
+		String password = request.getParameter("password").toString();
+		String usertype = request.getParameter("usertype").toString();
+		System.out.print(usertype);
+
+		UserDTO userObj = new UserDTO(0, username, password, usertype);
+		
+		userService.insertUser(userObj);
+
+		visualUser(request);
+		return "UserManager";
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -96,12 +110,15 @@ public class UserController {
 		final String username = request.getParameter("username");
 		final String password = request.getParameter("password");
 		final UserDTO userDTO = userService.getByUsernameAndPassword(username, password);
-		final String usertype = userDTO.getUsertype();
+		final String usertype = userDTO.getUsertype().toUpperCase();
+		int id = userDTO.getId();
 		if (!StringUtils.isEmpty(usertype)) {
 			session.setAttribute("utenteCollegato", userDTO);
-			if (usertype.equals("ADMIN")) {
-				return "home";
-			} else if (usertype.equals("CHATMASTER")) {
+			if (usertype.equals("ADMIN"))
+			{	
+				visualUser(request);
+				return "UserManager";
+			} else if (usertype.equals("USER")) {
 				return "home";
 			}
 		}
