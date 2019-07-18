@@ -25,7 +25,7 @@ public class UserService {
 		return ConverterUser.toListDTO((List<User>) userRepository.findAll());
 	}
 
-	public UserDTO getUserDTOById(Integer id) {
+	public UserDTO getUserDTOById(int id) {
 		return ConverterUser.toDTO(userRepository.findById(id).get());
 	}
 

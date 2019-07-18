@@ -23,17 +23,13 @@ public class UserController {
 	private HttpSession session;
 	
 	@Autowired
-	public UserController(UserService userService)
-	{
+	public UserController(UserService userService) {
 		this.userService = userService;
 	}
 
-	private void visualUser(HttpServletRequest request)
-	{
+	private void visualUser(HttpServletRequest request){
 		List<UserDTO> allUser = this.userService.getListaUserDTO();
 		request.setAttribute("allUserDTO", allUser);
-		
-		
 	}
 	
 	@RequestMapping(value = "/userManagement", method = RequestMethod.GET)
@@ -48,24 +44,15 @@ public class UserController {
 		request.setAttribute("id", id);
 		this.userService.deleteUserById(id);
 		visualUser(request);
-		return "UserManager";
+		return "homeUser";
 		
 	}
 	
 	@RequestMapping(value = "/crea", method = RequestMethod.GET)
-	public String insert(HttpServletRequest request)
-	{
+	public String insert(HttpServletRequest request) {
 		visualUser(request);
 		request.setAttribute("option", "insert");
 		return "creaUser";
-		
-	}
-	
-	@RequestMapping(value = "/listaUtenti", method = RequestMethod.GET)  //METODO CREATO DA ME IN CASO CANCELLA
-	public String allUserDTO(HttpServletRequest request)
-	{
-		visualUser(request);
-		return "UserManager";
 		
 	}
 	
@@ -73,20 +60,11 @@ public class UserController {
 	public String cercaUser(HttpServletRequest request) {
 
 		final String content = request.getParameter("search");
-		System.out.print(content);
+
 		List<UserDTO> allUser = this.userService.findUserDTOByUsername(content);
 		request.setAttribute("allUserDTO", allUser);
 
-		return "UserManager";
-
-	}
-	
-	@RequestMapping(value = "/send")   //METODO CREATO DA ME 
-	public String send(HttpServletRequest request)
-	{
-		visualUser(request);
-		System.out.print("Ciaoooo");
-		return "UserManager";
+		return "homeUser";
 
 	}
 	
@@ -94,47 +72,32 @@ public class UserController {
 	public String insertUser(HttpServletRequest request) {
 		String username = request.getParameter("username").toString();
 		String password = request.getParameter("password").toString();
-		String email = request.getParameter("email").toString();
-		//String ruolo = request.getParameter("ruolo").toString();
-		String ruolo = "USER";
+		String usertype = request.getParameter("usertype").toString();
 
-
-		UserDTO userObj = new UserDTO(0, username, password, ruolo, email);
+		UserDTO userObj = new UserDTO(0, username, password, usertype);
 		
 		userService.insertUser(userObj);
 
 		visualUser(request);
-		return "UserManager";
+		return "register";
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String loginControl(HttpServletRequest request)
-	{
+	public String loginControl(HttpServletRequest request) {
 
 		session = request.getSession();
 		final String username = request.getParameter("username");
 		final String password = request.getParameter("password");
-		
 		final UserDTO userDTO = userService.getByUsernameAndPassword(username, password);
-		final String ruolo = userDTO.getRuolo();
-		if (!StringUtils.isEmpty(ruolo)) {
+		final String usertype = userDTO.getUsertype();
+		if (!StringUtils.isEmpty(usertype)) {
 			session.setAttribute("utenteCollegato", userDTO);
-			if (ruolo.equals("ADMIN"))
-			{
+			if (usertype.equals("ADMIN")) {
+				return "home";
+			} else if (usertype.equals("CHATMASTER")) {
 				return "home";
 			}
-			else if(ruolo.equals("USER"))
-			{
-				visualUser(request);
-					return "home";
-			}
-				
-			} else if (ruolo.equals("CHATMASTER")) {
-
-				return "home";
-				
-			}
-
-		return "home";
+		}
+		return "index";
 	}
 }
