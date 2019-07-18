@@ -6,7 +6,7 @@
 
 		<div class="sidebar-wrapper">
 			<div class="logo">
-				<a href="http://www.creative-tim.com" class="simple-text">
+				<a href="/Home/gobackhome" class="simple-text">
 					BookMe </a>
 			</div>
 			<ul class="nav">
@@ -61,7 +61,7 @@
 							class="no-icon">Account</span>
 					</a></li>
 
-					<li class="nav-item"><a class="nav-link" href="#pablo"> <span
+					<li class="nav-item"><a class="nav-link" href="/User/logout"> <span
 							class="no-icon">Log out</span>
 					</a></li>
 				</ul>
