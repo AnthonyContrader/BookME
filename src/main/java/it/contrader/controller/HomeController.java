@@ -23,9 +23,9 @@ public class HomeController {
 		this.userService = userService;
 	}
 
-	@RequestMapping(value = "/chatManagement", method = RequestMethod.GET)
-	public String chatManagement(HttpServletRequest request) {
-		return "homeChatbot";
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public String homeManagement(HttpServletRequest request) {
+		return "home";
 
 	}
 

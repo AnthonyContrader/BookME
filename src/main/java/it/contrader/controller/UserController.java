@@ -117,7 +117,7 @@ public class UserController {
 			if (usertype.equals("ADMIN"))
 			{	
 				visualUser(request);
-				return "UserManager";
+				return "home";
 			} else if (usertype.equals("USER")) {
 				return "home";
 			}

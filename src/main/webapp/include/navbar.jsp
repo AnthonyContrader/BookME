@@ -1,73 +1,53 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%> 
+	<%@ page import="java.util.List, it.contrader.dto.CategoryDTO"
+	import="it.contrader.dto.UserDTO"
+	 %>
+	
 <!DOCTYPE html>
-<div class="wrapper">
 
-	<div class="sidebar" data-image="../assets/img/sidebar-5.jpg">
+<%
+UserDTO user = (UserDTO) request.getSession(false).getAttribute("utenteCollegato"); %>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/Home/home">BookME</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-		<div class="sidebar-wrapper">
-			<div class="logo">
-				<a href="http://www.creative-tim.com" class="simple-text">
-					BookMe </a>
-			</div>
-			<ul class="nav">
-				<li><a class="nav-link" href="dashboard.html"> <i
-						class="nc-icon nc-chart-pie-35"></i>
-						<p>Dashboard</p>
-				</a></li>
-				<li><a class="nav-link" href="/User/userManager"> <i
-						class="nc-icon nc-circle-09"></i>
-						<p>User Profile</p>
-				</a></li>
-				<li><a class="nav-link" href="/Story/viewStory"> <i
-						class="nc-icon nc-notes"></i>
-						<p>Stories</p>
-				</a></li>
-				<li><a class="nav-link" href="/Category/categoryManagement"> <i
-						class="nc-icon nc-paper-2"></i>
-						<p>Categories</p>
-				</a></li>
-				
-
-
-			</ul>
-		</div>
-	</div>
-	<div class="main-panel">
-	<!-- Navbar -->
-	<nav class="navbar navbar-expand-lg " color-on-scroll="500">
-		<div class=" container-fluid  ">
-			<a class="navbar-brand" href="#pablo"> Notifications </a>
-			<button href="" class="navbar-toggler navbar-toggler-right"
-				type="button" data-toggle="collapse"
-				aria-controls="navigation-index" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-bar burger-lines"></span> <span
-					class="navbar-toggler-bar burger-lines"></span> <span
-					class="navbar-toggler-bar burger-lines"></span>
-			</button>
-			<div class="collapse navbar-collapse justify-content-end"
-				id="navigation">
-				<ul class="nav navbar-nav mr-auto">
-					<li class="nav-item">
-					<li class="nav-item"><a href="#" class="nav-link"> <i
-							class="nc-icon nc-zoom-split"></i> <span class="d-lg-block">&nbsp;Search</span>
-					</a></li>
-				</ul>
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link" href="#pablo"> <span
-							class="no-icon">Account</span>
-					</a></li>
-
-					<li class="nav-item"><a class="nav-link" href="#pablo"> <span
-							class="no-icon">Log out</span>
-					</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	<div class="content">
-	<div class="container-fluid">
-			<div class="card text-white bg-primary">
-				<div class="card-body">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      
+      <% if(user!=null && user.getUsertype().toUpperCase().contains("ADMIN")) 
+      { %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+    
+          Utilities
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/User/userManager">Users</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Categories</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Stories</a>
+          
+        </div>
+        
+      </li>
+      <% } %>
+      
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
 				
