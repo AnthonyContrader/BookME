@@ -29,7 +29,6 @@
 	<h1 class="display-4 text-center">Category List</h1>
 	
 	<div class="container-fluid" id="mycont">
-	<% List<CategoryDTO> list = (List<CategoryDTO>) request.getAttribute("categories"); %>
 		<% for(CategoryDTO c : list){ %>
 		<div class="row justify-content-md-center shadow-sm p-1 m-1 bg-white rounded">
 			<div class="col">

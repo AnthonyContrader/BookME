@@ -26,10 +26,14 @@ public class CategoryController {
 		this.service = service;
 	}
 	
+	public void getList(HttpServletRequest request) {
+		List<CategoryDTO> list = this.service.getListaCategoryDTO();
+		request.setAttribute("categoryList", list);
+	}
+	
 	@RequestMapping(value = "/categoryManagement", method = RequestMethod.GET)
 	public String categoryManagement(HttpServletRequest request) {
-		List<CategoryDTO> list = this.service.getListaCategoryDTO();
-		request.setAttribute("categories", list);
+		getList(request);
 		return "category/category";
 	}
 	

@@ -10,29 +10,31 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Link</a>
+    <% List<CategoryDTO> list = (List<CategoryDTO>) request.getAttribute("categoryList"); 
+       for(CategoryDTO c : list){ %>
+      <li class="nav-item">
+        <a class="nav-link" href="/Category/categoryRead?id=<%= c.getIdCategory() %>"><%= c.getName() %></a>
+       
       </li>
-      <li class="nav-item dropdown">
+    <% } %>
+    </ul>
+    <ul class="navbar-nav">
+    	<li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
+          Utilities
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Users</a>
+          <a class="dropdown-item" href="/User/userManagement">Users</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Categories</a>
+          <a class="dropdown-item" href="/Category/categoryManagement">Categories</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Stories</a>
+          <a class="dropdown-item" href="/Story/viewStory">Stories</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      <li>
+      	<a class="btn btn-outline-light" href="#">Login/Register</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
   </div>
 </nav>
 				
