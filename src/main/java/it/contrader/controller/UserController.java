@@ -48,13 +48,21 @@ public class UserController {
 		return "home";		
 	}
 	
+	@RequestMapping(value = "/userManager")
+	public String userManager(HttpServletRequest request)
+	{
+		visualUser(request);
+		return "UserManager";		
+	}
+	
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public String delete(HttpServletRequest request) {
 		int id = Integer.parseInt(request.getParameter("id"));
 		request.setAttribute("id", id);
 		this.userService.deleteUserById(id);
 		visualUser(request);
-		return "home";
+
+		return "UserManager";
 		
 	}
 	
@@ -82,7 +90,7 @@ public class UserController {
 	public String insertUser(HttpServletRequest request) {
 		String username = request.getParameter("username").toString();
 		String password = request.getParameter("password").toString();
-		String usertype = request.getParameter("usertype").toString();
+		String usertype = "USER";
 
 		UserDTO userObj = new UserDTO(0, username, password, usertype);
 		
@@ -90,6 +98,20 @@ public class UserController {
 
 		visualUser(request);
 		return "register";
+	}
+	@RequestMapping(value = "/creaUserByAdminPage", method = RequestMethod.POST)
+	public String creaUserByAdminPage(HttpServletRequest request) {
+		String username = request.getParameter("username").toString();
+		String password = request.getParameter("password").toString();
+		String usertype = request.getParameter("usertype").toString();
+		System.out.print(usertype);
+
+		UserDTO userObj = new UserDTO(0, username, password, usertype);
+		
+		userService.insertUser(userObj);
+
+		visualUser(request);
+		return "UserManager";
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -103,12 +125,15 @@ public class UserController {
 		getList(request);
 		if (!StringUtils.isEmpty(usertype)) {
 			session.setAttribute("utenteCollegato", userDTO);
-			if (usertype.equals("ADMIN")) {
+			if (usertype.equals("ADMIN"))
+			{	
+				visualUser(request);
 				return "home";
 			} else if (usertype.equals("USER")) {
 				return "home";
 			}
 		}
-		return "home";
+		return "index";
+		
 	}
 }

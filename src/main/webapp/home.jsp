@@ -10,12 +10,8 @@
 </head>
 <body>
 
-	<!-- MUST BE INCLUDED AT THE BEGINNING -->
-	<%@ include file="/include/navbar.jsp"%>
 
-
-	<!-- ******* YOUR CODE ******* -->
-
+<%@ include file="/include/navbar.jsp"%>
 
 	<h4 class="card-title">Non mi Toccare <3</h4>
 	<p>
