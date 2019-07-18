@@ -1,6 +1,7 @@
 package it.contrader.controller;
 
 import java.util.List;
+import it.contrader.dto.CategoryDTO;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.contrader.dto.StoryDTO;
+import it.contrader.services.CategoryService;
 import it.contrader.services.StoryService;
 
 @Controller
@@ -19,11 +21,13 @@ import it.contrader.services.StoryService;
 public class StoryController {
 
 	private final StoryService storyService;
+	private final CategoryService categoryService;
 	private HttpSession session;
 	
 	@Autowired
-	public StoryController(StoryService storyService) {
+	public StoryController(StoryService storyService, CategoryService categoryService) {
 		this.storyService = storyService;
+		this.categoryService = categoryService;
 	}
 	
 	private void visualStory(HttpServletRequest request){
@@ -31,9 +35,15 @@ public class StoryController {
 		request.setAttribute("allStoryDTO", allStory);
 	}
 	
+	private void visualCategories(HttpServletRequest request) {
+		List<CategoryDTO> list = this.categoryService.getListaCategoryDTO();
+		request.setAttribute("categoryList", list);
+	}
+	
 	@RequestMapping(value = "/viewStory", method = RequestMethod.GET)
 	public String storyManagement(HttpServletRequest request) {
 		visualStory(request);
+		visualCategories(request);
 		return "story/homestory";		
 	}
 	

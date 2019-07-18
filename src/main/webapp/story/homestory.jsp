@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="it.contrader.dto.StoryDTO, java.util.List"%>
+	pageEncoding="UTF-8" import="it.contrader.dto.StoryDTO, it.contrader.dto.CategoryDTO, java.util.List"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,20 +19,16 @@
 
     <%
 		List<StoryDTO> lista = (List<StoryDTO>) request.getAttribute("allStoryDTO");
+    	List<CategoryDTO> categoryList = (List<CategoryDTO>) request.getAttribute("categoryList");
 	%>
 	
 	<div class="container-fluid content-container filter-container">
 		<div class="row filter-btn-row">
 			<div class="col-lg-12">
 				<a data-filter="all" class="btn btn-blue filter-btn selected">All</a>
-				<a data-filter="adult" class="btn btn-blue filter-btn">Fantasy</a> <a
-					data-filter="animals" class="btn btn-blue filter-btn">Fiction</a> <a
-					data-filter="art" class="btn btn-blue filter-btn">Western</a> <a
-					data-filter="food" class="btn btn-blue filter-btn">Romance</a> <a
-					data-filter="free" class="btn btn-blue filter-btn">Biography</a> <a
-					data-filter="kids" class="btn btn-blue filter-btn">Mystery</a> <a
-					data-filter="music" class="btn btn-blue filter-btn">Horror</a> <a
-					data-filter="new" class="btn btn-blue filter-btn">Musical</a> 
+				<% for(CategoryDTO c : categoryList){ %>
+				<a data-filter="<%= c.getName() %>" class="btn btn-blue filter-btn"><%= c.getName() %></a> 
+				<% } %>
 			</div>
 		</div>
 		<div class="row">
