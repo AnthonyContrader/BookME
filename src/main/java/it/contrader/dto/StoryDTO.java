@@ -7,14 +7,14 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserDTO {
-
-	private int id;
-
-	private String username;
+public class StoryDTO {
 	
-	private String password;
-
-	private String usertype;
+	private Integer idStory;
 	
+	private String title;
+
+	private String plot;
+	
+	private Integer idCategory;
+
 }

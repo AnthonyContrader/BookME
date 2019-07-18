@@ -30,9 +30,9 @@
 <% for(UserDTO u : list)
 { %>
 <div class = "row" style= "background : lightblue">
-	<div class="col-md-3"><%=u.getIdUser()%></div>
+	
 	<div class="col-md-3"><%=u.getUsername()%></div>
-	<div class="col-md-3"><%=u.getEmail()%></div>
+	
 	<div class="col-md-3"><%=u.getPassword()%></div>
 </div>
 <%}%>
@@ -47,9 +47,7 @@
 			for="inputPassword" class="sr-only">Password</label> <input
 			type="password" name="password" id="inputPassword"
 			class="text-primary" placeholder="Password" required>
-			 <label for="inputEmail" class="sr-only">Email</label> <input
-			type="text" name="email" id="inputEmail"
-			class="text-primary" placeholder="Email" required> 
+			 
 
 		<button class="btn btn-dark"  type="submit">CREA</button>
 	</form>

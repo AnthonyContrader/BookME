@@ -6,34 +6,32 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
-
-import org.springframework.lang.Nullable;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class User {
-
+public class Story {
+	
 	@Id
-	@Column(name = "id")
+	@Column(name = "idStory")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-
-	@Column(name = "username")
+	private Integer idStory;
+	
+	@Column(name = "title")
 	@NotNull
-	private String username;
-
-	@Column(name = "password")
+	private String title; 
+	
+	@Column(name = "plot")
 	@NotNull
-	private String password;
-
+	private String plot;
+	
+	@Column(name = "idCategory")
 	@NotNull
-	@Column(name = "usertype")
-	private String usertype;
+	private Integer idCategory;
 
 }

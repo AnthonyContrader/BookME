@@ -14,13 +14,13 @@
 						class="nc-icon nc-chart-pie-35"></i>
 						<p>Dashboard</p>
 				</a></li>
-				<li><a class="nav-link" href="./UserManager.html"> <i
+				<li><a class="nav-link" href="/User/userManager"> <i
 						class="nc-icon nc-circle-09"></i>
 						<p>User Profile</p>
 				</a></li>
-				<li><a class="nav-link" href="./table.html"> <i
+				<li><a class="nav-link" href="/Story/viewStory"> <i
 						class="nc-icon nc-notes"></i>
-						<p>Write Story</p>
+						<p>Stories</p>
 				</a></li>
 				<li><a class="nav-link" href="/Category/categoryManagement"> <i
 						class="nc-icon nc-paper-2"></i>

@@ -10,6 +10,7 @@
 </head>
 <body>
 
+
 <%@ include file="/include/navbar.jsp"%>
 
 	<h4 class="card-title">Non mi Toccare <3</h4>
