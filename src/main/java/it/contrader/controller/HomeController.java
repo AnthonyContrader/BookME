@@ -36,6 +36,13 @@ public class HomeController {
 		return "homeUser";
 
 	}
+	
+	@RequestMapping(value = "/gobackhome")
+	public String gobackhome(HttpServletRequest request) {  // Mio metodo
+		
+		return "home";
+
+	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpServletRequest request) {
