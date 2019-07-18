@@ -94,10 +94,10 @@ public class UserController {
 			session.setAttribute("utenteCollegato", userDTO);
 			if (usertype.equals("ADMIN")) {
 				return "home";
-			} else if (usertype.equals("CHATMASTER")) {
+			} else if (usertype.equals("USER")) {
 				return "home";
 			}
 		}
-		return "index";
+		return "home";
 	}
 }
