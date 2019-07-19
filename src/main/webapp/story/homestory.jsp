@@ -9,12 +9,17 @@
 
 
 <link rel='stylesheet'
-	href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
-
-<link rel="stylesheet" href="/css/cardstyle.css">
-<link rel="stylesheet" href="/css/buttonaddstory.css">
-
-
+	href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>       
+      <link rel="stylesheet" href="./style.css">
+	  <link rel="stylesheet" href="/css/cardstyle.css">
+	  <link rel="stylesheet" href="/css/buttonaddstory.css">
+	 
+	  <script>
+		  function myFunction() {
+			  window.location.href = '/Story/goInsertStory';
+			}
+	  </script>
+	 
 </head>
 
 <body>
@@ -66,7 +71,7 @@
 	<div id="container-floating">
 
 		<div id="floating-button" data-toggle="tooltip" data-placement="left"
-			data-original-title="Create story" onclick="newmail()">
+			data-original-title="Create story" onclick="myFunction(this)">
 			<p class="plus">+</p>
 			<img class="edit"
 				src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/1x/bt_compose2_1x.png">

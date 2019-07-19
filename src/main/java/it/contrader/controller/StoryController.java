@@ -35,6 +35,11 @@ public class StoryController {
 		request.setAttribute("allStoryDTO", allStory);
 	}
 	
+	@RequestMapping(value = "/goInsertStory", method = RequestMethod.GET)
+	private String goInsertStory(HttpServletRequest request){
+		return "story/typestory";
+	}
+	
 	private void visualCategories(HttpServletRequest request) {
 		List<CategoryDTO> list = this.categoryService.getListaCategoryDTO();
 		request.setAttribute("categoryList", list);
