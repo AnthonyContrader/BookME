@@ -45,7 +45,7 @@ public class UserController {
 	public String userManagement(HttpServletRequest request) {
 		visualUser(request);
 		getList(request);
-		return "home";		
+		return "UserManager";		
 	}
 	
 	@RequestMapping(value = "/userManager")
