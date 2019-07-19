@@ -10,4 +10,5 @@ public interface StoryRepository extends CrudRepository<Story, Integer>{
    
 	public Story findStoryByIdStory(Integer idStory);
 	public List<Story> findAllByTitle(String title);
+	public List<Story> findAllByIdCategory(Integer idCategory);
 }

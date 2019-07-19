@@ -24,7 +24,7 @@
 		<% for(CategoryDTO c : categoryList){ %>
 		<div class="row justify-content-md-center shadow-sm p-1 m-1 bg-white rounded">
 			<div class="col">
-				<a href="/Category/categoryRead?id=<%=c.getIdCategory()%>"><%= c.getName() %></a>
+				<a href="/Story/storyView?id=<%=c.getIdCategory()%>"><%= c.getName() %></a>
 			</div>
 			<div class="col">
 				<form action="/Category/categoryUpdate?id=<%=c.getIdCategory()%>" method="post">

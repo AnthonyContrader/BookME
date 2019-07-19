@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"
 	import="it.contrader.dto.StoryDTO,it.contrader.dto.UserDTO, it.contrader.dto.CategoryDTO, java.util.List"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+
 <title>Stories</title>
 
 
@@ -31,8 +31,8 @@
 				<%
 					for (StoryDTO s : storyList) {
 				%>
-				<div class="card" data-filter="Story">
-					<div class="card-img-container"></div>
+				<div class="card" data-filter="Story" style="max-height: 300px">
+					<div class="card-img-container" style="max-height: 100px"></div>
 					<div class="card-text-container">
 						<h2 class="card-title"><%=s.getTitle()%></h2>
 						<p class="card-body"><%=s.getPlot()%></p>

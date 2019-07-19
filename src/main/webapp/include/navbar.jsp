@@ -22,7 +22,7 @@
     <ul class="navbar-nav mr-auto">
     <% for(CategoryDTO c : categoryList){ %>
       <li class="nav-item">
-        <a class="nav-link" href="/Category/categoryRead?id=<%= c.getIdCategory() %>"><%= c.getName() %></a>    
+        <a class="nav-link" href="/Story/storyRead?id=<%= c.getIdCategory() %>"><%= c.getName() %></a>    
       </li>
     <% } %>
     </ul>

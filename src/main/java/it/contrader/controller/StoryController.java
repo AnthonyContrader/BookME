@@ -32,7 +32,12 @@ public class StoryController {
 	
 	private void visualStory(HttpServletRequest request){
 		List<StoryDTO> allStory = this.storyService.getListaStoryDTO();
-		request.setAttribute("allStoryDTO", allStory);
+		request.setAttribute("storyList", allStory);
+	}
+	
+	private List<StoryDTO> getStoriesByCategory(Integer idCategory) {
+		List<StoryDTO> storyByCategory = this.storyService.getStoriesByCategoryId(idCategory);
+		return storyByCategory;
 	}
 	
 	private void visualCategories(HttpServletRequest request) {
@@ -40,10 +45,22 @@ public class StoryController {
 		request.setAttribute("categoryList", list);
 	}
 	
+	@RequestMapping(value = "/storyRead", method = RequestMethod.GET)
+	public String storyRead(HttpServletRequest request) {
+		//visualStory(request);
+		//visualCategories(request);
+		Integer idCategory = Integer.parseInt(request.getParameter("id"));
+		CategoryDTO category = this.categoryService.getCategoryDTOByIdCategory(idCategory);
+		request.setAttribute("category", category);
+		List<StoryDTO> storyList = getStoriesByCategory(idCategory);
+		request.setAttribute("storyList", storyList);
+		return "story/readstory";		
+	}
+	
 	@RequestMapping(value = "/viewStory", method = RequestMethod.GET)
 	public String storyManagement(HttpServletRequest request) {
 		visualStory(request);
-		visualCategories(request);
+		//visualCategories(request);
 		return "story/homestory";		
 	}
 	
