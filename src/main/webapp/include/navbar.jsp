@@ -5,15 +5,28 @@
 	 %>
 	
 <!DOCTYPE html>
+<style>
+body {
+  background-color: rgba(192, 192, 192, .2);
+}
+.bg-primary{
+	background: rgb(25,16,182);
+	background: linear-gradient(0deg, rgba(25,16,182,1) 0%,
+				rgba(12,12,153,1) 35%,
+				rgba(22,152,199,1) 85%,
+				rgba(28,174,204,1) 100%);
+}
 
+</style>
 <% 
 		UserDTO user = (UserDTO) request.getSession(false).getAttribute("utenteCollegato");
 		@SuppressWarnings("unchecked")
     	List<CategoryDTO> categoryList = (List<CategoryDTO>) request.getSession().getAttribute("categoryList");
 	
 %>
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="/Home/home">BookME</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+  <a class="navbar-brand" href="/Home/home">
+  <img src="/include/open-book.png" width="30" height="30" class="d-inline-block align-top mr-3" alt="">BookME</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

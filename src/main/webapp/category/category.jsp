@@ -9,7 +9,9 @@
 <%@ include file="/include/header.jsp" %>
 </head>
 <style type="text/css">
-	
+	body{
+		background-color: rgba(192,192,192,.2);
+	}
 	#mycont{
 		max-width: 500px;
 	}
