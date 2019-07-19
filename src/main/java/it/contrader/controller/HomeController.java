@@ -30,7 +30,7 @@ public class HomeController {
 	
 	public void getList(HttpServletRequest request) {
 		List<CategoryDTO> list = this.categoryService.getListaCategoryDTO();
-		request.setAttribute("categoryList", list);
+		request.getSession().setAttribute("categoryList", list);
 	}
 
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
@@ -49,7 +49,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "/gobackhome")
 	public String gobackhome(HttpServletRequest request) {  // Mio metodo
-		
+		getList(request);
 		return "home";
 
 	}

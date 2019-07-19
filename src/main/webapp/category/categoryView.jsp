@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="it.contrader.dto.CategoryDTO" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,8 +9,11 @@
 </head>
 <body>
 <%@ include file="/include/navbar.jsp" %> 
- <% CategoryDTO category = (CategoryDTO) request.getAttribute("category"); %>
- <h2><%= category.getName() %></h2>
+
+<% CategoryDTO c = (CategoryDTO) request.getAttribute("category"); %>
+<div class="d-flex">
+<p class="h1 mx-auto"><%= c.getName() %></p>
+</div>
  <%@ include file="/include/footer.jsp" %> 
 </body>
 </html>

@@ -6,10 +6,13 @@
 	
 <!DOCTYPE html>
 
-<% UserDTO user = (UserDTO) request.getSession(false).getAttribute("utenteCollegato"); 
-   List<CategoryDTO> list = (List<CategoryDTO>) request.getAttribute("categoryList");
+<% 
+		UserDTO user = (UserDTO) request.getSession(false).getAttribute("utenteCollegato");
+		@SuppressWarnings("unchecked")
+    	List<CategoryDTO> categoryList = (List<CategoryDTO>) request.getSession().getAttribute("categoryList");
+	
 %>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <a class="navbar-brand" href="/Home/home">BookME</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -17,7 +20,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-    <% for(CategoryDTO c : list){ %>
+    <% for(CategoryDTO c : categoryList){ %>
       <li class="nav-item">
         <a class="nav-link" href="/Category/categoryRead?id=<%= c.getIdCategory() %>"><%= c.getName() %></a>    
       </li>
@@ -40,7 +43,7 @@
       </li>
       <% } %>
       <li>
-      	<a class="btn btn-outline-light" href="#">Login/Register</a>
+      	<a class="btn btn-outline-light" href="/Home/logout">Logout</a>
 
       </li>
     </ul>

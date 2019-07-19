@@ -1,7 +1,5 @@
 package it.contrader.controller;
 
-import static org.mockito.Matchers.anyObject;
-
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.contrader.dto.CategoryDTO;
-import it.contrader.model.Category;
 import it.contrader.services.CategoryService;
 
 @Controller
@@ -28,7 +25,7 @@ public class CategoryController {
 	
 	public void getList(HttpServletRequest request) {
 		List<CategoryDTO> list = this.service.getListaCategoryDTO();
-		request.setAttribute("categoryList", list);
+		request.getSession().setAttribute("categoryList", list);
 	}
 	
 	@RequestMapping(value = "/categoryManagement", method = RequestMethod.GET)
@@ -50,8 +47,7 @@ public class CategoryController {
 		String name = request.getParameter("categoryName");
 		CategoryDTO newCategory = new CategoryDTO(0,name);
 		this.service.insertCategory(newCategory);
-		List<CategoryDTO> list = this.service.getListaCategoryDTO();
-		request.setAttribute("categories", list);
+		getList(request);
 		return "category/category";
 	}
 	
@@ -59,8 +55,7 @@ public class CategoryController {
 	public String categoryDelete(HttpServletRequest request) {
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		this.service.deleteCategoryById(id);
-		List<CategoryDTO> list = this.service.getListaCategoryDTO();
-		request.setAttribute("categories", list);
+		getList(request);
 		return "category/category";
 	}
 	
@@ -70,8 +65,7 @@ public class CategoryController {
 		String name = request.getParameter("newName");
 		CategoryDTO category = new CategoryDTO(id,name);
 		this.service.updateCategory(category);
-		List<CategoryDTO> list = this.service.getListaCategoryDTO();
-		request.setAttribute("categories", list);
+		getList(request);
 		return "category/category";
 	}
 	

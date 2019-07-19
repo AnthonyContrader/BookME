@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
-	import="it.contrader.dto.StoryDTO, it.contrader.dto.CategoryDTO, java.util.List"%>
+	import="it.contrader.dto.StoryDTO,it.contrader.dto.UserDTO, it.contrader.dto.CategoryDTO, java.util.List"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,22 +25,9 @@
 	%>
 
 	<div class="container-fluid content-container filter-container">
-		<div class="row filter-btn-row">
-			<div class="col-lg-12">
-				<a data-filter="all" class="btn btn-blue filter-btn selected">All</a>
-				<%
-					for (CategoryDTO c : categoryList) {
-				%>
-				<a data-filter="<%=c.getName()%>" class="btn btn-blue filter-btn"><%=c.getName()%></a>
-				<%
-					}
-				%>
-			</div>
-		</div>
+		
 		<div class="row">
 			<div class="col-sm-12 text-center filtered-cards">
-				<div id="card-placeholder"></div>
-
 
 				<%
 					for (StoryDTO s : lista) {
@@ -62,7 +49,9 @@
 			</div>
 		</div>
 	</div>
-
+	<% UserDTO user = (UserDTO) request.getSession().getAttribute("utenteCollegato");
+		if(user!=null && (user.getUsertype().toUpperCase().contains("ADMIN") || user.getUsertype().toUpperCase().contains("USER"))){
+	%>
 	<div id="container-floating">
 
 		<div id="floating-button" data-toggle="tooltip" data-placement="left"
@@ -73,7 +62,7 @@
 		</div>
 
 	</div>
-
+	<% } %>
 	<script
 		src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 	<script

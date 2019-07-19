@@ -1,49 +1,55 @@
-<%@ taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
-
-
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html lang="en" >
 <head>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
+<meta charset="UTF-8">
+<title>Log In</title>
 
-<title>LOGIN PAGE</title>
-
-<!-- Bootstrap core CSS -->
-<link href="/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Custom styles for this template -->
-<link href="/css/signin.css" rel="stylesheet">
-<style type="text/css">  
-		body
-		{
-		background: rgb(238,174,202);
-		background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
-		}
-</style>
+<link rel="stylesheet" href="./style.css">	  <link rel="stylesheet" href="./style21.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 
-<body class="text-center">
-	<form class="form-signin" action="/User/login" method="post">
-		<h1 class="h3 mb-3 font-weight-normal">Metabot LOGIN PAGE</h1>
+<body>
 
-		<label for="inputUser" class="sr-only">Username</label>
-		 <input
-			type="text" name="username" id="inputUser" class="form-control"
-			placeholder="Username" required autofocus> <label
-			for="inputPassword" class="sr-only">Password</label>
-			 <input
-			type="password" name="password" id="inputPassword"
-			class="form-control" placeholder="Password" required> 
-			<input type="text" name="richiesta" value="login" hidden>
+<canvas id="canvas"></canvas>
+  <script src='https://codepen.io/Tibixx/pen/BbBxRG.js'></script>
+<script src='https://codepen.io/Tibixx/pen/rRBKBm.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.5/dat.gui.min.js'></script>
 
-		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign
-			in</button>
-	</form>
-	
+<script src="https://code.jquery.com/jquery-2.1.0.min.js" ></script>
+
+
+<div id="formWrapper">
+
+<form id="form" class="login" action="/User/login" method="post">
+
+		<h2 align="center">Log In</h2>  
+		<div class="form-item">
+			<p class="formLabel">Username</p>
+			<input type="username" name="username" id="username" class="form-style" autocomplete="off" autofocus/>
+		</div> 
+		<div class="form-item">
+			<p class="formLabel">Password</p>
+			<input type="password" name="password" id="password" class="form-style" />
+			<p class="rup-pass"><a href="#" ><small>Forgot Password ?</small></a></p>	     
+			<!-- <div class="pw-view"><i class="fa fa-eye"></i></div> -->
+		</div>
+		
+		<div class="form-item">
+			<input type="submit" class="login pull-right" value="Entra">    
+        </div>     
+        <br>
+        <br>
+     	<p class="rup-pass"><a href="register.jsp" ><small>Registrati</small></a></p>   
+     	
+
+</form>
+
+</div>
+
+    <script  src="./script21.js"></script>    <script  src="./script.js"></script>
+
+
+
 </body>
-
 </html>
