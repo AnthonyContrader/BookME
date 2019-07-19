@@ -19,7 +19,7 @@ background: linear-gradient(0deg, rgba(0,143,255,1) 0%, rgba(0,185,255,1) 100%);
 		UserDTO user = (UserDTO) request.getSession(false).getAttribute("utenteCollegato");
 		@SuppressWarnings("unchecked")
     	List<CategoryDTO> categoryList = (List<CategoryDTO>) request.getSession().getAttribute("categoryList");
-	
+		CategoryDTO category = (CategoryDTO) request.getAttribute("category");
 %>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
   <a class="navbar-brand" href="/Home/home">
@@ -32,7 +32,11 @@ background: linear-gradient(0deg, rgba(0,143,255,1) 0%, rgba(0,185,255,1) 100%);
     <ul class="navbar-nav mr-auto">
     <% for(CategoryDTO c : categoryList){ %>
       <li class="nav-item">
+      <% if(category != null && category.equals(c)){ %>
+        <a class="nav-link active" href="/Story/storyRead?id=<%= c.getIdCategory() %>"><%= c.getName() %></a>    
+      <% } else { %>
         <a class="nav-link" href="/Story/storyRead?id=<%= c.getIdCategory() %>"><%= c.getName() %></a>    
+      <% } %>
       </li>
     <% } %>
     </ul>
