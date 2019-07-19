@@ -56,6 +56,7 @@ public class HomeController {
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpServletRequest request) {
+		request.getSession().invalidate();
 		return "index";
 
 	}

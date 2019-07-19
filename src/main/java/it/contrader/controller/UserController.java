@@ -137,4 +137,10 @@ public class UserController {
 		return "index";
 		
 	}
+	
+	@RequestMapping(value = "/enter", method = RequestMethod.GET)
+	public String enter(HttpServletRequest request) {
+		return "login";
+		
+	}
 }

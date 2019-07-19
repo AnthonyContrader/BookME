@@ -43,8 +43,12 @@
       </li>
       <% } %>
       <li>
+      <% if(user!=null) 
+      { %>
       	<a class="btn btn-outline-light" href="/Home/logout">Logout</a>
-
+		<% } else {%>
+		<a class="btn btn-outline-light" href="/User/enter">Login/Register</a>
+		<% } %>
       </li>
     </ul>
   </div>
