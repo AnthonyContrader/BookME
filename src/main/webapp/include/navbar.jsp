@@ -10,11 +10,8 @@ body {
   background-color: rgba(192, 192, 192, .2);
 }
 .bg-primary{
-	background: rgb(25,16,182);
-	background: linear-gradient(0deg, rgba(25,16,182,1) 0%,
-				rgba(12,12,153,1) 35%,
-				rgba(22,152,199,1) 85%,
-				rgba(28,174,204,1) 100%);
+background: rgb(0,143,255);
+background: linear-gradient(0deg, rgba(0,143,255,1) 0%, rgba(0,185,255,1) 100%);
 }
 
 </style>
