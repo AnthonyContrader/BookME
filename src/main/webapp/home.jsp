@@ -10,21 +10,10 @@
 </head>
 <body>
 
-	<!-- MUST BE INCLUDED AT THE BEGINNING -->
-	<%@ include file="/include/navbar.jsp"%>
 
+<%@ include file="/include/navbar.jsp"%>
 
-	<!-- ******* YOUR CODE ******* -->
-
-
-	<h4 class="card-title">Non mi Toccare <3</h4>
-	<p>
-		<!-- EHI TU NON TOCCARMI I PUNTINI -->
-		<%@ include file="/css/puntini.html"%>
-
-
-	</p>
-
+	<p class="h1 text-center">HOME PAGE BOOKME</p>
 	<!-- MUST BE INCLUDED AT THE END -->
 	<%@ include file="/include/footer.jsp"%>
 </body>

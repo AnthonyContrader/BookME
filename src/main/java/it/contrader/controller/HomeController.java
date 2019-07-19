@@ -9,7 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import it.contrader.dto.CategoryDTO;
 import it.contrader.dto.UserDTO;
+import it.contrader.services.CategoryService;
 import it.contrader.services.UserService;
 
 @Controller
@@ -17,16 +19,24 @@ import it.contrader.services.UserService;
 public class HomeController {
 
 	private final UserService userService;
+	private final CategoryService categoryService;
 
 	@Autowired
-	public HomeController(UserService userService) {
+	public HomeController(UserService userService, CategoryService categoryService) {
 		this.userService = userService;
+		this.categoryService = categoryService;
+		
+	}
+	
+	public void getList(HttpServletRequest request) {
+		List<CategoryDTO> list = this.categoryService.getListaCategoryDTO();
+		request.getSession().setAttribute("categoryList", list);
 	}
 
-	@RequestMapping(value = "/chatManagement", method = RequestMethod.GET)
-	public String chatManagement(HttpServletRequest request) {
-		return "homeChatbot";
-
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public String homeManagement(HttpServletRequest request) {
+		getList(request);
+		return "home";
 	}
 
 	@RequestMapping(value = "/userManagement", method = RequestMethod.GET)
@@ -39,13 +49,14 @@ public class HomeController {
 	
 	@RequestMapping(value = "/gobackhome")
 	public String gobackhome(HttpServletRequest request) {  // Mio metodo
-		
+		getList(request);
 		return "home";
 
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpServletRequest request) {
+		request.getSession().invalidate();
 		return "index";
 
 	}
