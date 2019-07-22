@@ -7,11 +7,15 @@
 <!DOCTYPE html>
 <style>
 body {
-  background-color: rgba(192, 192, 192, .2);
+	background-color: rgba(192, 192, 192, .2);
+	height: 100%;
+}
+html{
+	height: 100%;
 }
 .bg-primary{
-background: rgb(0,143,255);
-background: linear-gradient(0deg, rgba(0,143,255,1) 0%, rgba(0,185,255,1) 100%);
+	background: rgb(0,143,255);
+	background: linear-gradient(0deg, rgba(0,143,255,1) 0%, rgba(0,185,255,1) 100%);
 }
 
 .ccolor{
@@ -26,7 +30,7 @@ color:#ffffff;
 		CategoryDTO category = (CategoryDTO) request.getAttribute("category");
 %>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
-  <a class="navbar-brand" href="/Home/home">
+  <a class="navbar-brand ml-5" href="/Home/home">
   <img src="/include/open-book.png" width="30" height="30" class="d-inline-block align-top mr-3" alt="">BookME</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -69,9 +73,9 @@ color:#ffffff;
       <li class="ccolor">
       <% if(user!=null) 
       { %>
-      	<a class="btn btn-outline-light" href="/Home/logout">Logout</a>
+      	<a class="btn btn-outline-light mr-5" href="/Home/logout">Logout</a>
 		<% } else {%>
-		<a class="btn btn-outline-light" href="/User/enter">Login/Register</a>
+		<a class="btn btn-outline-light mr-5" href="/User/enter">Login/Register</a>
 		<% } %>
       </li>
     </ul>

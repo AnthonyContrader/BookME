@@ -16,5 +16,7 @@ public class StoryDTO {
 	private String plot;
 	
 	private Integer idCategory;
+	
+	private String author;
 
 }

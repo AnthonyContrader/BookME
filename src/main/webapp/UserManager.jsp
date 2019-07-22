@@ -66,9 +66,7 @@
 			</select>
 
 		<button class="p-2 btn btn-success"type="submit">Add</button>
-		<div>
-			<input type="image" border=0 name="NAME" src="/include/images.jpg">
-			</div>
+		
 		</form>
 </div>
 <%@ include file="/include/footer.jsp"%>	

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.contrader.dto.StoryDTO;
+import it.contrader.dto.UserDTO;
 import it.contrader.services.CategoryService;
 import it.contrader.services.StoryService;
 
@@ -84,8 +85,8 @@ public class StoryController {
 		final String title = request.getParameter("title");
 		final String plot = request.getParameter("plot");
 		int idCategory = Integer.parseInt(request.getParameter("idCategory"));
-		
-		StoryDTO storyDTO = new StoryDTO(id,title,plot,idCategory);
+		UserDTO userDTO = (UserDTO) request.getSession().getAttribute("utenteCollegato");
+		StoryDTO storyDTO = new StoryDTO(id,title,plot,idCategory,userDTO.getUsername());
 		boolean result = this.storyService.updateStory(storyDTO);
 		
 		if(result) {
@@ -135,8 +136,8 @@ public class StoryController {
 		Integer idcategory = Integer.parseInt(request.getParameter("idcategory")) ; 
 		 
 		//int idCategory = Integer.parseInt(request.getParameter("idCategory"));
-
-		StoryDTO storyObj = new StoryDTO(0,title,plot,idcategory);
+		UserDTO userDTO = (UserDTO) request.getSession().getAttribute("utenteCollegato");
+		StoryDTO storyObj = new StoryDTO(0,title,plot,idcategory,userDTO.getUsername());
 		
 		storyService.insertStory(storyObj);
 		CategoryDTO category = categoryService.getCategoryDTOByIdCategory(idcategory);

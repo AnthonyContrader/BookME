@@ -15,6 +15,7 @@ public class ConverterStory {
 	        storyDTO.setTitle(story.getTitle());
 			storyDTO.setPlot(story.getPlot());
 			storyDTO.setIdCategory(story.getIdCategory());
+			storyDTO.setAuthor(story.getAuthor());
 		}
 		return storyDTO;
 	}
@@ -27,6 +28,7 @@ public class ConverterStory {
 			story.setTitle(storyDTO.getTitle());
 			story.setPlot(storyDTO.getPlot());
 			story.setIdCategory(storyDTO.getIdCategory());
+			story.setAuthor(storyDTO.getAuthor());
 		}
 		return story;
 	}
