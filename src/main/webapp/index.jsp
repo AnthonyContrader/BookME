@@ -6,8 +6,10 @@
 
 </head>
 
+
 <body>
 <c:redirect url="/Home/home"/>
+
 
 </body>
 </html>

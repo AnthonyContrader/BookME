@@ -7,16 +7,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
-import org.springframework.lang.Nullable;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
+@Data // ti crea il get set ecc
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Entity // per ogni classe entity spring mi crea na tabella nel db
 public class User
 {
 
