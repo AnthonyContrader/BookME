@@ -9,11 +9,12 @@
 <%@ include file="/include/header.jsp"%>
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 <style type="text/css">  
-		body
-		{
-		background: rgb(238,174,202);
-		background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
-		}
+		body{
+		background-color: rgba(192,192,192,.2);
+	}
+	#mycont{
+		max-width: 500px;
+	}
 		
 		.row div{padding : 5px 5px; border : 1px solid}
 </style>
@@ -21,26 +22,31 @@
 </head>
 <body>
 <%@ include file="/include/navbar.jsp"%>
-<h1 class="h3 mb-3 font-weight-normal">LISTA UTENTI</h1>
+<h1 class="display-4 text-center">LISTA UTENTI</h1>
 
 
 <%List<UserDTO> listUser = (List<UserDTO>) request.getAttribute("allUserDTO");%>
 
-<div class="container">
+<div class="container-fluid" id="mycont">
 <% for(UserDTO u : listUser)
 { %>
-<div class = "row" style= "background : lightblue">
+<div class="row justify-content-md-center shadow-sm p-1 m-1 bg-white rounded">
 	
-	<div class="col-md-3"><%=u.getId()%></div>
-	<div class="col-md-3"><%=u.getUsername()%></div>
-	<div class="col-md-3"><%=u.getPassword()%></div>
-	<div class="col-md-3"><%=u.getUsertype()%></div>
+	<div class="col"><%=u.getId()%></div>
+	<div class="col"><%=u.getUsername()%></div>
+	<div class="col"><%=u.getPassword()%></div>
+	<div class="col"><%=u.getUsertype()%></div>
+	
+	<div class="col">
+				<a class="btn btn-danger text-center" href="/User/delete?id=<%=u.getId()%>">Remove</a>
+			</div>
 </div>
 <%}%>
 </div>
 
+<div class="row justify-content-md-center container-fluid"> 
 	<form class="form-signin text-primary" action="/User/creaUserByAdminPage" method="post">
-		<h2 class="h3 mb-3 font-weight-normal" > CREATE NEW USER</h2>
+		<h1 class="h3 mb-3 font-weight-normal text-center" > CREATE NEW USER</h1>
 
 		<label for="inputUser" class="sr-only ">Username</label> <input
 			type="text" name="username" id="inputUser" class=" text-primary"
@@ -48,29 +54,21 @@
 			for="inputPassword" class="sr-only">Password</label> <input
 			type="password" name="password" id="inputPassword"
 			class="text-primary" placeholder="Password" required>	
-		<label for="inputUserType" class="sr-only ">UserType</label> <input
-			type="text" name="usertype" id="inputUser" class=" text-primary"
-			placeholder="Usertype" required autofocus>
-			
-			 
-
-		<button class="btn btn-dark"  type="submit">CREA</button>
-	</form>
 	
-	
-	<form class="form-delete text-danger" action="/User/delete" method="get">
-		<h2 class="h3 mb-3 font-weight-normal">CANCELLA USER</h2>
+				
+			
+ 			<select id="type" name="usertype">
+  				<option value="ADMIN">ADMIN</option>
+  				<option value="USER">USER</option>
+ 
+			</select>
+    	
+    	
+    	
 
-		<label for="deleteUser" class="sr-only">Inserisci ID</label>
-		 <input
-			type="text" name="id" id="deleteUser" class=" text-danger"
-			placeholder="Id utente" required autofocus> </label>
-			
-			
-			<button class="btn btn-primary" type="submit">ELIMINA</button>
-	</form>
-		
-			
+		<button class="p-2 btn btn-success"type="submit">Add</button>
+		</form>
+</div>
 <%@ include file="/include/footer.jsp"%>	
 </body>
 </html>

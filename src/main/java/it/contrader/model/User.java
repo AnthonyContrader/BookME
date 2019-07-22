@@ -13,10 +13,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
+@Data // ti crea il get set ecc
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Entity // per ogni classe entity spring mi crea na tabella nel db
 public class User
 {
 
