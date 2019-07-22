@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -32,18 +32,40 @@ public class StoryController {
 	
 	private void visualStory(HttpServletRequest request){
 		List<StoryDTO> allStory = this.storyService.getListaStoryDTO();
-		request.setAttribute("allStoryDTO", allStory);
+		request.setAttribute("storyList", allStory);
 	}
 	
-	private void visualCategories(HttpServletRequest request) {
-		List<CategoryDTO> list = this.categoryService.getListaCategoryDTO();
-		request.setAttribute("categoryList", list);
+	private List<StoryDTO> getStoriesByCategory(Integer idCategory) {
+		List<StoryDTO> storyByCategory = this.storyService.getStoriesByCategoryId(idCategory);
+		return storyByCategory;
+	}
+	
+	@RequestMapping(value = "/goInsertStory", method = RequestMethod.GET)
+	private String goInsertStory(HttpServletRequest request){
+		Integer idCategory = Integer.parseInt(request.getParameter("idcategory"));
+		CategoryDTO category = categoryService.getCategoryDTOByIdCategory(idCategory);
+		request.setAttribute("category", category);
+		request.setAttribute("idcategory", idCategory);
+		
+		return "story/typestory";
+	}
+	
+	@RequestMapping(value = "/storyRead", method = RequestMethod.GET)
+	public String storyRead(HttpServletRequest request) {
+		//visualStory(request);
+		//visualCategories(request);
+		Integer idCategory = Integer.parseInt(request.getParameter("id"));
+		CategoryDTO category = this.categoryService.getCategoryDTOByIdCategory(idCategory);
+		request.setAttribute("category", category);
+		List<StoryDTO> storyList = getStoriesByCategory(idCategory);
+		request.setAttribute("storyList", storyList);
+		return "story/readstory";		
 	}
 	
 	@RequestMapping(value = "/viewStory", method = RequestMethod.GET)
 	public String storyManagement(HttpServletRequest request) {
 		visualStory(request);
-		visualCategories(request);
+		//visualCategories(request);
 		return "story/homestory";		
 	}
 	
@@ -110,14 +132,18 @@ public class StoryController {
 	public String insertStory(HttpServletRequest request) {
 		String title = request.getParameter("title").toString();
 		String plot = request.getParameter("plot").toString();
+		Integer idcategory = Integer.parseInt(request.getParameter("idcategory")) ; 
+		 
 		//int idCategory = Integer.parseInt(request.getParameter("idCategory"));
 
-		StoryDTO storyObj = new StoryDTO(0,title,plot,1);
+		StoryDTO storyObj = new StoryDTO(0,title,plot,idcategory);
 		
 		storyService.insertStory(storyObj);
-
-		visualStory(request);
-		return "story/homestory";
+		CategoryDTO category = categoryService.getCategoryDTOByIdCategory(idcategory);
+		request.setAttribute("category", category);
+		List<StoryDTO> storyList = storyService.getStoriesByCategoryId(idcategory);
+		request.setAttribute("storyList", storyList);
+		return "story/readstory";
 	}
 	
 	/*

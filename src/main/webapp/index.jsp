@@ -1,52 +1,15 @@
-<%@ taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
-
-
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"    pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html lang="en" >
 <head>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
 
-<title>LOGIN PAGE</title>
-
-<!-- Bootstrap core CSS -->
-<link href="/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Custom styles for this template -->
-<link href="/css/signin.css" rel="stylesheet">
-<style type="text/css">  
-		body
-		{
-		background: rgb(238,174,202);
-		background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
-		}
-</style>
 </head>
 
-<body class="text-center">
-	<form class="form-signin" action="/User/login" method="post">
-		<h1 class="h3 mb-3 font-weight-normal">Metabot LOGIN PAGE</h1>
 
-		<label for="inputUser" class="sr-only">Username</label>
-		 <input
-			type="text" name="username" id="inputUser" class="form-control"
-			placeholder="Username" required autofocus>
-			
-			
-			 <label
-			for="inputPassword" class="sr-only">Password</label>
-			 <input
-			type="password" name="password" id="inputPassword"
-			class="form-control" placeholder="Password" required> 
-			<input type="text" name="richiesta" value="login" hidden>
+<body>
+<c:redirect url="/Home/home"/>
 
-		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign
-			in</button>
-	</form>
-	
+
 </body>
-
 </html>

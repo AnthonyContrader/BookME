@@ -9,30 +9,24 @@
 <%@ include file="/include/header.jsp" %>
 </head>
 <style type="text/css">
-	
+	body{
+		background-color: rgba(192,192,192,.2);
+	}
 	#mycont{
 		max-width: 500px;
 	}
 </style>
 <body>
 <%@ include file="/include/navbar.jsp" %> 
-    <script type="text/javascript">
-		function getNewName(){
-			var name = prompt("Enter a new category name:","new name");
-			var arr = document.querySelectorAll(".newName");
-			for (var i = 0; i < arr.length; i++) {
-				  arr[i].value = name;
-				}
-		}
-	</script>
+    
 	
 	<h1 class="display-4 text-center">Category List</h1>
 	
 	<div class="container-fluid" id="mycont">
-		<% for(CategoryDTO c : list){ %>
+		<% for(CategoryDTO c : categoryList){ %>
 		<div class="row justify-content-md-center shadow-sm p-1 m-1 bg-white rounded">
 			<div class="col">
-				<a href="/Category/categoryRead?id=<%=c.getIdCategory()%>"><%= c.getName() %></a>
+				<a href="/Story/storyView?id=<%=c.getIdCategory()%>"><%= c.getName() %></a>
 			</div>
 			<div class="col">
 				<form action="/Category/categoryUpdate?id=<%=c.getIdCategory()%>" method="post">
@@ -63,6 +57,15 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		function getNewName(){
+			var name = prompt("Enter a new category name:","new name");
+			var arr = document.querySelectorAll(".newName");
+			for (var i = 0; i < arr.length; i++) {
+				  arr[i].value = name;
+				}
+		}
+	</script>
 <%@ include file="/include/footer.jsp" %> 
 </body>
 </html>

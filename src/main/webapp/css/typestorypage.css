@@ -1,0 +1,106 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: calc( 18px + (24 - 18) * ((100vw - 400px) / ( 1200 - 400)));
+  font-family: 'Open Sans', sans-serif;
+  color: #141414;
+}
+
+.container-bg {
+  background-color: transparent;
+}
+
+
+.message-form {
+  width: 90%;
+  max-width: 30rem;
+  margin: 1rem auto;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  background: #FFFFFF;
+}
+.message-form > .counter {
+  float: left;
+  margin-right: 0.5rem;
+  color: #25CED1;
+  transition: color 120ms cubic-bezier(0.84, 0.12, 0.86, 0.78);
+}
+.message-form > .counter.-invalid {
+  color: #EA526F;
+}
+.message-form > .error {
+  color: #EA526F;
+}
+.message-form > .textarea {
+  width: 100%;
+  margin: 1rem 0;
+  border: 2px solid #949494;
+  border-radius: 0.3rem;
+  outline: none;
+  padding: 1rem;
+  overflow: auto;
+  resize: none;
+  transition: border-color 120ms cubic-bezier(0.84, 0.12, 0.86, 0.78);
+}
+.message-form > .textarea::-webkit-input-placeholder {
+  color: #949494;
+  transition: text-indent 210ms cubic-bezier(0.84, 0.12, 0.86, 0.78);
+}
+.message-form > .textarea:-ms-input-placeholder {
+  color: #949494;
+  transition: text-indent 210ms cubic-bezier(0.84, 0.12, 0.86, 0.78);
+}
+.message-form > .textarea::-ms-input-placeholder {
+  color: #949494;
+  transition: text-indent 210ms cubic-bezier(0.84, 0.12, 0.86, 0.78);
+}
+.message-form > .textarea::placeholder {
+  color: #949494;
+  transition: text-indent 210ms cubic-bezier(0.84, 0.12, 0.86, 0.78);
+}
+.message-form > .textarea:focus {
+  border-color: #25CED1;
+}
+.message-form > .textarea:focus::-webkit-input-placeholder {
+  text-indent: -30rem;
+}
+.message-form > .textarea:focus:-ms-input-placeholder {
+  text-indent: -30rem;
+}
+.message-form > .textarea:focus::-ms-input-placeholder {
+  text-indent: -30rem;
+}
+.message-form > .textarea:focus::placeholder {
+  text-indent: -30rem;
+}
+.message-form > .textarea.-invalid {
+  border-color: #EA526F;
+}
+
+.message-form > .button {
+  border: none;
+  outline: none;
+  padding: 0.5rem 1rem;
+  background: #25CED1;
+  color: #FFFFFF;
+  font-weight: 600;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: all 120ms cubic-bezier(0.84, 0.12, 0.86, 0.78);
+}
+.message-form > .button:hover,
+.message-form > .button:focus {
+  background: #1da3a6;
+}
+.message-form > .button:active {
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+}
+.message-form > .button.-disabled {
+  background: #949494;
+  pointer-events: none;
+}

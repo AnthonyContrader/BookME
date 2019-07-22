@@ -27,6 +27,10 @@ public class StoryService {
 	public StoryDTO getStoryDTOById(Integer id) {
 		return ConverterStory.toDTO(storyRepository.findById(id).get());
 	}
+	
+	public List<StoryDTO> getStoriesByCategoryId(Integer idCategory){
+		return ConverterStory.toListDTO(storyRepository.findAllByIdCategory(idCategory));
+	}
 
 	public StoryDTO getByIdStory(Integer idStory) {
 

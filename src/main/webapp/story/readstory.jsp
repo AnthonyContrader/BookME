@@ -1,34 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"
+	pageEncoding="ISO-8859-1"
 	import="it.contrader.dto.StoryDTO,it.contrader.dto.UserDTO, it.contrader.dto.CategoryDTO, java.util.List"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+
 <title>Stories</title>
-<%@ include file="/include/header.jsp" %>      
-      <link rel="stylesheet" href="./style.css">
-	  <link rel="stylesheet" href="/css/cardstyle.css">
-	  <link rel="stylesheet" href="/css/buttonaddstory.css">
-	 
-	  <script>
-		  function myFunction() {
-			  window.location.href = '/Story/goInsertStory';
-			}
-	  </script>
+
+
+<%@ include file="/include/header.jsp"%>
+
+<link rel="stylesheet" href="/css/cardstyle.css">
+<link rel="stylesheet" href="/css/buttonaddstory.css">
 
 
 </head>
 
 <body>
-<%@ include file="/include/navbar.jsp" %>
+	<%@ include file="/include/navbar.jsp"%>
+	
+	<script>
+		function myFunction() {
+			window.location.href = '/Story/goInsertStory?idcategory=<%= category.getIdCategory() %>';
+		}
+	</script>
 	<%
 		@SuppressWarnings("unchecked")
 		List<StoryDTO> storyList = (List<StoryDTO>) request.getAttribute("storyList");
 	%>
 
 	<div class="container-fluid content-container filter-container">
-		
+
 		<div class="row">
 			<div class="col-sm-12 text-center filtered-cards">
 
@@ -43,7 +45,6 @@
 					</div>
 					<div class="card-link-container">
 						<a href="#" class="more-link">Read more</a>
-						<a href="#" class="more-link">Delete story</a>
 					</div>
 				</div>
 				<%
@@ -53,8 +54,9 @@
 			</div>
 		</div>
 	</div>
-	<% if(user!=null && (user.getUsertype().toUpperCase().contains("ADMIN") || user.getUsertype().toUpperCase().contains("USER")))
-	   {
+	<%
+		if (user != null && (user.getUsertype().toUpperCase().contains("ADMIN")
+				|| user.getUsertype().toUpperCase().contains("USER"))) {
 	%>
 	<div id="container-floating">
 
@@ -66,7 +68,9 @@
 		</div>
 
 	</div>
-	<% } %>
+	<%
+		}
+	%>
 	<script
 		src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 	<script
@@ -77,8 +81,8 @@
 	<script src="/js/card.js"></script>
 	<script src="/js/buttonaddstory.js"></script>
 
-
-<%@ include file="/include/footer.jsp" %> 
+	
+	<%@ include file="/include/footer.jsp"%>
 </body>
 
 </html>

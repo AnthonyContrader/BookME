@@ -33,7 +33,7 @@ public class UserController {
 	
 	public void getList(HttpServletRequest request) {
 		List<CategoryDTO> list = this.categoryService.getListaCategoryDTO();
-		request.setAttribute("categoryList", list);
+		request.getSession().setAttribute("categoryList", list);
 	}
 
 	private void visualUser(HttpServletRequest request){
@@ -52,6 +52,7 @@ public class UserController {
 	public String userManager(HttpServletRequest request)
 	{
 		visualUser(request);
+		getList(request);
 		return "UserManager";		
 	}
 	
@@ -134,6 +135,12 @@ public class UserController {
 			}
 		}
 		return "index";
+		
+	}
+	
+	@RequestMapping(value = "/enter", method = RequestMethod.GET)
+	public String enter(HttpServletRequest request) {
+		return "login";
 		
 	}
 }

@@ -5,21 +5,38 @@
 	 %>
 	
 <!DOCTYPE html>
+<style>
+body {
+  background-color: rgba(192, 192, 192, .2);
+}
+.bg-primary{
+background: rgb(0,143,255);
+background: linear-gradient(0deg, rgba(0,143,255,1) 0%, rgba(0,185,255,1) 100%);
+}
 
-<% UserDTO user = (UserDTO) request.getSession(false).getAttribute("utenteCollegato"); 
-   List<CategoryDTO> list = (List<CategoryDTO>) request.getAttribute("categoryList");
+</style>
+<% 
+		UserDTO user = (UserDTO) request.getSession(false).getAttribute("utenteCollegato");
+		@SuppressWarnings("unchecked")
+    	List<CategoryDTO> categoryList = (List<CategoryDTO>) request.getSession().getAttribute("categoryList");
+		CategoryDTO category = (CategoryDTO) request.getAttribute("category");
 %>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/Home/home">BookME</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+  <a class="navbar-brand" href="/Home/home">
+  <img src="/include/open-book.png" width="30" height="30" class="d-inline-block align-top mr-3" alt="">BookME</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-    <% for(CategoryDTO c : list){ %>
+    <% for(CategoryDTO c : categoryList){ %>
       <li class="nav-item">
-        <a class="nav-link" href="/Category/categoryRead?id=<%= c.getIdCategory() %>"><%= c.getName() %></a>    
+      <% if(category != null && category.equals(c)){ %>
+        <a class="nav-link active" href="/Story/storyRead?id=<%= c.getIdCategory() %>"><%= c.getName() %></a>    
+      <% } else { %>
+        <a class="nav-link" href="/Story/storyRead?id=<%= c.getIdCategory() %>"><%= c.getName() %></a>    
+      <% } %>
       </li>
     <% } %>
     </ul>
@@ -40,8 +57,12 @@
       </li>
       <% } %>
       <li>
-      	<a class="btn btn-outline-light" href="#">Login/Register</a>
-
+      <% if(user!=null) 
+      { %>
+      	<a class="btn btn-outline-light" href="/Home/logout">Logout</a>
+		<% } else {%>
+		<a class="btn btn-outline-light" href="/User/enter">Login/Register</a>
+		<% } %>
       </li>
     </ul>
   </div>

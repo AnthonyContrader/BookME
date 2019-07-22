@@ -13,14 +13,7 @@
 
 <%@ include file="/include/navbar.jsp"%>
 
-	<h4 class="card-title">Non mi Toccare <3</h4>
-	<p>
-		<!-- EHI TU NON TOCCARMI I PUNTINI -->
-		<%@ include file="/css/puntini.html"%>
-
-
-	</p>
-
+	<p class="h1 text-center">HOME PAGE BOOKME</p>
 	<!-- MUST BE INCLUDED AT THE END -->
 	<%@ include file="/include/footer.jsp"%>
 </body>

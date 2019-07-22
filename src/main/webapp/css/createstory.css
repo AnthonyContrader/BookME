@@ -1,0 +1,117 @@
+@charset "UTF-8";
+
+html {
+	height: 100%;
+	background-color: #FFFFFF;
+	font-family: 'Cabin Condensed', sans-serif;
+	/* per cambiare il font del titolo */
+}
+
+body {
+	height: 100%;
+}
+
+.main-container {
+	border: 2px solid transparent;
+	padding-top: 5%;
+	background: #FFFFFF;
+	border-radius: 5px;
+	width: 95%; /* per aumentare la larghezza del container principale */
+	height: 88%;
+	text-align: center;
+	margin: 3% auto;
+	box-shadow: 0px 4px 3px rgba(0, 0, 0, .4), 0px 8px 13px
+		rgba(0, 0, 0, .1), 0px 18px 23px rgba(0, 0, 0, .1);
+}
+
+.form {
+	max-width: 800px;
+	height: 50%;
+	margin: 2% auto auto auto;
+}
+
+#tarea {
+	height: 100%;
+}
+
+h1 {
+	margin: auto;
+	font-size: 2em;
+}
+
+/**************************
+-------INPUT STYLING-------
+***************************/
+input[type=text], textarea {
+	display: block;
+	outline: none;
+	width: 96%;
+	/*per rendere largo il textarea sia del titolo che della trama */
+	padding: 5px;
+	margin-top: 20px;
+	border: 2px solid #2ABB9B;
+	border-radius: 5px;
+	font-size: 1.5em;
+	font-family: 'Dosis', sans-serif;
+	-webkit-transition: all 0.2s ease-in;
+	-moz-transition: all 0.2s ease-in;
+	-ms-transition: all 0.2s ease-in;
+	-o-transition: all 0.2s ease-in;
+}
+
+input[type=text]:focus, textarea:focus {
+	box-shadow: 0 0 8px #2ABB9B;
+	border: 2px solid transparent;
+	-webkit-transition: all 0.2s ease-out;
+	-moz-transition: all 0.2s ease-out;
+	-ms-transition: all 0.2s ease-out;
+	-o-transition: all 0.2s ease-out;
+	font-size: 1.55em;
+}
+
+input[type=button] {
+	position: relative;
+	display: block;
+	padding: 15px 15px;
+	background: #2ABB9B;
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+	font-family: 'Dosis', sans-serif;
+	font-size: 1.2em;
+	color: #092922;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	-webkit-box-shadow: 0px 5px 0px #249E83;
+	-moz-box-shadow: 0px 5px 0px #249E83;
+	box-shadow: 0px 5px 0px #249E83;
+}
+
+input[type=button]:hover {
+	color: #FFF;
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-ms-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+}
+
+input[type=button]:active {
+	-webkit-transition: none;
+	-moz-transition: none;
+	-ms-transition: none;
+	-o-transition: none;
+	top: 5px;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+input[type=button]:focus {
+	position: relative;
+	-webkit-transition: none;
+	-moz-transition: none;
+	-ms-transition: none;
+	-o-transition: none;
+	outline: none;
+}
