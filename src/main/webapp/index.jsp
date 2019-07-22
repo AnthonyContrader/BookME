@@ -33,7 +33,10 @@
 		<label for="inputUser" class="sr-only">Username</label>
 		 <input
 			type="text" name="username" id="inputUser" class="form-control"
-			placeholder="Username" required autofocus> <label
+			placeholder="Username" required autofocus>
+			
+			
+			 <label
 			for="inputPassword" class="sr-only">Password</label>
 			 <input
 			type="password" name="password" id="inputPassword"
