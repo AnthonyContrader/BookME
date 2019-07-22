@@ -1,9 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-
+<style>
+	body{
+		padding-bottom: 60px;
+	}
+</style>
 <footer class="footer">
-	<div class="container fixed-bottom">
+	<div class="container-fluid ">
 		<p class="copyright text-center">
 			©
 			<script>
