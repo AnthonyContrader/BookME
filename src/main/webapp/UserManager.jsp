@@ -7,6 +7,7 @@
 <meta charset="ISO-8859-1">
 <title>WELCOME IN THE USERMANAGER PAGE</title>
 <%@ include file="/include/header.jsp"%>
+
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 <style type="text/css">  
 		body{
@@ -36,16 +37,16 @@
 	<div class="col"><%=u.getUsername()%></div>
 	<div class="col"><%=u.getPassword()%></div>
 	<div class="col"><%=u.getUsertype()%></div>
-	
-	<div class="col">
-				<a class="btn btn-danger text-center" href="/User/delete?id=<%=u.getId()%>">Remove</a>
+	<div class="col"><a class="btn btn-danger text-center" href="/User/delete?id=<%=u.getId()%>">Remove</a>
 			</div>
 </div>
 <%}%>
 </div>
 
 <div class="row justify-content-md-center container-fluid"> 
-	<form class="form-signin text-primary" action="/User/creaUserByAdminPage" method="post">
+	<form class="form-signin text-primary" method="post" action="/User/creaUserByAdminPage" >
+	
+	
 		<h1 class="h3 mb-3 font-weight-normal text-center" > CREATE NEW USER</h1>
 
 		<label for="inputUser" class="sr-only ">Username</label> <input
@@ -54,6 +55,7 @@
 			for="inputPassword" class="sr-only">Password</label> <input
 			type="password" name="password" id="inputPassword"
 			class="text-primary" placeholder="Password" required>	
+			
 	
 				
 			
@@ -62,11 +64,11 @@
   				<option value="USER">USER</option>
  
 			</select>
-    	
-    	
-    	
 
 		<button class="p-2 btn btn-success"type="submit">Add</button>
+		<div>
+			<input type="image" border=0 name="NAME" src="/include/images.jpg">
+			</div>
 		</form>
 </div>
 <%@ include file="/include/footer.jsp"%>	

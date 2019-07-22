@@ -105,7 +105,8 @@ public class UserController {
 		String username = request.getParameter("username").toString();
 		String password = request.getParameter("password").toString();
 		String usertype = request.getParameter("usertype").toString();
-		System.out.print(usertype);
+		String boh = request.getParameter("nome").toString();
+		System.out.print(boh);
 
 		UserDTO userObj = new UserDTO(0, username, password, usertype);
 		

@@ -11,6 +11,7 @@
 <title>BookME</title>
 <!-- MUST BE INCLUDED AFTER TITLE -->
 <%@ include file="/include/header.jsp"%>
+
 </head>
 <body>
 

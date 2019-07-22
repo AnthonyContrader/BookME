@@ -14,6 +14,10 @@ background: rgb(0,143,255);
 background: linear-gradient(0deg, rgba(0,143,255,1) 0%, rgba(0,185,255,1) 100%);
 }
 
+.ccolor{
+color:#ffffff;
+}
+
 </style>
 <% 
 		UserDTO user = (UserDTO) request.getSession(false).getAttribute("utenteCollegato");
@@ -33,7 +37,7 @@ background: linear-gradient(0deg, rgba(0,143,255,1) 0%, rgba(0,185,255,1) 100%);
     <% for(CategoryDTO c : categoryList){ %>
       <li class="nav-item">
       <% if(category != null && category.equals(c)){ %>
-        <a class="nav-link active" href="/Story/storyRead?id=<%= c.getIdCategory() %>"><%= c.getName() %></a>    
+        <a class="nav-link active ccolor" href="/Story/storyRead?id=<%= c.getIdCategory() %>"><%= c.getName() %></a>    
       <% } else { %>
         <a class="nav-link" href="/Story/storyRead?id=<%= c.getIdCategory() %>"><%= c.getName() %></a>    
       <% } %>
@@ -44,7 +48,7 @@ background: linear-gradient(0deg, rgba(0,143,255,1) 0%, rgba(0,185,255,1) 100%);
       <% if(user!=null && user.getUsertype().toUpperCase().contains("ADMIN")) 
       { %>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle ccolor" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Utilities
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -55,8 +59,14 @@ background: linear-gradient(0deg, rgba(0,143,255,1) 0%, rgba(0,185,255,1) 100%);
           <a class="dropdown-item" href="/Story/viewStory">Stories</a>
         </div>
       </li>
+      <% } 
+       if(user!=null) 
+      { %>
+      <li class="nav-link">
+      	<span class="ccolor"><%=user.getUsername() %></span>
+      </li>
       <% } %>
-      <li>
+      <li class="ccolor">
       <% if(user!=null) 
       { %>
       	<a class="btn btn-outline-light" href="/Home/logout">Logout</a>
