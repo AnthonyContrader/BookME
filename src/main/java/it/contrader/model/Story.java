@@ -34,4 +34,7 @@ public class Story {
 	@NotNull
 	private Integer idCategory;
 
+	@Column(name = "author")
+	@NotNull
+	private String author;
 }

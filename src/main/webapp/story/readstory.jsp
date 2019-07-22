@@ -13,7 +13,6 @@
 <link rel="stylesheet" href="/css/cardstyle.css">
 <link rel="stylesheet" href="/css/buttonaddstory.css">
 
-
 </head>
 
 <body>
@@ -30,7 +29,7 @@
 	%>
 
 	<div class="container-fluid content-container filter-container">
-
+		
 		<div class="row">
 			<div class="col-sm-12 text-center filtered-cards">
 
@@ -42,9 +41,12 @@
 					<div class="card-text-container">
 						<h2 class="card-title"><%=s.getTitle()%></h2>
 						<p class="card-body"><%=s.getPlot()%></p>
+						<p class=""><small>Created by <%=s.getAuthor() %></small></p>
 					</div>
 					<div class="card-link-container">
+						<% if(s.getPlot().length() > 50){ %>
 						<a href="#" class="more-link">Read more</a>
+						<% } %>
 					</div>
 				</div>
 				<%
@@ -54,6 +56,22 @@
 			</div>
 		</div>
 	</div>
+
+
+
+	<nav aria-label="Stories navigation">
+		<ul class="pagination justify-content-center">
+			<li class="page-item disabled"><a class="page-link" href="#"
+				tabindex="-1" aria-disabled="true">Previous</a></li>
+			<li class="page-item"><a class="page-link" href="#">1</a></li>
+			<li class="page-item"><a class="page-link" href="#">2</a></li>
+			<li class="page-item"><a class="page-link" href="#">3</a></li>
+			<li class="page-item"><a class="page-link" href="#">Next</a></li>
+		</ul>
+	</nav>
+
+
+
 	<%
 		if (user != null && (user.getUsertype().toUpperCase().contains("ADMIN")
 				|| user.getUsertype().toUpperCase().contains("USER"))) {
@@ -71,16 +89,10 @@
 	<%
 		}
 	%>
-	<script
-		src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-	<script
-		src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
-
-
-
-	<script src="/js/card.js"></script>
+	
+	
 	<script src="/js/buttonaddstory.js"></script>
-
+	<script src="/js/card.js"></script>
 	
 	<%@ include file="/include/footer.jsp"%>
 </body>

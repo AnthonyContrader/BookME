@@ -9,7 +9,6 @@
 <%@ include file="/include/header.jsp" %>      
       <link rel="stylesheet" href="./style.css">
 	  <link rel="stylesheet" href="/css/cardstyle.css">
-	  <link rel="stylesheet" href="/css/buttonaddstory.css">
 	 
 	  <script>
 		  function myFunction() {
@@ -42,8 +41,10 @@
 						<p class="card-body"><%=s.getPlot()%></p>
 					</div>
 					<div class="card-link-container">
+					<% if(s.getPlot().length() > 50){ %>
 						<a href="#" class="more-link">Read more</a>
-						<a href="#" class="more-link">Delete story</a>
+						<% } %>
+						<a class="btn btn-outline-danger btn-sm" href="/Story/deleteStory?id=<%= s.getIdStory() %>">Delete</a>
 					</div>
 				</div>
 				<%
@@ -53,29 +54,9 @@
 			</div>
 		</div>
 	</div>
-	<% if(user!=null && (user.getUsertype().toUpperCase().contains("ADMIN") || user.getUsertype().toUpperCase().contains("USER")))
-	   {
-	%>
-	<div id="container-floating">
-
-		<div id="floating-button" data-toggle="tooltip" data-placement="left"
-			data-original-title="Create story" onclick="myFunction()">
-			<p class="plus">+</p>
-			<img class="edit"
-				src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/1x/bt_compose2_1x.png">
-		</div>
-
-	</div>
-	<% } %>
-	<script
-		src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-	<script
-		src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
-
-
+	
 
 	<script src="/js/card.js"></script>
-	<script src="/js/buttonaddstory.js"></script>
 
 
 <%@ include file="/include/footer.jsp" %> 
