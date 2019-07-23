@@ -7,7 +7,6 @@ import { LoginModule } from './login/login.module';
 import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from './layout/layout.module';
 import { AdminModule } from './admin/admin.module';
-import { CategoryComponent } from './category/category.component';
 
 /** 
  * Modulo principale dell'applicazione. Qui vengono importati i moduli secondari. L'UNICA component
@@ -19,7 +18,6 @@ import { CategoryComponent } from './category/category.component';
 @NgModule({
   declarations: [
     AppComponent,
-    CategoryComponent
   ],
   imports: [
     BrowserModule,
