@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoryService } from 'src/service/category.service';
+import { CategoryDTO } from 'src/dto/categorydto';
 
 @Component({
   selector: 'app-category',
@@ -7,9 +9,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoryComponent implements OnInit {
 
-  constructor() { }
+  categories: CategoryDTO[];
+  categorytoinsert: CategoryDTO = new CategoryDTO();
+  constructor(private categoryService: CategoryService) { }
 
   ngOnInit() {
+    this.getAllCategories();
   }
 
+  getAllCategories() {
+    this.categoryService.getAll().subscribe(categories => this.categories = categories);
+  }
+
+  delete(categorytodelete: CategoryDTO) {
+    this.categoryService.delete(categorytodelete.id).subscribe
+    (
+      () => this.getAllCategories()
+    );
+  }
+
+  insert(categorytoinsert: CategoryDTO) {
+      this.categoryService.insert(categorytoinsert).subscribe
+      (
+        () => this.getAllCategories()
+      );
+  }
+
+  clear() {
+    this.categorytoinsert = new CategoryDTO();
+  }
 }
