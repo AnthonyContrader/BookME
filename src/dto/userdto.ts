@@ -1,4 +1,6 @@
 import {Usertype} from './usertype';
+import { StoryDTO } from './storydto';
+import { NovelDTO } from './novelsdto';
 
 /**
  * Classe DTO di User. DEVE essere uguale (stesso nome classe, stessi attributi e stessi nomi) a
@@ -18,5 +20,14 @@ export class UserDTO {
 
    usertype: Usertype;
 
+   stories: StoryDTO[];
+
+   likedStories: StoryDTO[];
+
+   bookmarkedStories: StoryDTO[];
+
+   likedNovels: NovelDTO[];
+
+   bookmarkedNovels: NovelDTO[];
 }
 

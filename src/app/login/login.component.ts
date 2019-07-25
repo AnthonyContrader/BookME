@@ -19,6 +19,8 @@ export class LoginComponent implements OnInit {
   }
 
   login(f: NgForm): void {
+    // this.router.navigate(['/admin-dashboard']);
+    
     this.loginDTO = new LoginDTO(f.value.username, f.value.password);
 
     this.service.login(this.loginDTO).subscribe((user) => {
