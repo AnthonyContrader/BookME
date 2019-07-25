@@ -2,10 +2,13 @@ package it.contrader.model;
 
 import javax.persistence.Entity;
 
+import java.util.List;
+import java.util.Set;
+
 import javax.persistence.*;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -38,8 +41,34 @@ public class User {
 	@Column(unique = true)
 	private String username;
 	
+	@NotNull
 	private String password;
 
+	@NotNull
 	private Usertype usertype;
+	
+	@OneToMany(mappedBy = "user")
+	private Set<Story> stories;
+	
+	@ManyToMany
+	@JoinTable(
+			  name = "story_like", 
+			  joinColumns = @JoinColumn(name = "user_id"), 
+			  inverseJoinColumns = @JoinColumn(name = "story_id")
+			  )
+	private Set<Story> likedStories;
+	
+	@ManyToMany
+	@JoinTable(
+			  name = "story_bookmark", 
+			  joinColumns = @JoinColumn(name = "user_id"), 
+			  inverseJoinColumns = @JoinColumn(name = "story_id")
+			  )
+	private Set<Story> bookmarkedStories;
+	
+	
+	private Set<Novel> likedNovels;
+	
+	private Set<Novel> bookmarkedNovels;
 	
 }
