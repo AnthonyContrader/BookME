@@ -5,10 +5,10 @@ import javax.transaction.Transactional;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import it.contrader.model.Category;
+import it.contrader.model.Story;
 
 @Repository
 @Transactional
-public interface CategoryRepository extends CrudRepository<Category,Long>{
-	
+public interface StoryRepository extends CrudRepository<Story,Long>{
+
 }

@@ -2,7 +2,6 @@ package it.contrader.model;
 
 import javax.persistence.Entity;
 
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -66,9 +65,20 @@ public class User {
 			  )
 	private Set<Story> bookmarkedStories;
 	
-	
+	@ManyToMany
+	@JoinTable(
+			  name = "novel_like", 
+			  joinColumns = @JoinColumn(name = "user_id"), 
+			  inverseJoinColumns = @JoinColumn(name = "novel_id")
+			  )
 	private Set<Novel> likedNovels;
 	
+	@ManyToMany
+	@JoinTable(
+			  name = "novel_like",
+			  joinColumns = @JoinColumn(name = "user_id"), 
+			  inverseJoinColumns = @JoinColumn(name = "novel_id")
+			  )
 	private Set<Novel> bookmarkedNovels;
 	
 }

@@ -50,5 +50,9 @@ public class Story {
 	@ManyToMany( mappedBy = "bookmarkedStories" )
 	private Set<User> bookmark;
 	
+	@ManyToOne
+	@JoinColumn(name = "novel_id")
+	private Novel novel;
+	
 	
 }

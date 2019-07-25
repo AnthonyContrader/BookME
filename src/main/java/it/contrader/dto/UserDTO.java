@@ -1,5 +1,7 @@
 package it.contrader.dto;
 
+import java.util.Set;
+
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import it.contrader.model.User.Usertype;
@@ -27,6 +29,16 @@ public class UserDTO {
 	private String password;
 
 	private Usertype usertype;
+	
+	private Set<StoryDTO> stories;
+	
+	private Set<StoryDTO> likedStories;
+	
+	private Set<StoryDTO> bookmarkedStories;
+	
+	private Set<NovelDTO> likedNovels;
+	
+	private Set<NovelDTO> bookmarkedNovels;
 	
 
 }

@@ -29,4 +29,7 @@ public class Category {
 	
 	@OneToMany(mappedBy = "category")
 	private Set<Story> stories;
+	
+	@OneToMany(mappedBy = "category")
+	private Set<Novel> novels;
 }
