@@ -1,0 +1,12 @@
+.categoryList{
+    border: 2px solid #000000;
+    background-color: #212121;
+}
+
+.categoryList li{
+    font-family: 'Lucida Sans';
+    color: white;
+    font-size: 2em;
+    padding-right: 5px;
+    margin: 2em;
+}

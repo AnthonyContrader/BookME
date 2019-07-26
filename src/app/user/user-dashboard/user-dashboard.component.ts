@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserDTO } from 'src/dto/userdto';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserDashboardComponent implements OnInit {
 
+  user: UserDTO;
+
   constructor() { }
 
   ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem('currentUser'));
   }
 
 }
