@@ -2,6 +2,8 @@ package it.contrader.model;
 
 import javax.persistence.Entity;
 
+import java.util.List;
+
 import javax.persistence.*;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -41,5 +43,9 @@ public class User {
 	private String password;
 
 	private Usertype usertype;
+	
+	@OneToMany
+	@JoinColumn(name="idUser")
+	private List<Story> stories;
 	
 }
