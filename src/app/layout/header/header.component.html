@@ -1,23 +1,25 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+<nav class="navbar navbar-expand-lg navbar-light bg-primary mb-4">
   <a class="navbar-brand ml-5" routerLink="/admin-dashboard">
-  <img src="/assets/bookmelogo.png" width="30" height="30" class="d-inline-block align-top mr-3" alt="">BookME</a>
+    <img src="/assets/bookmelogoblue.png" width="30" height="30" class="d-inline-block align-top mr-3" alt="">BookME</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">   
-      <li class="nav-item" *ngFor="let c of categories">     
+      <li class="nav-item ccolor" *ngFor="let c of categories">     
         <a class="nav-link active ccolor" routerLink="/view/{{c.id}}">{{c.name}}</a>    
       </li>
     </ul>
     <ul class="navbar-nav">
-      <li class="nav-link">
-      	<span class="ccolor">{{user.username}}</span>
+      <li class="nav-link ccolor">
+      	<span>{{user.username}}</span>
       </li>   
       <li class="ccolor">  
-      	<a routerLink="" class="btn btn-outline-light mr-5" (click)="logout()">Logout</a>
+      	<a routerLink="" class="btn btn-outline-dark mr-5 ccolr" (click)="logout()">Logout</a>
       </li>
     </ul>
   </div>
 </nav>
+
+

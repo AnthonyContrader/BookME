@@ -1,0 +1,25 @@
+<ul *ngFor="let s of stories">
+  <li>
+    <span>Title: {{s.title}}</span>
+  </li>
+  <li>
+    <span>Plot: {{s.plot}}</span>
+  </li>
+  <li>
+    <span>Author: {{s.user}}</span>
+  </li>
+</ul>
+
+<label>Title: <input [(ngModel)]="storytoinsert.title"/></label>
+<label>Plot: <input [(ngModel)]="storytoinsert.plot" /></label>
+<button (click)="insertStory()">Add</button>
+<div>
+  current user:
+  <div>
+    <p>{{user.id}}</p>
+    <p>{{user.username}}</p>
+    <p>{{user.password}}</p>
+    <p>{{user.usertype}}</p>
+    <p>{{user.stories}}</p>
+  </div>
+</div>

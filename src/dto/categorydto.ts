@@ -9,6 +9,6 @@ export class CategoryDTO {
 
     stories: StoryDTO[];
 
-    novel: NovelDTO;
+    novel: NovelDTO[];
 }
 

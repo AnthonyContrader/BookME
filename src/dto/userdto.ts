@@ -20,14 +20,14 @@ export class UserDTO {
 
    usertype: Usertype;
 
-   stories: StoryDTO[];
+   stories: StoryDTO[] = null;
 
-   likedStories: StoryDTO[];
+   likedStories: StoryDTO[] = null;
 
-   bookmarkedStories: StoryDTO[];
+   bookmarkedStories: StoryDTO[] = null;
 
-   likedNovels: NovelDTO[];
+   likedNovels: NovelDTO[] = null;
 
-   bookmarkedNovels: NovelDTO[];
+   bookmarkedNovels: NovelDTO[] = null;
 }
 

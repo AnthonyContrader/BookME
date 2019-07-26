@@ -6,19 +6,19 @@ export class StoryDTO {
     
     id: number;
 
-    title: string;
+    title: string = '';
 
-    plot: string;
+    plot: string = '';
 
-    published: boolean;
+    published: boolean = false;
 
-    category: CategoryDTO[];
+    category: CategoryDTO = null;
 
-    user: UserDTO;
+    user: UserDTO = null;
 
-    like: UserDTO[];
+    like: UserDTO[] = null;
 
-    bookmark: UserDTO[];
+    bookmark: UserDTO[] = null;
 
-    novel: NovelDTO;
+    novel: NovelDTO = null;
 }
