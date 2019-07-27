@@ -30,7 +30,7 @@ public class UserDTO {
 
 	private Usertype usertype;
 	
-	private List<StoryDTO> stories;
+//	private List<StoryDTO> stories;
 	
 
 }

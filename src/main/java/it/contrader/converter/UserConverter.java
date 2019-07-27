@@ -30,7 +30,7 @@ public class UserConverter extends AbstractConverter<User,UserDTO> {
 			user.setUsername(userDTO.getUsername());
 			user.setPassword(userDTO.getPassword());
 			user.setUsertype(userDTO.getUsertype());
-			user.setStories(storyConverter.toEntityList(userDTO.getStories()));
+//			user.setStories(storyConverter.toEntityList(userDTO.getStories()));
 			
 		}
 		return user;
@@ -45,7 +45,7 @@ public class UserConverter extends AbstractConverter<User,UserDTO> {
 			userDTO.setUsername(user.getUsername());
 			userDTO.setPassword(user.getPassword());
 			userDTO.setUsertype(user.getUsertype());
-			userDTO.setStories(storyConverter.toDTOList(user.getStories()));
+//			userDTO.setStories(storyConverter.toDTOList(user.getStories()));
 		}
 		return userDTO;
 	}
