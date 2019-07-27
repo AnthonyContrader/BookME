@@ -30,6 +30,8 @@ public class UserDTO {
 
 	private Usertype usertype;
 	
+	private boolean active;
+	
 //	private List<StoryDTO> stories;
 	
 

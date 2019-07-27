@@ -44,6 +44,9 @@ public class User {
 
 	private Usertype usertype;
 	
+	private boolean active;
+	
+	
 //	@OneToMany
 //	@JoinColumn(name="idUser")
 //	private List<Story> stories;
