@@ -10,27 +10,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.contrader.dto.CategoryDTO;
-import it.contrader.dto.StoryDTO;
-import it.contrader.dto.UserDTO;
-import it.contrader.service.StoryService;
+import it.contrader.dto.NovelDTO;
+import it.contrader.service.NovelService;
 
 @RestController
-@RequestMapping("/story")
+@RequestMapping("/novel")
 @CrossOrigin(origins = "http://localhost:4200")
-//@CrossOrigin(origins = "*")
-public class StoryController extends AbstractController<StoryDTO>{
+public class NovelController extends AbstractController<NovelDTO>{
 	
 	@Autowired
-	private StoryService storyService;
-	
-	@PostMapping(value = "getbyuser")
-	public List<StoryDTO> getStoriesByUserId(@RequestBody UserDTO user){
-		return storyService.getStoriesByUser(user);
-	}
-	
+	private NovelService service;
+
 	@PostMapping(value = "getbycategory")
-	public List<StoryDTO> getStoriesByCategory(@RequestBody CategoryDTO category){
-		return storyService.getStoriesByCategory(category);
+	public List<NovelDTO> getNovelsByCategory(@RequestBody CategoryDTO category){
+		return service.getNovelsByCategory(category);
 	}
-	
 }

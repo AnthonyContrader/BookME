@@ -8,15 +8,12 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import it.contrader.model.Category;
-import it.contrader.model.Story;
-import it.contrader.model.User;
+import it.contrader.model.Novel;
 
 @Repository
 @Transactional
-public interface StoryRepository extends CrudRepository<Story, Long>{
-
-	public List<Story> findByUser(User user);
-	
-	public List<Story> findAllByCategory(Category category);
+public interface NovelRepository extends CrudRepository<Novel,Long>{
+		
+	public List<Novel> findAllByCategory(Category category);
 	
 }

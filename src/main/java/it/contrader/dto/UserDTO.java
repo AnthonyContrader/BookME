@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id", scope = UserDTO.class)
 public class UserDTO {
 
 	private long id;
@@ -32,7 +32,8 @@ public class UserDTO {
 	
 	private boolean active;
 	
-//	private List<StoryDTO> stories;
+//	private List<StoryDTO> likedStories;
+	
 	
 
 }

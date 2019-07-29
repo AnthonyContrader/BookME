@@ -2,6 +2,7 @@ package it.contrader.model;
 
 import javax.persistence.Entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -46,9 +47,7 @@ public class User {
 	
 	private boolean active;
 	
-	
-//	@OneToMany
-//	@JoinColumn(name="idUser")
-//	private List<Story> stories;
+//	@ManyToMany(mappedBy="like")
+//	private List<Story> likedStories = new ArrayList<>();
 	
 }
