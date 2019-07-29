@@ -37,9 +37,6 @@ public class Story {
 	@ManyToOne
 	private Category category;
 	
-//	@ManyToMany(cascade = CascadeType.ALL)
-//    @JoinTable(name = "user_like",
-//    	joinColumns = @JoinColumn(name = "idStory", referencedColumnName = "idStory"),
-//    	inverseJoinColumns = @JoinColumn(name = "idUser", referencedColumnName = "id"))
-//	private List<User> like;
+
 }
+

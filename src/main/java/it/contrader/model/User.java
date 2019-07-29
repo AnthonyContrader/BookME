@@ -8,7 +8,7 @@ import java.util.List;
 import javax.persistence.*;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -41,13 +41,13 @@ public class User {
 	@Column(unique = true)
 	private String username;
 	
+	@NotNull
 	private String password;
 
+	@NotNull
 	private Usertype usertype;
 	
-	private boolean active;
 	
-//	@ManyToMany(mappedBy="like")
-//	private List<Story> likedStories = new ArrayList<>();
+	private boolean active;
 	
 }

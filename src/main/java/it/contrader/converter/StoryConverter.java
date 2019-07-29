@@ -40,6 +40,4 @@ public class StoryConverter extends AbstractConverter<Story,StoryDTO>{
 		return dto;
 	}
 	
-	
-
 }

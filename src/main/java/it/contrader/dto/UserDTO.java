@@ -1,5 +1,4 @@
 package it.contrader.dto;
-
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -34,6 +33,4 @@ public class UserDTO {
 	
 //	private List<StoryDTO> likedStories;
 	
-	
-
 }

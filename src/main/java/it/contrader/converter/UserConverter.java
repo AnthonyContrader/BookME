@@ -1,10 +1,12 @@
 package it.contrader.converter;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Component;
 
 import it.contrader.dto.UserDTO;
-
 import it.contrader.model.User;
 
 /**
@@ -20,6 +22,9 @@ public class UserConverter extends AbstractConverter<User,UserDTO> {
 
 	@Autowired
 	private StoryConverter storyConverter;
+
+	@Autowired
+	private NovelConverter novelConverter;
 	
 	@Override
 	public User toEntity(UserDTO userDTO) {
@@ -32,7 +37,6 @@ public class UserConverter extends AbstractConverter<User,UserDTO> {
 			user.setUsertype(userDTO.getUsertype());
 			user.setActive(userDTO.isActive());
 //			user.setLikedStories(storyConverter.toEntityList(userDTO.getLikedStories()));
-			
 		}
 		return user;
 	}

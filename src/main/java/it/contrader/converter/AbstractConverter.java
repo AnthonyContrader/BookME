@@ -1,7 +1,9 @@
 package it.contrader.converter;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Questa classe implementa i metodi che convertono le liste.
@@ -37,5 +39,27 @@ public abstract class AbstractConverter<Entity,DTO> implements Converter<Entity,
 			}
 		}
 		return list;
+	}
+	
+	public Set<Entity> toEntitySet (Iterable<DTO> setDTO){
+		Set<Entity> set = new HashSet<>();
+		if(setDTO != null) {
+			for(DTO s : setDTO) {
+				set.add(toEntity(s));
+			}
+		}
+		return set;
+	}
+	
+	public Set<DTO> toDTOSet (Iterable<Entity> setEntity){
+		
+		Set<DTO> set = new HashSet<>();
+		if(setEntity != null) {
+			for(Entity e : setEntity) {
+				set.add(toDTO(e));
+			}
+		}
+		return set;
+		
 	}
 }
