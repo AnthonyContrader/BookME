@@ -1,0 +1,17 @@
+<div class="categoryList" *ngIf="categories">
+  <ul>
+    <li  *ngFor="let category of categories">
+      {{category.name}}
+      <button class="btn btn-primary"(click)="delete(category)">Delete</button>
+    </li>
+  </ul>
+</div>
+<div>
+  <h1>{{categorytoinsert.name}}</h1>
+  
+    <label>New Category name: 
+      <input [(ngModel)]="categorytoinsert.name" />
+    </label>
+    <button (click)="insert(categorytoinsert)">Add</button>
+  
+</div>

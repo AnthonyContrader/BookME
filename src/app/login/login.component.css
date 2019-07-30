@@ -3,7 +3,7 @@ form{
     width: 55%;
     padding: 10px;
     border-radius:0;
-    border-color: crimson;
+    border-color: rgb(29, 82, 78);
 }
 
 img{
@@ -14,23 +14,25 @@ img{
 
 input, input:hover, input::selection, input:checked, input:focus{
     border: 0;
-    background-color: darkorange;
+    background-color: rgb(103, 223, 215);
     border-radius: 0;
     color: white;
-    border-bottom: 1px solid crimson;
+    border-bottom: 1px solid rgb(29, 82, 78);
     margin: 0px; 
 }
 
 .container-fluid{
-    background-color: darkorange;
+    background-color: rgb(103, 223, 215);
     height: 100vh;
 }
 input::placeholder{
-    color: white;
+    color: rgb(29, 82, 78);
+    font-family: "Harrington";
+    text-align: left;
 }
 .form-control{
 border: none;
-background-color: darkorange;
+background-color: white;
 color: white;
 border-bottom: 1px solid white;
 }
@@ -45,6 +47,15 @@ padding-top: 10px;
 padding-right: auto;
 padding-bottom: 10px;
 padding-left: auto;
+}
+
+.button {
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: darkslategrey;
+    background-color: blue;
+    border: none;
 }
 
 p{
