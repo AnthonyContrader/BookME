@@ -40,4 +40,11 @@ export class StoriesComponent implements OnInit {
             }
     )
   }
+
+  delete(story: StoryDTO){      
+    this.service.delete(story.idStory).subscribe
+    (
+      () => this.getStories()
+    );
+  }
 }

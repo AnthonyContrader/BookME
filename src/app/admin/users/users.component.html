@@ -1,3 +1,4 @@
+<h1>Manage Users</h1>
 <div class="container">
   <div class="row mt-5">
     <div class="col-md-1">
@@ -22,12 +23,12 @@
             User
           </th>
         </tr>
-        <tr>
+        <tr class="bg-success">
           <td>
-            <input placeholder="username" [(ngModel)]="usertoinsert.username">
+            <input class="bg-white" placeholder="username" [(ngModel)]="usertoinsert.username">
           </td>
           <td>
-            <input placeholder="password" [(ngModel)]="usertoinsert.password">
+            <input class="bg-white" placeholder="password" [(ngModel)]="usertoinsert.password">
           </td>
           <td>
             <select placeholder="usertype" [(ngModel)]="usertoinsert.usertype">
@@ -54,9 +55,6 @@
               <option [selected]="user.usertype===ADMIN" value="ADMIN">ADMIN</option>
               <option [selected]="user.usertype===USER" value="USER">USER</option>
             </select>
-          </td>
-          <td>
-            {{user.stories }}
           </td>
           <td>
             <button (click)=update(user)>Save</button>

@@ -4,7 +4,7 @@ import { NovelDTO } from './novelsdto';
 
 export class StoryDTO {
     
-    id: number;
+    idStory: number;
 
     title: string = '';
 
@@ -12,7 +12,7 @@ export class StoryDTO {
 
     published: boolean = false;
 
-    category: CategoryDTO = null;
+    category: CategoryDTO = new CategoryDTO();
 
     user: UserDTO = null;
 

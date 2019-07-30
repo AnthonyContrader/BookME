@@ -26,7 +26,7 @@ export class CategoryComponent implements OnInit {
   }
 
   delete(categorytodelete: CategoryDTO) {
-    this.categoryService.delete(categorytodelete.id).subscribe
+    this.categoryService.delete(categorytodelete.idCategory).subscribe
     (
       () => this.getAllCategories()
     );

@@ -3,7 +3,7 @@ import { NovelDTO } from 'src/dto/novelsdto';
 
 export class CategoryDTO {
 
-    id: number;
+    idCategory: number;
     
     name: string;
 
