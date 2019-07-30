@@ -3,6 +3,8 @@ import { CategoryDTO } from 'src/dto/categorydto';
 import { CategoryService } from 'src/service/category.service';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
+import { StoryService } from 'src/service/story.service';
+import { StoryDTO } from 'src/dto/storydto';
 
 
 @Component({
@@ -13,8 +15,9 @@ import { switchMap } from 'rxjs/operators';
 export class CategoryComponent implements OnInit {
 
   category: CategoryDTO = new CategoryDTO();
+  stories: StoryDTO[] = [];
 
-  constructor(private categoryService: CategoryService, private route: ActivatedRoute) { }
+  constructor(private storyService: StoryService, private categoryService: CategoryService, private route: ActivatedRoute) { }
 
  
   ngOnInit() {
@@ -25,7 +28,8 @@ export class CategoryComponent implements OnInit {
     
     this.route.params.subscribe(routeParams => 
       this.getCategory(routeParams.id));
-
+    
+    
     // this.getCategory();
     
   }
@@ -33,7 +37,11 @@ export class CategoryComponent implements OnInit {
   getCategory(id: number): void {
     // const id = +this.route.snapshot.paramMap.get('id');
     this.categoryService.read(id)
-      .subscribe(category => this.category = category);
+      .subscribe(category => {
+        this.category = category;
+        this.storyService.getAllByCategory(this.category)
+      .subscribe(stories=>this.stories=stories);
+      });
   }
 
   // getAllCategories() {
