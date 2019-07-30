@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryDTO } from 'src/dto/categorydto';
 import { CategoryService } from 'src/service/category.service';
-
+import { ActivatedRoute } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 
 
 @Component({
@@ -11,36 +12,50 @@ import { CategoryService } from 'src/service/category.service';
 })
 export class CategoryComponent implements OnInit {
 
-  categories: CategoryDTO[];
-  categorytoinsert: CategoryDTO = new CategoryDTO();
+  category: CategoryDTO = new CategoryDTO();
 
-  constructor(private categoryService: CategoryService) { }
+  constructor(private categoryService: CategoryService, private route: ActivatedRoute) { }
 
  
   ngOnInit() {
-    this.getAllCategories();
+    // this.category$ = this.route.paramMap.pipe(
+    //   switchMap((params: ParamMap) =>
+    //     this.service.getHero(params.get('id')))
+    // );
+    
+    this.route.params.subscribe(routeParams => 
+      this.getCategory(routeParams.id));
+
+    // this.getCategory();
+    
   }
 
-  getAllCategories() {
-    this.categoryService.getAll().subscribe(categories => this.categories = categories);
+  getCategory(id: number): void {
+    // const id = +this.route.snapshot.paramMap.get('id');
+    this.categoryService.read(id)
+      .subscribe(category => this.category = category);
   }
 
-  delete(categorytodelete: CategoryDTO) {
-    this.categoryService.delete(categorytodelete.idCategory).subscribe
-    (
-      () => this.getAllCategories()
-    );
-  }
+  // getAllCategories() {
+  //   this.categoryService.getAll().subscribe(categories => this.categories = categories);
+  // }
 
-  insert(categorytoinsert: CategoryDTO) {
-    this.categoryService.insert(categorytoinsert).subscribe
-    (
-      () => this.getAllCategories()
-    );
-}
+  // delete(categorytodelete: CategoryDTO) {
+  //   this.categoryService.delete(categorytodelete.idCategory).subscribe
+  //   (
+  //     () => this.getAllCategories()
+  //   );
+  // }
 
-clear() {
-  this.categorytoinsert = new CategoryDTO();
-}
+//   insert(categorytoinsert: CategoryDTO) {
+//     this.categoryService.insert(categorytoinsert).subscribe
+//     (
+//       () => this.getAllCategories()
+//     );
+// }
+
+// clear() {
+//   this.categorytoinsert = new CategoryDTO();
+// }
 
 }

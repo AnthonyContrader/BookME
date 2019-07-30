@@ -9,7 +9,6 @@ import { LayoutModule } from './layout/layout.module';
 import { AdminModule } from './admin/admin.module';
 //import { UserComponent } from './user/user.component';
 //import { UserDashboardComponent } from './user/user-dashboard/user-dashboard.component';
-import { CategoryComponent } from './user/category/category.component';
 import { UsersComponent } from './user/users/users.component';
 import { WorkInProgressComponent } from './user/work-in-progress/work-in-progress.component';
 import { UserModule } from './user/user.module';
