@@ -48,6 +48,4 @@ public class User {
 	private Usertype usertype;
 	
 	
-	private boolean active;
-	
 }

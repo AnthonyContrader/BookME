@@ -20,9 +20,13 @@ public class StoryDTO {
 	
 	private String plot;
 	
+	private boolean published;
+	
 	private UserDTO user;
 	
 	private CategoryDTO category;
+	
+	private NovelDTO novel;
 	
 //	private List<UserDTO> like;
 	
