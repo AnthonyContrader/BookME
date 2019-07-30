@@ -1,18 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
 import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from './layout/layout.module';
 import { AdminModule } from './admin/admin.module';
-//import { UserComponent } from './user/user.component';
-//import { UserDashboardComponent } from './user/user-dashboard/user-dashboard.component';
-import { CategoryComponent } from './user/category/category.component';
-import { UsersComponent } from './user/users/users.component';
-import { WorkInProgressComponent } from './user/work-in-progress/work-in-progress.component';
 import { UserModule } from './user/user.module';
+import { SignupModule } from './signup/signup.module';
+import { IndexComponent } from './index/index.component';
 
 
 /** 
@@ -24,7 +20,8 @@ import { UserModule } from './user/user.module';
 */
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +30,8 @@ import { UserModule } from './user/user.module';
     HttpClientModule,
     LayoutModule,
     AdminModule,    
-    UserModule
+    UserModule,
+    SignupModule
   ],
   providers: [],
   bootstrap: [AppComponent]
