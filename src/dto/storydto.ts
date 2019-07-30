@@ -16,9 +16,9 @@ export class StoryDTO {
 
     user: UserDTO = null;
 
-    like: UserDTO[] = null;
+    // like: UserDTO[] = null;
 
-    bookmark: UserDTO[] = null;
+    // bookmark: UserDTO[] = null;
 
     novel: NovelDTO = null;
 }

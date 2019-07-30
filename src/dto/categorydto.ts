@@ -7,8 +7,8 @@ export class CategoryDTO {
     
     name: string;
 
-    stories: StoryDTO[];
+    // stories: StoryDTO[];
 
-    novel: NovelDTO[];
+    // novel: NovelDTO[];
 }
 

@@ -6,7 +6,10 @@
     <span>Plot: {{s.plot}}</span>
   </li>
   <li>
-    <span>Author: {{s.user}}</span>
+    <span>Author: {{s.user.username}}</span>
+  </li>
+  <li>
+    <span>Published: {{s.published}}</span>
   </li>
 </ul>
 
@@ -20,6 +23,6 @@
     <p>{{user.username}}</p>
     <p>{{user.password}}</p>
     <p>{{user.usertype}}</p>
-    <p>{{user.stories}}</p>
+    <!-- <p>{{user.stories}}</p> -->
   </div>
 </div>

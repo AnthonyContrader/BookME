@@ -12,10 +12,10 @@ export class NovelDTO {
 
     category: CategoryDTO;
 
-    like: UserDTO[];
+    // like: UserDTO[];
 
-    bookmark: UserDTO[];
+    // bookmark: UserDTO[];
 
-    madeBy: StoryDTO[];
+    // madeBy: StoryDTO[];
 
 }
