@@ -6,7 +6,8 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { UsersComponent } from './users/users.component';
 import { WorkInProgressComponent } from './work-in-progress/work-in-progress.component';
 import { CategoryComponent } from './category/category.component';
-import { StoryinsertComponent } from './storyinsert/storyinsert.component';
+import { StoriesComponent } from './category/stories/stories.component';
+import { StoryinsertComponent } from './category/storyinsert/storyinsert.component';
 
 
 /**
@@ -18,7 +19,7 @@ import { StoryinsertComponent } from './storyinsert/storyinsert.component';
  * @see AdminRoutingModule
  */
 @NgModule({
-  declarations: [UserDashboardComponent, UsersComponent, WorkInProgressComponent, CategoryComponent, StoryinsertComponent],
+  declarations: [UserDashboardComponent, UsersComponent, WorkInProgressComponent, CategoryComponent, StoriesComponent, StoryinsertComponent],
   imports: [
     CommonModule,
     UserRoutingModule,
