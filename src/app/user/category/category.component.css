@@ -1,12 +1,17 @@
-.categoryList{
-    border: 2px solid #000000;
-    background-color: #212121;
+* {
+    text-align: center;
 }
 
-.categoryList li{
-    font-family: 'Lucida Sans';
-    color: white;
-    font-size: 2em;
-    padding-right: 5px;
-    margin: 2em;
+p {
+    font-size: 1em;
+}
+
+strong {
+    font-size: 1em;
+}
+
+img {
+    position: fixed;
+  bottom: 50px;
+  right: 50px;
 }
