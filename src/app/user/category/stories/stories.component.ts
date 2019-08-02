@@ -16,19 +16,9 @@ export class StoriesComponent implements OnInit {
 
   stories: StoryDTO[] = [];
   subscription: Subscription;
-
-  // @Input()
-  // set category(category: CategoryDTO) {
-  //   if(category != null && category != undefined){
-  //     this.getStories(category);
-  //   }
-  // }
  
 
   constructor(private storyService: StoryService, private sharedService: SharedService) {
-    //   router.events.subscribe((val) => {
-    //     this.getStories(JSON.parse(localStorage.getItem('currentCategory'))); 
-    // });
     this.subscription = this.sharedService.$categorySource.subscribe(
       category => this.getStories(category)
     );
@@ -36,7 +26,6 @@ export class StoriesComponent implements OnInit {
      }
 
   ngOnInit() {
-    // this.getStories(JSON.parse(localStorage.getItem('currentCategory')));
   }
 
   getStories(category: CategoryDTO) {

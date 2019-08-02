@@ -5,6 +5,8 @@ import { StoryService } from 'src/service/story.service';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Location } from '@angular/common';
+import { SharedService } from '../sharedservice/shared.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-storyinsert',
@@ -13,17 +15,15 @@ import { Location } from '@angular/common';
 })
 export class StoryinsertComponent implements OnInit {
 
-  // @Input()
-  // set toggle(toggle: boolean) {
-  //   this.toggle = toggle;
-  // }
-
-  // @Output() sendBack = new EventEmitter();
-
   
   storytoinsert: StoryDTO = new StoryDTO();
+  subscription: Subscription;
 
-  constructor(private storyService: StoryService) { }
+  constructor(private storyService: StoryService, private sharedService: SharedService) { 
+    // this.subscription = this.sharedService.$categorySource.subscribe(
+    //   category => this.storytoinsert.category = category
+    // );
+  }
 
   ngOnInit() {
   }
@@ -31,13 +31,10 @@ export class StoryinsertComponent implements OnInit {
   insertStory(){
     this.storytoinsert.user = JSON.parse(localStorage.getItem('currentUser'));
     this.storytoinsert.category = JSON.parse(localStorage.getItem('currentCategory'));
-    // this.storytoinsert.category = this.category;
-    // console.log(this.storytoinsert);
     this.storyService.insert(this.storytoinsert)
     .subscribe();
-    // this.storytoinsert.category = JSON.parse(localStorage.getItem('currentCategory'));
-    this.storytoinsert = new StoryDTO();
-    // this.toggle=!this.toggle;
+    this.sharedService.reloadCategory();
+    // this.storytoinsert = new StoryDTO();
   }
 
 

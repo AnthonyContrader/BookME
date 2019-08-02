@@ -9,12 +9,17 @@ import { StoryDTO } from 'src/dto/storydto';
 export class SharedService {
 
   private categorySource = new Subject<CategoryDTO>();
-  // private storyInserted = new Subject<StoryDTO>();
+  private categoryUpdated = new Subject<any>();
 
   $categorySource = this.categorySource.asObservable();
+  $categoryUpdated = this.categoryUpdated.asObservable();
 
   categoryUpdate(category: CategoryDTO){
     this.categorySource.next(category);
+  }
+
+  reloadCategory(){
+    this.categoryUpdated.next(null);
   }
 
   constructor() { }

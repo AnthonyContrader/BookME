@@ -17,17 +17,17 @@ import { SharedService } from './sharedservice/shared.service';
 export class CategoryComponent implements OnInit {
 
   category: CategoryDTO = new CategoryDTO();
-  stories: StoryDTO[] = [];
-  toggle: boolean = true;
 
-  constructor(private sharedService: SharedService ,private storyService: StoryService, private categoryService: CategoryService, private route: ActivatedRoute) { }
+  constructor(private sharedService: SharedService, private categoryService: CategoryService, private route: ActivatedRoute)
+   {
+     sharedService.$categoryUpdated.subscribe(()=>this.notifyCategoryChange(this.category));
+    }
 
   
   ngOnInit() {
     
     this.route.params.subscribe(routeParams =>
       this.getCategory(routeParams.id));
-      
     }
 
     notifyCategoryChange(category: CategoryDTO) {
@@ -38,17 +38,9 @@ export class CategoryComponent implements OnInit {
     this.categoryService.read(id)
       .subscribe(category => {
         this.category = category;
-        // localStorage.setItem('currentCategory', JSON.stringify(this.category));
-
+        localStorage.setItem('currentCategory', JSON.stringify(category));
         this.notifyCategoryChange(category);
-
-      //   this.storyService.getAllByCategory(this.category)
-      // .subscribe(stories=>this.stories=stories);
       });
   }
-
-  // toggleComponent(){
-  //   this.toggle = !this.toggle;
-  // }
 
 }
