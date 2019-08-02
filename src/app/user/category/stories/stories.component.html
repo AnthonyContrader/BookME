@@ -1,3 +1,15 @@
-<p>
-  stories works!
-</p>
+<!-- <h1>Category {{category.name}}</h1> -->
+
+
+
+<!-- <h4>category : {{category | json}}</h4> -->
+      <div class="container">
+        <div class="row">
+          <div class="col-2" *ngFor="let s of stories">
+            <div class="shadow rounded m-auto p-2" style="height: 190px">
+              <p><strong>{{s.title}}</strong></p>
+              <p class="m-auto">{{s.plot | slice:0:30}} ...</p>
+            </div>
+          </div>
+        </div>
+      </div>

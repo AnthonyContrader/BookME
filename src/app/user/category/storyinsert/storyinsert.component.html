@@ -1,3 +1,15 @@
-<p>
-  storyinsert works!
-</p>
+<form class="align-left">
+    <div class="form-group">
+      <label for="title"><h2>Title</h2></label>
+      <input class="mx-auto" name="title" type="text" class="form-control" id="title" placeholder="Insert title here..." [(ngModel)]="storytoinsert.title" />
+    </div>
+    <div class="form-group">
+      <label for="plot"><h2>Plot</h2></label>
+      <textarea class="form-control" name="plot" id="plot" rows="10" placeholder="Insert story plot here..." [(ngModel)]="storytoinsert.plot"></textarea>
+    </div>
+    <div class="d-flex">
+      <button (click)="insertStory()">Insert</button>
+    </div>
+  </form>
+
+

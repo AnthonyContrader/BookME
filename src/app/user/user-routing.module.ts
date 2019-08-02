@@ -14,8 +14,9 @@ const routes: Routes = [
       { path: 'users', component: UsersComponent},
       { path: 'category/:id', component: CategoryComponent, children:[
         { path: 'stories', component: StoriesComponent},
-        {path: 'storyinsert', component: StoryinsertComponent}
+        { path: 'storyinsert', component: StoryinsertComponent}
       ]},
+      { path: 'category/:id', redirectTo: 'category/:id/stories', pathMatch: 'full' },
       { path: 'category', component: CategoryComponent},
       { path: 'work-in-progress', component: WorkInProgressComponent}
     ]}

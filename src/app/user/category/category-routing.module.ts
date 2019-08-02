@@ -5,14 +5,15 @@ import { StoryinsertComponent } from './storyinsert/storyinsert.component';
 import { StoriesComponent } from './stories/stories.component';
 
 const routes: Routes = [
-  // { path: '', redirectTo: '/stories', pathMatch: 'full' },
-    // { path: 'stories', component: StoriesComponent, children:[
-    //   { path: 'storyinsert', component: StoryinsertComponent},
-    // ]}
+  { path: '/category/:id', redirectTo: '/category/:id/stories', pathMatch: 'full' },
+  { path: 'category/:id', component: CategoryComponent, children:[
+    { path: 'stories', component: StoriesComponent},
+    { path: 'storyinsert', component: StoryinsertComponent}
+  ]}
   ];
   
   @NgModule({
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
   })
-  export class UserRoutingModule { }
+  export class CategoryRoutingModule { }
