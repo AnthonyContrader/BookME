@@ -5,12 +5,14 @@ import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { StoryService } from 'src/service/story.service';
 import { StoryDTO } from 'src/dto/storydto';
+import { SharedService } from './sharedservice/shared.service';
 
 
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
-  styleUrls: ['./category.component.css']
+  styleUrls: ['./category.component.css'],
+  providers: [ SharedService ]
 })
 export class CategoryComponent implements OnInit {
 
@@ -18,29 +20,35 @@ export class CategoryComponent implements OnInit {
   stories: StoryDTO[] = [];
   toggle: boolean = true;
 
-  constructor(private storyService: StoryService, private categoryService: CategoryService, private route: ActivatedRoute) { }
+  constructor(private sharedService: SharedService ,private storyService: StoryService, private categoryService: CategoryService, private route: ActivatedRoute) { }
 
- 
+  
   ngOnInit() {
-
-    this.route.params.subscribe(routeParams => 
-      this.getCategory(routeParams.id));
-
     
-  }
+    this.route.params.subscribe(routeParams =>
+      this.getCategory(routeParams.id));
+      
+    }
 
+    notifyCategoryChange(category: CategoryDTO) {
+      this.sharedService.categoryUpdate(category);
+    }
+    
   getCategory(id: number): void {
     this.categoryService.read(id)
       .subscribe(category => {
         this.category = category;
-        localStorage.setItem('currentCategory', JSON.stringify(this.category));
-        this.storyService.getAllByCategory(this.category)
-      .subscribe(stories=>this.stories=stories);
+        // localStorage.setItem('currentCategory', JSON.stringify(this.category));
+
+        this.notifyCategoryChange(category);
+
+      //   this.storyService.getAllByCategory(this.category)
+      // .subscribe(stories=>this.stories=stories);
       });
   }
 
-  toggleComponent(){
-    this.toggle = !this.toggle;
-  }
+  // toggleComponent(){
+  //   this.toggle = !this.toggle;
+  // }
 
 }

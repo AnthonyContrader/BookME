@@ -8,7 +8,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">   
       <li class="nav-item ccolor" *ngFor="let c of categories">     
-        <a class="nav-link active ccolor" [routerLink]="['category', c.idCategory]">{{c.name}}</a>    
+        <a class="nav-link active ccolor" [routerLink]="['category', c.idCategory, 'stories']">{{c.name}}</a>    
       </li>
     </ul>
     <ul class="navbar-nav">
