@@ -27,5 +27,4 @@ public class Novel {
 	@ManyToOne
 	private Category category;
 	
-
 }

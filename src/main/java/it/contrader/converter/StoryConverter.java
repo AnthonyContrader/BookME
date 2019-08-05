@@ -14,6 +14,9 @@ public class StoryConverter extends AbstractConverter<Story,StoryDTO>{
 	
 	@Autowired
 	private NovelConverter novelConverter;
+	
+	@Autowired
+	private CategoryConverter categoryConverter;
 
 	@Override
 	public Story toEntity(StoryDTO dto) {
@@ -26,6 +29,7 @@ public class StoryConverter extends AbstractConverter<Story,StoryDTO>{
 			story.setUser(userConverter.toEntity(dto.getUser()));
 			story.setNovel(novelConverter.toEntity(dto.getNovel()));
 			story.setPublished(dto.isPublished());
+			story.setCategory(categoryConverter.toEntity(dto.getCategory()));
 //			story.setLike(userConverter.toEntityList(dto.getLike()));
 		}
 		return story;
@@ -42,6 +46,7 @@ public class StoryConverter extends AbstractConverter<Story,StoryDTO>{
 			dto.setUser(userConverter.toDTO(entity.getUser()));
 			dto.setNovel(novelConverter.toDTO(entity.getNovel()));
 			dto.setPublished(entity.isPublished());
+			dto.setCategory(categoryConverter.toDTO(entity.getCategory()));
 //			dto.setLike(userConverter.toDTOList(entity.getLike()));
 		}
 		return dto;
