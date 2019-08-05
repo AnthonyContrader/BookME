@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
@@ -12,6 +11,7 @@ import { AdminModule } from './admin/admin.module';
 import { UsersComponent } from './user/users/users.component';
 import { WorkInProgressComponent } from './user/work-in-progress/work-in-progress.component';
 import { UserModule } from './user/user.module';
+import { SignupModule } from './signup/signup.module';
 
 
 /** 
@@ -32,7 +32,8 @@ import { UserModule } from './user/user.module';
     HttpClientModule,
     LayoutModule,
     AdminModule,    
-    UserModule
+    UserModule,
+    SignupModule
   ],
   providers: [],
   bootstrap: [AppComponent]

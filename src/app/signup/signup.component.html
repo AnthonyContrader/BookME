@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-7">
+        <img src="../../assets/bookmelogo.png" alt="logo" >
+      </div>
+      <div class="col-md-5">
+        <form>
+          <p>Please insert username and password to Sign Up</p>
+          <div class="form-group">
+            <input class="form-control" type="text" id="user" name="username" placeholder="Username" [(ngModel)]="userDTO.username">
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="password" id="pass" name="password" placeholder="Password" [(ngModel)]="userDTO.password">
+          </div>
+          <div class="container">   
+          <hr>    
+          <button type="button" class="btn btn-info btn-block" (click)="insert()"> Sign Up </button>
+          <!-- <button class="btn btn-md btn-primary" type="submit" (click)="login(f)">Login</button> -->
+          <hr>
+          <a routerLink="/login"  role="button"> Log In </a>
+          <!-- <button type="submit" >Sign Up</button> -->  
+             
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
