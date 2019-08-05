@@ -15,7 +15,7 @@ import { Subscription } from 'rxjs';
 })
 export class StoryinsertComponent implements OnInit {
 
-  
+
   storytoinsert: StoryDTO = new StoryDTO();
   subscription: Subscription;
 
