@@ -21,7 +21,7 @@ export class SignupComponent implements OnInit {
   }
   insert() {
     
-    this.userDTO.usertype = Usertype.USER;
+    this.userDTO.authorities = 'ROLE_USER';
     
 
     this.service.insert(this.userDTO).subscribe(() => {
